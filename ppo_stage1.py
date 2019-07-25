@@ -98,7 +98,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             r_list = comm.gather(r, root=0)
             terminal_list = comm.gather(terminal, root=0)
 
-            if env.index == 0:
+            if env.mpi_rank == 0:
                 buff.append((state_list, a, r_list, terminal_list, logprob, v))
                 if len(buff) > HORIZON - 1:
                     s_batch, goal_batch, speed_batch, a_batch, r_batch, d_batch, l_batch, v_batch = \
@@ -118,7 +118,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             state = state_next
 
 
-        if env.index == 0:
+        if env.mpi_rank == 0:
             if global_update != 0 and global_update % 20 == 0:
                 torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
                 logger.info('########################## model saved when update {} times#########'
@@ -126,7 +126,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
         logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
-                    (env.index, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
+                    (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
         logger_cal.info(ep_reward)
 
 
@@ -134,7 +134,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11516
+    ROS_PORT0 = 11312
     NUM_BOT = 12
     NUM_ENV = 36
 
