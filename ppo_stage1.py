@@ -123,6 +123,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                 torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
                 logger.info('########################## model saved when update {} times#########'
                             '################'.format(global_update))
+        # distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
         logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
@@ -168,11 +169,12 @@ if __name__ == '__main__':
     size = comm.Get_size()
     rosPort = ROS_PORT0 
     robotIndex = 0 + (rank%NUM_BOT)
+    envIndex =  int(rank/NUM_BOT)
     rosPort = rosPort + int(rank/NUM_BOT)
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
 
-    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank)
+    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
     reward = None
     action_bound = [[0, -1], [1, 1]]
 

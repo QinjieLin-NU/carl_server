@@ -4,6 +4,7 @@ import copy
 import tf
 import numpy as np
 import os
+import random
 
 
 from geometry_msgs.msg import Twist, Pose
@@ -15,11 +16,12 @@ from std_msgs.msg import Int8
 
 
 class StageWorld():
-    def __init__(self, beam_num, index, num_env,ros_port,mpi_rank):
+    def __init__(self, beam_num, index, num_env,ros_port,mpi_rank,env_index):
         os.environ["ROS_MASTER_URI"]="http://localhost:%d"%ros_port
         self.mpi_rank =mpi_rank
         self.index = index
         self.num_env = num_env
+        self.env_index = env_index
         node_name = 'StageEnv_' + str(index)
         rospy.init_node(node_name, anonymous=None)
 
@@ -39,8 +41,6 @@ class StageWorld():
         self.robot_value = 10.
         self.goal_value = 0.
         # self.reset_pose = None
-
-        self.init_pose = None
 
 
 
@@ -80,6 +80,8 @@ class StageWorld():
                 self.first_pose = rospy.wait_for_message(odom_topic, Odometry, timeout=5).pose.pose
             except:
                 pass
+        #for compute distance
+        self.init_pose = [self.first_pose.position.x, self.first_pose.position.y]
 
         # # Wait until the first callback
         self.speed = None
@@ -179,7 +181,7 @@ class StageWorld():
 
 
     def generate_goal_point(self):
-        [x_g, y_g] = self.generate_random_goal()
+        [x_g, y_g] = self.generate_stage_goal()
         self.goal_point = [x_g, y_g]
         [x, y] = self.get_local_goal()
 
@@ -287,7 +289,26 @@ class StageWorld():
 
         return [x, y]
 
-
+    def generate_stage_goal(self):
+        env0_goals = [(2,0),(2,8),(-4,0),(-4,3),(-4,-2),(-5,-6),(7,-4),(7,-6)]
+        env1_goals = []
+        env2_goals = [(5.5,3),(8,2),(0,3),(0,6),(-3,0),(-7,0),(1,-4),(1,-6)]
+        env3_goals = [(-2,2),(-2,6),(3,2),(3,6),(-2,-2),(-2,-6),(3,-3),(7,-7)]
+        goal_index = random.randrange(0, 8)     
+        if(self.env_index == 0):
+            x = env0_goals[goal_index][0]
+            y = env0_goals[goal_index][1]
+            return [x,y]
+        elif (self.env_index ==1):
+            return self.generate_random_goal()
+        elif (self.env_index ==2 ):
+            x = env2_goals[goal_index][0]
+            y = env2_goals[goal_index][1]
+            return [x,y]        
+        elif (self.env_index ==3 ):
+            x = env3_goals[goal_index][0]
+            y = env3_goals[goal_index][1]
+            return [x,y]
 
 
 
