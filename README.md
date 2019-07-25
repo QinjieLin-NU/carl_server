@@ -39,7 +39,21 @@ mpiexec -np 44 python ppo_stage2.py
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/circle.world
 mpiexec -np 50 python circle_test.py
-```
+```   
 
+## How to run multi-robot and multi-env training
+### rl_ws  
+```  
+roscore -p 11312   
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage1.world   
+roscore -p 11313   
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map2.world    
+roscore -p 11314     
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map3.world     
+```  
+### carl_server   
+```    
+mpiexec --allow-run-as-root -np 32 python ppo_stage1.py      
+```   
 
 

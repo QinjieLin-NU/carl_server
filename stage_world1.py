@@ -188,6 +188,15 @@ class StageWorld():
             except:
                 pass
 
+    def store_resetPose(self):
+        self.first_pose = None
+        while self.first_pose is None:
+            try:
+                # print("waiting")
+                self.first_pose = rospy.wait_for_message(self.odom_topic, Odometry, timeout=5).pose.pose
+            except:
+                pass      
+
 
     def generate_goal_point(self):
         [x_g, y_g] = self.generate_stage_goal()
@@ -225,7 +234,7 @@ class StageWorld():
             reward_w = -0.1 * np.abs(w)
 
         if t > 150:
-            terminate = True
+            # terminate = True
             result = 'Time out'
         reward = reward_g + reward_c + reward_w
 

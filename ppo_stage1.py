@@ -20,7 +20,7 @@ from model.ppo import transform_buffer
 
 
 MAX_EPISODES = 5000
-EP_LEN = 200
+EP_LEN = 400
 LASER_BEAM = 360
 LASER_HIST = 3
 HORIZON = 128
@@ -46,6 +46,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
     if env.index == 0:
         env.reset_world()
+    env.store_resetPose()
 
 
     for id in range(MAX_EPISODES):
@@ -113,11 +114,13 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                     t_batch, advs_batch = generate_train_data(rewards=r_batch, gamma=GAMMA, values=v_batch,
                                                               last_value=last_v, dones=d_batch, lam=LAMDA)
                     memory = (s_batch, goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
+                    print("PPO update start")
                     ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
                                             epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
                                             num_env=NUM_ENV, frames=LASER_HIST,
                                             obs_size=OBS_SIZE, act_size=ACT_SIZE)
 
+                    print("PPO update finish")
                     buff = []
                     global_update += 1
 
