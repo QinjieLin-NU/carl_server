@@ -1,0 +1,1015 @@
+2019-07-24 16:16:56,785 - INFO - ####################################
+2019-07-24 16:16:56,785 - INFO - ############Loading Model###########
+2019-07-24 16:16:56,785 - INFO - ####################################
+2019-07-24 16:17:01,213 - INFO - Env 01, Goal (004.1, 001.3), Episode 00001, setp 039, Reward 35.7 , Distance 008.8, Reach Goal
+2019-07-24 16:17:01,652 - INFO - Env 01, Goal (-00.6, 003.5), Episode 00002, setp 003, Reward -15.0, Distance 008.6, Crashed
+2019-07-24 16:17:01,938 - INFO - Env 23, Goal (003.8, -00.7), Episode 00001, setp 042, Reward 34.6 , Distance 008.5, Reach Goal
+2019-07-24 16:17:02,762 - INFO - Env 12, Goal (-02.0, -03.4), Episode 00001, setp 047, Reward -2.7 , Distance 008.2, Crashed
+2019-07-24 16:17:03,647 - INFO - Env 11, Goal (-03.1, -00.2), Episode 00001, setp 054, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 16:17:04,540 - INFO - Env 13, Goal (-06.7, -06.0), Episode 00001, setp 061, Reward 38.3 , Distance 009.8, Reach Goal
+2019-07-24 16:17:04,981 - INFO - Env 18, Goal (-02.4, 008.6), Episode 00001, setp 062, Reward -22.4, Distance 008.1, Crashed
+2019-07-24 16:17:05,324 - INFO - Env 19, Goal (-00.2, -03.8), Episode 00001, setp 063, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 16:17:05,832 - INFO - Env 08, Goal (001.1, 005.4), Episode 00001, setp 065, Reward 37.1 , Distance 009.4, Reach Goal
+2019-07-24 16:17:06,342 - INFO - Env 22, Goal (001.5, -03.6), Episode 00001, setp 068, Reward 35.2 , Distance 008.7, Reach Goal
+2019-07-24 16:17:06,761 - INFO - Env 07, Goal (000.5, 002.7), Episode 00001, setp 069, Reward 4.3  , Distance 008.6, Crashed
+2019-07-24 16:17:06,761 - INFO - Env 22, Goal (006.5, -05.2), Episode 00002, setp 002, Reward -15.0, Distance 009.8, Crashed
+2019-07-24 16:17:07,165 - INFO - Env 16, Goal (004.8, -00.8), Episode 00001, setp 070, Reward -6.3 , Distance 008.8, Crashed
+2019-07-24 16:17:08,933 - INFO - Env 10, Goal (-02.4, 007.6), Episode 00001, setp 085, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 16:17:09,365 - INFO - Env 05, Goal (-04.7, 005.8), Episode 00001, setp 088, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 16:17:10,649 - INFO - Env 09, Goal (-04.0, -04.1), Episode 00001, setp 099, Reward 1.3  , Distance 009.6, Crashed
+2019-07-24 16:17:10,649 - INFO - Env 14, Goal (-00.9, 002.3), Episode 00001, setp 099, Reward 4.6  , Distance 009.6, Crashed
+2019-07-24 16:17:11,480 - INFO - Env 04, Goal (004.7, -02.0), Episode 00001, setp 104, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 16:17:12,160 - INFO - Env 00, Goal (-04.4, -04.6), Episode 00001, setp 109, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 16:17:12,607 - INFO - Env 02, Goal (000.8, 002.3), Episode 00001, setp 112, Reward 33.8 , Distance 008.1, Reach Goal
+2019-07-24 16:17:12,948 - INFO - Env 17, Goal (003.6, -01.3), Episode 00001, setp 113, Reward 37.1 , Distance 009.5, Reach Goal
+2019-07-24 16:17:12,948 - INFO - Env 11, Goal (-02.7, -01.2), Episode 00002, setp 060, Reward -2.3 , Distance 009.1, Crashed
+2019-07-24 16:17:12,948 - INFO - Env 02, Goal (003.9, 005.4), Episode 00002, setp 002, Reward -15.0, Distance 008.9, Crashed
+2019-07-24 16:17:13,641 - INFO - Env 03, Goal (-02.1, 001.8), Episode 00001, setp 118, Reward 36.3 , Distance 009.1, Reach Goal
+2019-07-24 16:17:15,959 - INFO - Env 21, Goal (-02.8, 004.1), Episode 00001, setp 132, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 16:17:16,368 - INFO - Env 18, Goal (001.1, 006.8), Episode 00002, setp 072, Reward -2.0 , Distance 009.1, Crashed
+2019-07-24 16:17:16,369 - INFO - Env 21, Goal (-00.9, -02.6), Episode 00002, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 16:17:16,822 - INFO - Env 03, Goal (-04.6, 006.2), Episode 00002, setp 018, Reward -13.5, Distance 008.1, Crashed
+2019-07-24 16:17:16,822 - INFO - Env 20, Goal (-01.4, 002.5), Episode 00001, setp 135, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:17:17,531 - INFO - Env 06, Goal (000.0, -06.1), Episode 00001, setp 139, Reward -6.7 , Distance 008.0, Crashed
+2019-07-24 16:17:18,456 - INFO - Env 01, Goal (-06.4, -01.1), Episode 00003, setp 106, Reward 37.3 , Distance 009.4, Reach Goal
+2019-07-24 16:17:18,748 - INFO - Env 21, Goal (000.0, -03.7), Episode 00003, setp 015, Reward -15.1, Distance 009.7, Crashed
+2019-07-24 16:17:19,563 - INFO - Env 15, Goal (-02.2, -03.8), Episode 00001, setp 152, Reward 21.8 , Distance 010.0, Time out
+2019-07-24 16:17:20,537 - INFO - Env 16, Goal (002.1, -02.8), Episode 00002, setp 090, Reward 34.3 , Distance 008.3, Reach Goal
+2019-07-24 16:17:20,832 - INFO - Env 16, Goal (-03.1, 005.7), Episode 00003, setp 002, Reward -15.0, Distance 009.7, Crashed
+2019-07-24 16:17:21,240 - INFO - Env 07, Goal (-02.7, 003.8), Episode 00002, setp 093, Reward 37.3 , Distance 009.5, Reach Goal
+2019-07-24 16:17:22,821 - INFO - Env 19, Goal (-00.4, -07.5), Episode 00002, setp 113, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 16:17:23,353 - INFO - Env 10, Goal (-00.5, 002.8), Episode 00002, setp 094, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 16:17:24,147 - INFO - Env 23, Goal (002.6, 004.2), Episode 00002, setp 143, Reward 37.6 , Distance 009.6, Reach Goal
+2019-07-24 16:17:24,944 - INFO - Env 05, Goal (-08.4, -00.4), Episode 00002, setp 102, Reward -1.5 , Distance 008.8, Crashed
+2019-07-24 16:17:25,250 - INFO - Env 02, Goal (007.3, 001.9), Episode 00003, setp 078, Reward 33.9 , Distance 008.2, Reach Goal
+2019-07-24 16:17:25,652 - INFO - Env 13, Goal (003.3, -04.5), Episode 00002, setp 132, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 16:17:26,367 - INFO - Env 04, Goal (007.3, -03.2), Episode 00002, setp 094, Reward 36.0 , Distance 009.0, Reach Goal
+2019-07-24 16:17:26,657 - INFO - Env 12, Goal (000.0, -05.6), Episode 00002, setp 152, Reward 22.2 , Distance 009.8, Time out
+2019-07-24 16:17:27,106 - INFO - Env 00, Goal (000.0, 002.3), Episode 00002, setp 092, Reward 4.7  , Distance 010.0, Crashed
+2019-07-24 16:17:27,363 - INFO - Env 22, Goal (-07.9, -04.1), Episode 00003, setp 133, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 16:17:27,363 - INFO - Env 08, Goal (001.5, 001.6), Episode 00002, setp 137, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 16:17:27,842 - INFO - Env 14, Goal (005.3, 003.4), Episode 00002, setp 105, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 16:17:27,842 - INFO - Env 04, Goal (-05.6, 005.1), Episode 00003, setp 007, Reward -15.1, Distance 009.2, Crashed
+2019-07-24 16:17:28,249 - INFO - Env 09, Goal (-02.7, 001.7), Episode 00002, setp 107, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 16:17:28,586 - INFO - Env 17, Goal (000.7, -08.3), Episode 00002, setp 094, Reward 38.1 , Distance 009.9, Reach Goal
+2019-07-24 16:17:28,838 - INFO - Env 17, Goal (004.0, 007.1), Episode 00003, setp 002, Reward -15.0, Distance 008.0, Crashed
+2019-07-24 16:17:28,838 - INFO - Env 15, Goal (003.4, 004.1), Episode 00002, setp 056, Reward -3.6 , Distance 009.5, Crashed
+2019-07-24 16:17:28,838 - INFO - Env 16, Goal (-04.1, 005.4), Episode 00004, setp 048, Reward -10.2, Distance 009.1, Crashed
+2019-07-24 16:17:28,839 - INFO - Env 19, Goal (004.1, 000.9), Episode 00003, setp 033, Reward -6.9 , Distance 008.9, Crashed
+2019-07-24 16:17:30,973 - INFO - Env 01, Goal (006.1, 005.9), Episode 00004, setp 080, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 16:17:31,572 - INFO - Env 11, Goal (-07.1, -02.6), Episode 00003, setp 117, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 16:17:31,810 - INFO - Env 11, Goal (-07.6, -01.3), Episode 00004, setp 002, Reward -15.0, Distance 008.6, Crashed
+2019-07-24 16:17:31,811 - INFO - Env 23, Goal (001.4, 006.7), Episode 00003, setp 047, Reward -3.7 , Distance 009.6, Crashed
+2019-07-24 16:17:32,536 - INFO - Env 03, Goal (-05.7, -03.2), Episode 00003, setp 100, Reward 34.1 , Distance 008.1, Reach Goal
+2019-07-24 16:17:32,989 - INFO - Env 06, Goal (002.6, -04.2), Episode 00002, setp 098, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 16:17:33,774 - INFO - Env 20, Goal (006.2, -02.3), Episode 00002, setp 108, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 16:17:34,158 - INFO - Env 21, Goal (003.8, 003.6), Episode 00004, setp 097, Reward 4.7  , Distance 009.9, Crashed
+2019-07-24 16:17:34,158 - INFO - Env 20, Goal (-00.1, -04.6), Episode 00003, setp 002, Reward -15.0, Distance 008.3, Crashed
+2019-07-24 16:17:35,712 - INFO - Env 10, Goal (005.8, 003.9), Episode 00003, setp 078, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 16:17:37,250 - INFO - Env 07, Goal (-07.2, -00.5), Episode 00003, setp 103, Reward -4.0 , Distance 008.3, Crashed
+2019-07-24 16:17:38,849 - INFO - Env 05, Goal (007.3, -03.5), Episode 00003, setp 089, Reward 35.8 , Distance 008.8, Reach Goal
+2019-07-24 16:17:39,789 - INFO - Env 18, Goal (002.8, 001.7), Episode 00003, setp 152, Reward 19.2 , Distance 009.8, Time out
+2019-07-24 16:17:40,356 - INFO - Env 02, Goal (-02.7, -08.0), Episode 00004, setp 098, Reward 34.8 , Distance 008.4, Reach Goal
+2019-07-24 16:17:41,260 - INFO - Env 04, Goal (003.1, 001.7), Episode 00004, setp 092, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 16:17:41,541 - INFO - Env 12, Goal (-03.9, -07.2), Episode 00003, setp 098, Reward 37.4 , Distance 009.6, Reach Goal
+2019-07-24 16:17:42,225 - INFO - Env 22, Goal (-02.8, 004.2), Episode 00004, setp 100, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 16:17:42,834 - INFO - Env 19, Goal (-00.2, -05.3), Episode 00004, setp 097, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 16:17:42,835 - INFO - Env 13, Goal (007.2, -01.3), Episode 00003, setp 112, Reward 37.0 , Distance 009.3, Reach Goal
+2019-07-24 16:17:43,461 - INFO - Env 14, Goal (-05.4, 005.8), Episode 00003, setp 105, Reward 36.4 , Distance 009.1, Reach Goal
+2019-07-24 16:17:43,821 - INFO - Env 09, Goal (002.2, -07.5), Episode 00003, setp 105, Reward 38.3 , Distance 009.9, Reach Goal
+2019-07-24 16:17:44,328 - INFO - Env 06, Goal (-01.4, 005.1), Episode 00003, setp 077, Reward 0.2  , Distance 010.0, Crashed
+2019-07-24 16:17:44,684 - INFO - Env 06, Goal (001.4, 000.7), Episode 00004, setp 002, Reward -15.0, Distance 010.0, Crashed
+2019-07-24 16:17:44,684 - INFO - Env 09, Goal (-00.4, 004.2), Episode 00004, setp 005, Reward -15.1, Distance 009.3, Crashed
+2019-07-24 16:17:44,684 - INFO - Env 08, Goal (002.4, 008.3), Episode 00003, setp 113, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 16:17:44,978 - INFO - Env 14, Goal (-03.3, 007.9), Episode 00004, setp 008, Reward -15.3, Distance 009.4, Crashed
+2019-07-24 16:17:44,978 - INFO - Env 03, Goal (-08.8, 000.4), Episode 00004, setp 081, Reward 34.8 , Distance 008.5, Reach Goal
+2019-07-24 16:17:44,979 - INFO - Env 06, Goal (-01.8, 004.9), Episode 00005, setp 002, Reward -15.0, Distance 008.0, Crashed
+2019-07-24 16:17:44,979 - INFO - Env 08, Goal (004.4, -07.5), Episode 00004, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 16:17:44,980 - INFO - Env 04, Goal (001.3, -07.8), Episode 00005, setp 021, Reward -10.1, Distance 008.3, Crashed
+2019-07-24 16:17:45,204 - INFO - Env 15, Goal (-02.4, -00.1), Episode 00003, setp 109, Reward 1.5  , Distance 008.2, Crashed
+2019-07-24 16:17:45,204 - INFO - Env 06, Goal (005.2, 001.5), Episode 00006, setp 002, Reward -15.0, Distance 009.2, Crashed
+2019-07-24 16:17:45,605 - INFO - Env 06, Goal (001.2, 007.2), Episode 00007, setp 002, Reward -15.0, Distance 008.8, Crashed
+2019-07-24 16:17:45,606 - INFO - Env 18, Goal (-05.7, 006.9), Episode 00004, setp 033, Reward -11.6, Distance 008.4, Crashed
+2019-07-24 16:17:45,637 - INFO - Env 16, Goal (002.5, -02.6), Episode 00005, setp 110, Reward 6.9  , Distance 009.7, Crashed
+2019-07-24 16:17:47,631 - INFO - Env 15, Goal (001.2, 000.3), Episode 00004, setp 019, Reward -13.8, Distance 009.6, Crashed
+2019-07-24 16:17:47,721 - INFO - Env 00, Goal (-03.2, 000.0), Episode 00003, setp 134, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 16:17:48,084 - INFO - Env 23, Goal (002.7, 002.1), Episode 00004, setp 106, Reward 37.5 , Distance 009.5, Reach Goal
+2019-07-24 16:17:49,343 - INFO - Env 17, Goal (-03.0, 006.1), Episode 00004, setp 139, Reward 4.0  , Distance 009.3, Crashed
+2019-07-24 16:17:49,752 - INFO - Env 20, Goal (-08.5, -00.5), Episode 00004, setp 104, Reward 38.3 , Distance 010.0, Reach Goal
+2019-07-24 16:17:50,344 - INFO - Env 11, Goal (-00.5, -00.8), Episode 00005, setp 120, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 16:17:50,638 - INFO - Env 21, Goal (002.4, 007.7), Episode 00005, setp 108, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 16:17:53,162 - INFO - Env 01, Goal (000.1, 001.1), Episode 00005, setp 148, Reward 34.8 , Distance 008.4, Reach Goal
+2019-07-24 16:17:53,465 - INFO - Env 01, Goal (-02.2, 002.6), Episode 00006, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 16:17:53,465 - INFO - Env 06, Goal (006.8, -04.8), Episode 00008, setp 058, Reward -3.0 , Distance 008.1, Crashed
+2019-07-24 16:17:54,123 - INFO - Env 07, Goal (004.2, -06.6), Episode 00004, setp 116, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 16:17:55,081 - INFO - Env 12, Goal (003.9, 007.2), Episode 00004, setp 091, Reward 37.6 , Distance 009.6, Reach Goal
+2019-07-24 16:17:55,851 - INFO - Env 05, Goal (003.1, -01.7), Episode 00004, setp 110, Reward 4.3  , Distance 009.9, Crashed
+2019-07-24 16:17:56,340 - INFO - Env 22, Goal (-05.9, -00.7), Episode 00005, setp 090, Reward 34.3 , Distance 008.2, Reach Goal
+2019-07-24 16:17:56,854 - INFO - Env 19, Goal (007.8, 004.2), Episode 00005, setp 089, Reward 34.9 , Distance 008.5, Reach Goal
+2019-07-24 16:17:57,238 - INFO - Env 02, Goal (000.7, -05.7), Episode 00005, setp 106, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:17:58,525 - INFO - Env 16, Goal (-07.8, 001.3), Episode 00006, setp 088, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 16:17:59,002 - INFO - Env 16, Goal (-06.4, -02.4), Episode 00007, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 16:17:59,019 - INFO - Env 00, Goal (004.3, -01.1), Episode 00004, setp 072, Reward -7.0 , Distance 009.3, Crashed
+2019-07-24 16:17:59,424 - INFO - Env 10, Goal (-02.4, 002.5), Episode 00004, setp 152, Reward 21.0 , Distance 008.9, Time out
+2019-07-24 16:18:00,161 - INFO - Env 04, Goal (-02.8, 005.4), Episode 00006, setp 098, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 16:18:01,318 - INFO - Env 03, Goal (-05.3, -01.9), Episode 00005, setp 108, Reward 36.5 , Distance 009.1, Reach Goal
+2019-07-24 16:18:01,319 - INFO - Env 09, Goal (-04.7, 000.5), Episode 00005, setp 109, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 16:18:01,319 - INFO - Env 14, Goal (-00.9, -03.6), Episode 00005, setp 108, Reward 37.7 , Distance 009.6, Reach Goal
+2019-07-24 16:18:02,561 - INFO - Env 23, Goal (001.5, 004.4), Episode 00005, setp 097, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 16:18:03,112 - INFO - Env 13, Goal (-02.2, -04.6), Episode 00004, setp 132, Reward 37.6 , Distance 009.6, Reach Goal
+2019-07-24 16:18:03,112 - INFO - Env 08, Goal (-06.4, -06.1), Episode 00005, setp 121, Reward 38.7 , Distance 010.0, Reach Goal
+2019-07-24 16:18:04,525 - INFO - Env 15, Goal (-05.3, 001.8), Episode 00005, setp 114, Reward 5.0  , Distance 009.8, Crashed
+2019-07-24 16:18:05,649 - INFO - Env 18, Goal (-00.2, -03.1), Episode 00005, setp 139, Reward 36.3 , Distance 009.1, Reach Goal
+2019-07-24 16:18:05,936 - INFO - Env 18, Goal (000.3, -05.1), Episode 00006, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 16:18:05,937 - INFO - Env 21, Goal (004.5, -01.8), Episode 00006, setp 106, Reward 36.1 , Distance 009.1, Reach Goal
+2019-07-24 16:18:05,937 - INFO - Env 05, Goal (002.4, 000.9), Episode 00005, setp 070, Reward -3.0 , Distance 008.4, Crashed
+2019-07-24 16:18:06,715 - INFO - Env 11, Goal (007.1, -00.3), Episode 00006, setp 112, Reward 36.3 , Distance 009.0, Reach Goal
+2019-07-24 16:18:08,051 - INFO - Env 07, Goal (003.6, 001.9), Episode 00005, setp 094, Reward 34.7 , Distance 008.4, Reach Goal
+2019-07-24 16:18:09,133 - INFO - Env 06, Goal (004.4, 005.1), Episode 00009, setp 108, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 16:18:09,484 - INFO - Env 20, Goal (-02.5, 001.1), Episode 00005, setp 136, Reward 36.8 , Distance 009.2, Reach Goal
+2019-07-24 16:18:11,259 - INFO - Env 17, Goal (-03.5, 002.8), Episode 00005, setp 152, Reward 21.9 , Distance 009.3, Time out
+2019-07-24 16:18:11,728 - INFO - Env 00, Goal (-01.1, -01.4), Episode 00005, setp 095, Reward 0.5  , Distance 009.2, Crashed
+2019-07-24 16:18:12,545 - INFO - Env 02, Goal (004.3, 002.3), Episode 00006, setp 113, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 16:18:13,038 - INFO - Env 22, Goal (-00.4, 004.2), Episode 00006, setp 119, Reward 35.7 , Distance 008.9, Reach Goal
+2019-07-24 16:18:14,651 - INFO - Env 19, Goal (-01.6, 002.8), Episode 00006, setp 124, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 16:18:14,651 - INFO - Env 10, Goal (000.8, 008.4), Episode 00005, setp 109, Reward 35.8 , Distance 009.0, Reach Goal
+2019-07-24 16:18:14,930 - INFO - Env 01, Goal (-03.0, -03.8), Episode 00007, setp 143, Reward 37.3 , Distance 009.5, Reach Goal
+2019-07-24 16:18:15,558 - INFO - Env 00, Goal (-05.6, -04.3), Episode 00006, setp 022, Reward -9.6 , Distance 009.5, Crashed
+2019-07-24 16:18:15,839 - INFO - Env 22, Goal (-05.3, -07.2), Episode 00007, setp 014, Reward -15.4, Distance 008.5, Crashed
+2019-07-24 16:18:15,840 - INFO - Env 00, Goal (-02.6, -07.6), Episode 00007, setp 002, Reward -15.0, Distance 009.6, Crashed
+2019-07-24 16:18:16,237 - INFO - Env 03, Goal (008.0, 000.4), Episode 00006, setp 101, Reward 38.4 , Distance 010.0, Reach Goal
+2019-07-24 16:18:16,238 - INFO - Env 04, Goal (-07.6, 002.2), Episode 00007, setp 111, Reward 36.9 , Distance 009.3, Reach Goal
+2019-07-24 16:18:16,573 - INFO - Env 19, Goal (003.4, 007.4), Episode 00007, setp 009, Reward -13.6, Distance 008.6, Crashed
+2019-07-24 16:18:16,573 - INFO - Env 04, Goal (006.7, 004.9), Episode 00008, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 16:18:16,953 - INFO - Env 14, Goal (-00.7, 004.1), Episode 00006, setp 103, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 16:18:17,241 - INFO - Env 13, Goal (-05.7, -02.1), Episode 00005, setp 091, Reward 3.9  , Distance 009.4, Crashed
+2019-07-24 16:18:18,178 - INFO - Env 15, Goal (-01.4, 008.1), Episode 00006, setp 086, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 16:18:18,178 - INFO - Env 09, Goal (003.8, -03.3), Episode 00006, setp 111, Reward 34.7 , Distance 008.4, Reach Goal
+2019-07-24 16:18:18,574 - INFO - Env 16, Goal (-00.6, -05.5), Episode 00008, setp 129, Reward 38.0 , Distance 009.8, Reach Goal
+2019-07-24 16:18:19,246 - INFO - Env 12, Goal (000.7, 003.5), Episode 00005, setp 152, Reward 22.7 , Distance 009.8, Time out
+2019-07-24 16:18:19,579 - INFO - Env 12, Goal (000.1, -07.9), Episode 00006, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 16:18:19,580 - INFO - Env 20, Goal (003.0, 003.9), Episode 00006, setp 057, Reward -5.6 , Distance 008.3, Crashed
+2019-07-24 16:18:19,955 - INFO - Env 23, Goal (-01.4, -01.1), Episode 00006, setp 108, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 16:18:20,728 - INFO - Env 08, Goal (-04.6, -03.7), Episode 00006, setp 110, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 16:18:22,305 - INFO - Env 10, Goal (-02.6, -05.9), Episode 00006, setp 043, Reward -9.2 , Distance 009.6, Crashed
+2019-07-24 16:18:22,575 - INFO - Env 15, Goal (-02.4, 003.2), Episode 00007, setp 027, Reward -13.7, Distance 008.9, Crashed
+2019-07-24 16:18:23,877 - INFO - Env 18, Goal (001.8, 001.4), Episode 00007, setp 113, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 16:18:24,158 - INFO - Env 11, Goal (-06.2, 000.8), Episode 00007, setp 109, Reward 33.6 , Distance 008.0, Reach Goal
+2019-07-24 16:18:24,714 - INFO - Env 07, Goal (001.6, -06.3), Episode 00006, setp 102, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 16:18:25,639 - INFO - Env 05, Goal (-01.2, -02.1), Episode 00006, setp 125, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 16:18:25,950 - INFO - Env 13, Goal (-04.8, -05.7), Episode 00006, setp 057, Reward -7.5 , Distance 009.7, Crashed
+2019-07-24 16:18:25,950 - INFO - Env 23, Goal (-05.4, 005.8), Episode 00007, setp 043, Reward -10.7, Distance 008.3, Crashed
+2019-07-24 16:18:26,397 - INFO - Env 21, Goal (-02.5, -05.6), Episode 00007, setp 127, Reward 34.6 , Distance 008.5, Reach Goal
+2019-07-24 16:18:26,738 - INFO - Env 09, Goal (-08.2, -01.5), Episode 00007, setp 052, Reward -4.5 , Distance 008.6, Crashed
+2019-07-24 16:18:27,105 - INFO - Env 17, Goal (-03.2, 004.7), Episode 00006, setp 089, Reward 36.4 , Distance 009.1, Reach Goal
+2019-07-24 16:18:28,551 - INFO - Env 06, Goal (-00.3, 002.3), Episode 00010, setp 117, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 16:18:31,065 - INFO - Env 20, Goal (005.6, -03.9), Episode 00007, setp 083, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 16:18:31,591 - INFO - Env 15, Goal (001.3, -06.9), Episode 00008, setp 065, Reward -6.4 , Distance 009.3, Crashed
+2019-07-24 16:18:31,916 - INFO - Env 19, Goal (-03.4, -02.4), Episode 00008, setp 102, Reward 4.3  , Distance 009.6, Crashed
+2019-07-24 16:18:32,251 - INFO - Env 00, Goal (-01.3, 008.1), Episode 00008, setp 105, Reward 38.4 , Distance 010.0, Reach Goal
+2019-07-24 16:18:32,559 - INFO - Env 03, Goal (-07.1, -00.9), Episode 00007, setp 105, Reward 35.4 , Distance 008.8, Reach Goal
+2019-07-24 16:18:32,560 - INFO - Env 16, Goal (-01.5, -01.0), Episode 00009, setp 094, Reward 0.6  , Distance 008.2, Crashed
+2019-07-24 16:18:32,560 - INFO - Env 00, Goal (006.8, -01.7), Episode 00009, setp 002, Reward -15.0, Distance 009.2, Crashed
+2019-07-24 16:18:32,996 - INFO - Env 05, Goal (006.7, -03.0), Episode 00007, setp 048, Reward -7.2 , Distance 009.9, Crashed
+2019-07-24 16:18:32,996 - INFO - Env 06, Goal (004.7, -02.7), Episode 00011, setp 031, Reward -13.6, Distance 008.6, Crashed
+2019-07-24 16:18:32,998 - INFO - Env 00, Goal (001.0, -04.0), Episode 00010, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 16:18:32,998 - INFO - Env 14, Goal (008.4, 001.7), Episode 00007, setp 104, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 16:18:33,258 - INFO - Env 14, Goal (000.1, 005.9), Episode 00008, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 16:18:33,259 - INFO - Env 21, Goal (000.5, 003.5), Episode 00008, setp 047, Reward -10.0, Distance 009.4, Crashed
+2019-07-24 16:18:34,304 - INFO - Env 12, Goal (-02.0, 006.0), Episode 00007, setp 099, Reward 35.3 , Distance 008.7, Reach Goal
+2019-07-24 16:18:36,361 - INFO - Env 02, Goal (-04.5, -03.9), Episode 00007, setp 144, Reward 38.7 , Distance 010.0, Reach Goal
+2019-07-24 16:18:36,692 - INFO - Env 22, Goal (-07.2, 002.3), Episode 00008, setp 129, Reward 38.0 , Distance 009.9, Reach Goal
+2019-07-24 16:18:38,494 - INFO - Env 08, Goal (000.6, -02.4), Episode 00007, setp 121, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 16:18:38,776 - INFO - Env 10, Goal (-02.2, 000.1), Episode 00007, setp 109, Reward 38.7 , Distance 010.0, Reach Goal
+2019-07-24 16:18:39,049 - INFO - Env 07, Goal (-02.5, -04.0), Episode 00007, setp 094, Reward 0.9  , Distance 008.9, Crashed
+2019-07-24 16:18:39,049 - INFO - Env 10, Goal (-05.8, 000.9), Episode 00008, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 16:18:39,375 - INFO - Env 01, Goal (003.6, 002.9), Episode 00008, setp 152, Reward 19.9 , Distance 009.7, Time out
+2019-07-24 16:18:39,636 - INFO - Env 04, Goal (-06.0, 005.8), Episode 00009, setp 146, Reward 37.6 , Distance 009.7, Reach Goal
+2019-07-24 16:18:40,039 - INFO - Env 11, Goal (-03.6, 006.2), Episode 00008, setp 102, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 16:18:40,649 - INFO - Env 18, Goal (000.5, -07.2), Episode 00008, setp 107, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:18:42,846 - INFO - Env 13, Goal (001.7, 007.4), Episode 00007, setp 114, Reward 38.0 , Distance 009.7, Reach Goal
+2019-07-24 16:18:43,659 - INFO - Env 12, Goal (-00.7, -08.7), Episode 00008, setp 065, Reward -8.6 , Distance 008.9, Crashed
+2019-07-24 16:18:43,982 - INFO - Env 17, Goal (000.1, -01.9), Episode 00007, setp 117, Reward 35.0 , Distance 008.6, Reach Goal
+2019-07-24 16:18:44,422 - INFO - Env 09, Goal (001.5, -00.5), Episode 00008, setp 122, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 16:18:44,422 - INFO - Env 06, Goal (003.1, -04.7), Episode 00012, setp 078, Reward 34.9 , Distance 008.5, Reach Goal
+2019-07-24 16:18:44,787 - INFO - Env 23, Goal (-02.4, -03.2), Episode 00008, setp 125, Reward 37.7 , Distance 009.6, Reach Goal
+2019-07-24 16:18:45,409 - INFO - Env 04, Goal (000.1, -06.6), Episode 00010, setp 042, Reward -7.5 , Distance 008.9, Crashed
+2019-07-24 16:18:48,255 - INFO - Env 00, Goal (-01.6, -02.2), Episode 00011, setp 109, Reward 36.5 , Distance 009.1, Reach Goal
+2019-07-24 16:18:48,754 - INFO - Env 03, Goal (-02.4, -05.8), Episode 00008, setp 113, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 16:18:49,035 - INFO - Env 20, Goal (002.5, -02.7), Episode 00008, setp 120, Reward 36.5 , Distance 009.1, Reach Goal
+2019-07-24 16:18:49,492 - INFO - Env 16, Goal (-04.9, 002.6), Episode 00010, setp 115, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 16:18:49,890 - INFO - Env 06, Goal (-01.0, -04.8), Episode 00013, setp 038, Reward -12.1, Distance 009.5, Crashed
+2019-07-24 16:18:49,890 - INFO - Env 15, Goal (-05.2, -00.3), Episode 00009, setp 120, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 16:18:49,890 - INFO - Env 05, Goal (-03.5, 002.6), Episode 00008, setp 115, Reward 6.2  , Distance 009.2, Crashed
+2019-07-24 16:18:50,643 - INFO - Env 22, Goal (005.6, -05.4), Episode 00009, setp 098, Reward 36.0 , Distance 009.0, Reach Goal
+2019-07-24 16:18:51,133 - INFO - Env 08, Goal (-01.8, 005.2), Episode 00008, setp 085, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 16:18:51,568 - INFO - Env 18, Goal (-00.6, -07.0), Episode 00009, setp 077, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:18:52,262 - INFO - Env 14, Goal (002.3, 002.2), Episode 00009, setp 127, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 16:18:55,020 - INFO - Env 13, Goal (-02.0, 007.3), Episode 00008, setp 081, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 16:18:55,376 - INFO - Env 19, Goal (002.7, 001.6), Episode 00009, setp 152, Reward 20.7 , Distance 009.2, Time out
+2019-07-24 16:18:55,754 - INFO - Env 13, Goal (002.8, 004.5), Episode 00009, setp 003, Reward -15.0, Distance 010.0, Crashed
+2019-07-24 16:18:56,226 - INFO - Env 21, Goal (-01.8, 003.9), Episode 00009, setp 152, Reward 18.0 , Distance 009.1, Time out
+2019-07-24 16:18:56,696 - INFO - Env 05, Goal (-01.3, 006.6), Episode 00009, setp 040, Reward -8.7 , Distance 009.2, Crashed
+2019-07-24 16:18:56,696 - INFO - Env 23, Goal (003.8, 001.3), Episode 00009, setp 076, Reward 0.9  , Distance 008.1, Crashed
+2019-07-24 16:18:57,251 - INFO - Env 10, Goal (003.1, -01.2), Episode 00009, setp 118, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 16:18:57,567 - INFO - Env 02, Goal (003.4, -03.9), Episode 00008, setp 137, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 16:18:58,357 - INFO - Env 03, Goal (-04.6, -04.0), Episode 00009, setp 053, Reward -10.2, Distance 008.7, Crashed
+2019-07-24 16:18:58,924 - INFO - Env 07, Goal (002.1, -03.1), Episode 00008, setp 129, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 16:18:59,528 - INFO - Env 12, Goal (003.5, -01.8), Episode 00009, setp 099, Reward 37.2 , Distance 009.4, Reach Goal
+2019-07-24 16:18:59,961 - INFO - Env 01, Goal (000.1, 001.3), Episode 00009, setp 134, Reward 36.4 , Distance 009.1, Reach Goal
+2019-07-24 16:19:02,316 - INFO - Env 11, Goal (-02.4, 003.0), Episode 00009, setp 152, Reward 19.4 , Distance 008.9, Time out
+2019-07-24 16:19:02,756 - INFO - Env 09, Goal (001.6, 001.9), Episode 00009, setp 121, Reward 2.8  , Distance 009.9, Crashed
+2019-07-24 16:19:03,316 - INFO - Env 17, Goal (-00.9, -06.7), Episode 00008, setp 128, Reward 35.2 , Distance 008.6, Reach Goal
+2019-07-24 16:19:03,677 - INFO - Env 15, Goal (-05.0, 006.2), Episode 00010, setp 089, Reward 37.9 , Distance 009.8, Reach Goal
+2019-07-24 16:19:04,878 - INFO - Env 00, Goal (-06.0, -04.1), Episode 00012, setp 105, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 16:19:05,467 - INFO - Env 18, Goal (008.0, -03.1), Episode 00010, setp 094, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 16:19:05,859 - INFO - Env 14, Goal (-05.5, 004.2), Episode 00010, setp 091, Reward 36.3 , Distance 009.1, Reach Goal
+2019-07-24 16:19:06,135 - INFO - Env 04, Goal (005.5, -02.7), Episode 00011, setp 137, Reward 38.0 , Distance 009.8, Reach Goal
+2019-07-24 16:19:07,583 - INFO - Env 06, Goal (-03.7, 008.1), Episode 00014, setp 117, Reward 38.0 , Distance 009.7, Reach Goal
+2019-07-24 16:19:08,044 - INFO - Env 20, Goal (-07.3, -02.4), Episode 00009, setp 122, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 16:19:08,438 - INFO - Env 06, Goal (000.8, -01.7), Episode 00015, setp 005, Reward -16.8, Distance 008.3, Crashed
+2019-07-24 16:19:08,971 - INFO - Env 16, Goal (-00.6, -04.6), Episode 00011, setp 125, Reward 34.8 , Distance 008.4, Reach Goal
+2019-07-24 16:19:09,424 - INFO - Env 10, Goal (003.5, 007.2), Episode 00010, setp 084, Reward 35.2 , Distance 008.6, Reach Goal
+2019-07-24 16:19:09,788 - INFO - Env 19, Goal (003.9, 003.2), Episode 00010, setp 093, Reward 35.9 , Distance 009.0, Reach Goal
+2019-07-24 16:19:10,812 - INFO - Env 06, Goal (-01.7, -05.1), Episode 00016, setp 016, Reward -14.6, Distance 009.0, Crashed
+2019-07-24 16:19:11,643 - INFO - Env 13, Goal (-01.8, -03.9), Episode 00010, setp 107, Reward 36.0 , Distance 008.9, Reach Goal
+2019-07-24 16:19:11,940 - INFO - Env 23, Goal (001.1, -03.2), Episode 00010, setp 104, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 16:19:12,323 - INFO - Env 08, Goal (-00.2, -00.6), Episode 00009, setp 137, Reward 34.1 , Distance 008.1, Reach Goal
+2019-07-24 16:19:13,077 - INFO - Env 02, Goal (003.0, 006.7), Episode 00009, setp 106, Reward 34.3 , Distance 008.3, Reach Goal
+2019-07-24 16:19:13,575 - INFO - Env 22, Goal (-04.1, 002.9), Episode 00010, setp 147, Reward 38.2 , Distance 009.8, Reach Goal
+2019-07-24 16:19:13,930 - INFO - Env 05, Goal (-05.7, 001.8), Episode 00010, setp 114, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 16:19:14,462 - INFO - Env 12, Goal (-08.6, 000.6), Episode 00010, setp 099, Reward 38.3 , Distance 009.8, Reach Goal
+2019-07-24 16:19:15,844 - INFO - Env 07, Goal (-05.6, 004.9), Episode 00009, setp 109, Reward 38.0 , Distance 009.8, Reach Goal
+2019-07-24 16:19:16,176 - INFO - Env 08, Goal (001.2, -00.5), Episode 00010, setp 020, Reward -13.3, Distance 009.4, Crashed
+2019-07-24 16:19:16,176 - INFO - Env 07, Goal (-06.3, 002.1), Episode 00010, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 16:19:16,788 - INFO - Env 03, Goal (-07.4, 004.6), Episode 00010, setp 118, Reward 38.2 , Distance 009.8, Reach Goal
+2019-07-24 16:19:17,252 - INFO - Env 23, Goal (-02.3, 003.0), Episode 00011, setp 028, Reward -13.8, Distance 009.9, Crashed
+2019-07-24 16:19:18,043 - INFO - Env 01, Goal (-01.6, 005.9), Episode 00010, setp 116, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 16:19:18,520 - INFO - Env 09, Goal (-06.0, 003.8), Episode 00010, setp 095, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 16:19:19,088 - INFO - Env 10, Goal (-04.0, 002.2), Episode 00011, setp 056, Reward -6.6 , Distance 009.8, Crashed
+2019-07-24 16:19:19,630 - INFO - Env 11, Goal (-02.1, 004.9), Episode 00010, setp 105, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 16:19:20,336 - INFO - Env 21, Goal (002.8, -04.2), Episode 00010, setp 152, Reward 16.8 , Distance 009.6, Time out
+2019-07-24 16:19:20,796 - INFO - Env 15, Goal (-07.2, 004.2), Episode 00011, setp 103, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:19:21,117 - INFO - Env 14, Goal (006.5, 004.9), Episode 00011, setp 089, Reward 34.7 , Distance 008.5, Reach Goal
+2019-07-24 16:19:21,117 - INFO - Env 21, Goal (006.8, -01.2), Episode 00011, setp 003, Reward -15.0, Distance 008.1, Crashed
+2019-07-24 16:19:22,134 - INFO - Env 17, Goal (007.4, -00.7), Episode 00009, setp 112, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 16:19:23,529 - INFO - Env 20, Goal (000.1, 003.3), Episode 00010, setp 091, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 16:19:23,547 - INFO - Env 00, Goal (006.3, -05.7), Episode 00013, setp 112, Reward 37.1 , Distance 009.4, Reach Goal
+2019-07-24 16:19:24,247 - INFO - Env 08, Goal (004.0, 001.6), Episode 00011, setp 052, Reward -9.8 , Distance 009.0, Crashed
+2019-07-24 16:19:24,594 - INFO - Env 04, Goal (000.0, 002.3), Episode 00012, setp 111, Reward 37.6 , Distance 009.7, Reach Goal
+2019-07-24 16:19:24,844 - INFO - Env 11, Goal (-03.0, -01.9), Episode 00011, setp 032, Reward -14.5, Distance 009.7, Crashed
+2019-07-24 16:19:24,844 - INFO - Env 04, Goal (-03.2, -02.8), Episode 00013, setp 002, Reward -15.0, Distance 009.8, Crashed
+2019-07-24 16:19:25,256 - INFO - Env 19, Goal (008.3, 000.4), Episode 00011, setp 092, Reward 34.8 , Distance 008.4, Reach Goal
+2019-07-24 16:19:25,687 - INFO - Env 02, Goal (-03.8, -00.1), Episode 00010, setp 071, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 16:19:25,687 - INFO - Env 18, Goal (-01.4, 000.9), Episode 00011, setp 117, Reward 34.6 , Distance 008.3, Reach Goal
+2019-07-24 16:19:25,687 - INFO - Env 22, Goal (-02.9, -01.8), Episode 00011, setp 068, Reward 2.0  , Distance 008.5, Crashed
+2019-07-24 16:19:26,041 - INFO - Env 22, Goal (005.8, 002.4), Episode 00012, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 16:19:26,042 - INFO - Env 04, Goal (006.7, 003.1), Episode 00014, setp 005, Reward -14.5, Distance 009.5, Crashed
+2019-07-24 16:19:26,790 - INFO - Env 06, Goal (-00.2, 004.5), Episode 00017, setp 089, Reward 38.5 , Distance 010.0, Reach Goal
+2019-07-24 16:19:27,689 - INFO - Env 16, Goal (003.6, 001.3), Episode 00012, setp 108, Reward 35.7 , Distance 008.8, Reach Goal
+2019-07-24 16:19:31,035 - INFO - Env 05, Goal (-04.4, 005.1), Episode 00011, setp 109, Reward 36.3 , Distance 009.0, Reach Goal
+2019-07-24 16:19:31,036 - INFO - Env 13, Goal (-02.6, 002.1), Episode 00011, setp 120, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 16:19:32,780 - INFO - Env 03, Goal (-00.4, 006.4), Episode 00011, setp 110, Reward 35.6 , Distance 008.7, Reach Goal
+2019-07-24 16:19:33,142 - INFO - Env 23, Goal (004.6, 002.9), Episode 00012, setp 109, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 16:19:33,540 - INFO - Env 03, Goal (-04.2, 005.9), Episode 00012, setp 004, Reward -14.4, Distance 008.1, Crashed
+2019-07-24 16:19:33,541 - INFO - Env 15, Goal (005.1, -03.6), Episode 00012, setp 089, Reward 33.7 , Distance 008.1, Reach Goal
+2019-07-24 16:19:33,938 - INFO - Env 17, Goal (001.8, -02.7), Episode 00010, setp 082, Reward -2.0 , Distance 009.5, Crashed
+2019-07-24 16:19:33,938 - INFO - Env 03, Goal (-06.5, -03.7), Episode 00013, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 16:19:34,360 - INFO - Env 17, Goal (008.1, 003.1), Episode 00011, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 16:19:34,360 - INFO - Env 15, Goal (-08.8, 001.2), Episode 00013, setp 003, Reward -15.0, Distance 009.6, Crashed
+2019-07-24 16:19:34,943 - INFO - Env 01, Goal (-07.3, 003.3), Episode 00011, setp 110, Reward 37.8 , Distance 009.6, Reach Goal
+2019-07-24 16:19:36,027 - INFO - Env 16, Goal (008.8, -00.9), Episode 00013, setp 057, Reward -9.7 , Distance 009.0, Crashed
+2019-07-24 16:19:36,613 - INFO - Env 07, Goal (-04.4, 000.5), Episode 00011, setp 128, Reward 2.2  , Distance 009.0, Crashed
+2019-07-24 16:19:36,936 - INFO - Env 11, Goal (-00.9, 005.3), Episode 00012, setp 076, Reward -5.7 , Distance 009.8, Crashed
+2019-07-24 16:19:36,936 - INFO - Env 07, Goal (-03.4, 003.0), Episode 00012, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 16:19:37,257 - INFO - Env 12, Goal (000.2, 002.8), Episode 00011, setp 137, Reward 6.1  , Distance 009.0, Crashed
+2019-07-24 16:19:37,257 - INFO - Env 07, Goal (006.0, -03.1), Episode 00013, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 18:58:25,183 - INFO - ####################################
+2019-07-24 18:58:25,184 - INFO - ############Loading Model###########
+2019-07-24 18:58:25,184 - INFO - ####################################
+2019-07-24 18:58:28,490 - INFO - Env 16, Goal (001.0, -08.4), Episode 00001, setp 027, Reward -3.4 , Distance 009.1, Crashed
+2019-07-24 18:58:28,916 - INFO - Env 12, Goal (-02.2, 006.2), Episode 00001, setp 028, Reward -9.8 , Distance 008.8, Crashed
+2019-07-24 18:58:29,190 - INFO - Env 12, Goal (007.3, -02.7), Episode 00002, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 18:58:29,190 - INFO - Env 04, Goal (-03.3, -05.2), Episode 00001, setp 029, Reward -23.6, Distance 008.7, Crashed
+2019-07-24 18:58:29,616 - INFO - Env 20, Goal (-05.2, -01.8), Episode 00001, setp 031, Reward -12.7, Distance 009.0, Crashed
+2019-07-24 18:58:29,971 - INFO - Env 11, Goal (-02.2, -01.3), Episode 00001, setp 032, Reward -0.7 , Distance 009.4, Crashed
+2019-07-24 18:58:30,023 - INFO - Env 20, Goal (-03.8, -07.9), Episode 00002, setp 002, Reward -15.0, Distance 008.8, Crashed
+2019-07-24 18:58:32,001 - INFO - Env 19, Goal (002.1, -02.7), Episode 00001, setp 049, Reward 36.8 , Distance 009.2, Reach Goal
+2019-07-24 18:58:33,864 - INFO - Env 09, Goal (-01.7, 007.7), Episode 00001, setp 065, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 18:58:34,200 - INFO - Env 21, Goal (000.1, -05.8), Episode 00001, setp 066, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 18:58:34,595 - INFO - Env 17, Goal (-06.2, -02.9), Episode 00001, setp 067, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 18:58:36,580 - INFO - Env 03, Goal (004.3, -01.1), Episode 00001, setp 085, Reward 33.9 , Distance 008.2, Reach Goal
+2019-07-24 18:58:37,072 - INFO - Env 20, Goal (003.2, 005.9), Episode 00003, setp 057, Reward -6.8 , Distance 008.4, Crashed
+2019-07-24 18:58:37,504 - INFO - Env 17, Goal (000.3, 003.0), Episode 00002, setp 023, Reward -10.6, Distance 009.1, Crashed
+2019-07-24 18:58:37,504 - INFO - Env 20, Goal (-02.5, -07.2), Episode 00004, setp 002, Reward -15.0, Distance 009.3, Crashed
+2019-07-24 18:58:38,423 - INFO - Env 14, Goal (-00.9, 001.1), Episode 00001, setp 095, Reward 36.0 , Distance 008.9, Reach Goal
+2019-07-24 18:58:38,694 - INFO - Env 00, Goal (-05.8, 005.3), Episode 00001, setp 096, Reward -3.8 , Distance 009.7, Crashed
+2019-07-24 18:58:39,191 - INFO - Env 10, Goal (-06.0, -04.8), Episode 00001, setp 099, Reward 38.1 , Distance 009.7, Reach Goal
+2019-07-24 18:58:39,506 - INFO - Env 18, Goal (-06.1, -01.1), Episode 00001, setp 100, Reward 34.4 , Distance 008.3, Reach Goal
+2019-07-24 18:58:39,939 - INFO - Env 18, Goal (-04.3, 007.2), Episode 00002, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 18:58:39,940 - INFO - Env 16, Goal (-02.1, -03.1), Episode 00002, setp 075, Reward -0.4 , Distance 008.3, Crashed
+2019-07-24 18:58:42,135 - INFO - Env 02, Goal (-01.6, 000.8), Episode 00001, setp 121, Reward 37.8 , Distance 009.6, Reach Goal
+2019-07-24 18:58:42,706 - INFO - Env 07, Goal (000.2, 001.9), Episode 00001, setp 125, Reward 34.0 , Distance 008.1, Reach Goal
+2019-07-24 18:58:42,707 - INFO - Env 08, Goal (006.1, 006.6), Episode 00001, setp 125, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 18:58:43,050 - INFO - Env 07, Goal (004.2, 003.3), Episode 00002, setp 002, Reward -15.0, Distance 009.5, Crashed
+2019-07-24 18:58:43,052 - INFO - Env 09, Goal (-08.4, -00.0), Episode 00002, setp 062, Reward -5.2 , Distance 009.6, Crashed
+2019-07-24 18:58:43,268 - INFO - Env 15, Goal (-01.5, 001.3), Episode 00001, setp 127, Reward 38.7 , Distance 010.0, Reach Goal
+2019-07-24 18:58:44,493 - INFO - Env 11, Goal (-07.3, 003.8), Episode 00002, setp 099, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 18:58:44,493 - INFO - Env 04, Goal (001.3, -00.3), Episode 00002, setp 102, Reward 34.3 , Distance 008.2, Reach Goal
+2019-07-24 18:58:45,302 - INFO - Env 22, Goal (-04.9, -00.4), Episode 00001, setp 136, Reward 35.2 , Distance 008.6, Reach Goal
+2019-07-24 18:58:45,717 - INFO - Env 06, Goal (001.0, -04.6), Episode 00001, setp 137, Reward 1.8  , Distance 009.1, Crashed
+2019-07-24 19:02:21,732 - INFO - ####################################
+2019-07-24 19:02:21,733 - INFO - ############Loading Model###########
+2019-07-24 19:02:21,733 - INFO - ####################################
+2019-07-24 19:02:45,453 - INFO - ####################################
+2019-07-24 19:02:45,453 - INFO - ############Loading Model###########
+2019-07-24 19:02:45,453 - INFO - ####################################
+2019-07-24 19:02:49,027 - INFO - Env 14, Goal (-01.0, -04.6), Episode 00001, setp 029, Reward -1.7 , Distance 009.2, Crashed
+2019-07-24 19:02:50,974 - INFO - Env 07, Goal (001.5, 007.8), Episode 00001, setp 047, Reward 34.3 , Distance 008.3, Reach Goal
+2019-07-24 19:02:51,580 - INFO - Env 21, Goal (002.1, -06.2), Episode 00001, setp 051, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 19:02:52,454 - INFO - Env 17, Goal (-01.3, 006.0), Episode 00001, setp 057, Reward -12.4, Distance 009.7, Crashed
+2019-07-24 19:02:52,783 - INFO - Env 19, Goal (-02.3, 008.6), Episode 00001, setp 058, Reward -21.6, Distance 009.5, Crashed
+2019-07-24 19:02:53,492 - INFO - Env 16, Goal (-01.0, -01.4), Episode 00001, setp 062, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 19:02:54,466 - INFO - Env 22, Goal (-00.7, 001.6), Episode 00001, setp 069, Reward -2.0 , Distance 008.8, Crashed
+2019-07-24 19:02:54,466 - INFO - Env 23, Goal (-01.1, 001.1), Episode 00001, setp 069, Reward -1.7 , Distance 008.7, Crashed
+2019-07-24 19:02:55,262 - INFO - Env 15, Goal (-01.3, -00.8), Episode 00001, setp 074, Reward 35.3 , Distance 008.6, Reach Goal
+2019-07-24 19:02:55,694 - INFO - Env 01, Goal (003.0, 002.7), Episode 00001, setp 075, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:06:37,259 - INFO - ####################################
+2019-07-24 19:06:37,259 - INFO - ############Loading Model###########
+2019-07-24 19:06:37,259 - INFO - ####################################
+2019-07-24 19:06:40,045 - INFO - Env 10, Goal (-05.0, 003.7), Episode 00001, setp 022, Reward 34.7 , Distance 008.4, Reach Goal
+2019-07-24 19:06:40,360 - INFO - Env 10, Goal (-03.0, -01.9), Episode 00002, setp 002, Reward -15.0, Distance 008.9, Crashed
+2019-07-24 19:06:40,360 - INFO - Env 11, Goal (-05.2, 002.2), Episode 00001, setp 023, Reward 34.0 , Distance 008.3, Reach Goal
+2019-07-24 19:06:40,360 - INFO - Env 23, Goal (-03.6, 007.1), Episode 00001, setp 023, Reward -26.3, Distance 008.3, Crashed
+2019-07-24 19:06:41,027 - INFO - Env 09, Goal (-03.3, 004.6), Episode 00001, setp 027, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:10:40,731 - INFO - ####################################
+2019-07-24 19:10:40,731 - INFO - ############Loading Model###########
+2019-07-24 19:10:40,732 - INFO - ####################################
+2019-07-24 19:10:44,265 - INFO - Env 21, Goal (-05.3, -03.6), Episode 00001, setp 029, Reward -15.6, Distance 008.9, Crashed
+2019-07-24 19:10:46,044 - INFO - Env 13, Goal (002.8, -03.6), Episode 00001, setp 044, Reward -11.9, Distance 008.5, Crashed
+2019-07-24 19:10:46,924 - INFO - Env 07, Goal (002.2, -02.0), Episode 00001, setp 051, Reward -9.8 , Distance 008.5, Crashed
+2019-07-24 19:10:47,216 - INFO - Env 18, Goal (000.0, -02.9), Episode 00001, setp 052, Reward 34.8 , Distance 008.6, Reach Goal
+2019-07-24 19:10:47,639 - INFO - Env 10, Goal (-03.0, 002.9), Episode 00001, setp 053, Reward 7.2  , Distance 009.7, Crashed
+2019-07-24 19:10:47,640 - INFO - Env 18, Goal (004.2, 007.9), Episode 00002, setp 002, Reward -15.0, Distance 009.5, Crashed
+2019-07-24 19:10:48,004 - INFO - Env 14, Goal (001.1, 000.7), Episode 00001, setp 054, Reward -5.8 , Distance 008.4, Crashed
+2019-07-24 19:10:49,775 - INFO - Env 19, Goal (003.4, -02.5), Episode 00001, setp 069, Reward 38.3 , Distance 009.9, Reach Goal
+2019-07-24 19:10:50,241 - INFO - Env 20, Goal (005.0, -01.2), Episode 00001, setp 071, Reward 37.3 , Distance 009.4, Reach Goal
+2019-07-24 19:10:51,337 - INFO - Env 23, Goal (001.3, 000.9), Episode 00001, setp 079, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 19:10:52,660 - INFO - Env 05, Goal (004.5, 002.1), Episode 00001, setp 089, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:10:53,419 - INFO - Env 11, Goal (-01.5, -02.1), Episode 00001, setp 095, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 19:10:53,741 - INFO - Env 20, Goal (-07.8, -00.7), Episode 00002, setp 026, Reward -12.8, Distance 009.2, Crashed
+2019-07-24 19:10:54,170 - INFO - Env 00, Goal (-01.0, 006.9), Episode 00001, setp 097, Reward 35.4 , Distance 008.8, Reach Goal
+2019-07-24 19:10:54,463 - INFO - Env 08, Goal (003.9, -07.9), Episode 00001, setp 098, Reward -12.9, Distance 009.2, Crashed
+2019-07-24 19:10:54,463 - INFO - Env 00, Goal (007.7, -02.6), Episode 00002, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 19:10:55,112 - INFO - Env 17, Goal (-07.2, -00.6), Episode 00001, setp 103, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 19:10:55,554 - INFO - Env 12, Goal (-01.7, -06.2), Episode 00001, setp 105, Reward 5.1  , Distance 008.8, Crashed
+2019-07-24 19:10:55,864 - INFO - Env 07, Goal (-01.5, 001.7), Episode 00002, setp 056, Reward -6.5 , Distance 009.0, Crashed
+2019-07-24 19:10:55,864 - INFO - Env 22, Goal (005.5, 004.6), Episode 00001, setp 106, Reward 36.1 , Distance 008.9, Reach Goal
+2019-07-24 19:10:57,728 - INFO - Env 04, Goal (-04.3, 001.6), Episode 00001, setp 122, Reward 36.9 , Distance 009.3, Reach Goal
+2019-07-24 19:10:58,298 - INFO - Env 16, Goal (-00.7, 002.2), Episode 00001, setp 126, Reward 34.4 , Distance 008.3, Reach Goal
+2019-07-24 19:10:59,840 - INFO - Env 03, Goal (002.5, -04.3), Episode 00001, setp 131, Reward -1.3 , Distance 008.6, Crashed
+2019-07-24 19:11:00,435 - INFO - Env 21, Goal (001.6, -06.5), Episode 00002, setp 107, Reward -0.4 , Distance 008.1, Crashed
+2019-07-24 19:11:01,447 - INFO - Env 15, Goal (-01.1, 006.2), Episode 00001, setp 142, Reward 37.2 , Distance 009.4, Reach Goal
+2019-07-24 19:11:02,297 - INFO - Env 10, Goal (007.1, -03.0), Episode 00002, setp 097, Reward 35.0 , Distance 008.5, Reach Goal
+2019-07-24 19:11:02,631 - INFO - Env 02, Goal (001.4, -06.2), Episode 00001, setp 150, Reward 34.1 , Distance 008.3, Reach Goal
+2019-07-24 19:11:02,929 - INFO - Env 14, Goal (-00.9, -02.5), Episode 00002, setp 098, Reward 0.3  , Distance 009.5, Crashed
+2019-07-24 19:11:03,331 - INFO - Env 17, Goal (-00.7, 002.7), Episode 00002, setp 050, Reward -9.8 , Distance 009.0, Crashed
+2019-07-24 19:11:03,331 - INFO - Env 09, Goal (001.2, -03.9), Episode 00001, setp 152, Reward 17.9 , Distance 008.0, Time out
+2019-07-24 19:11:03,331 - INFO - Env 06, Goal (-02.0, -07.5), Episode 00001, setp 152, Reward 16.9 , Distance 008.7, Time out
+2019-07-24 19:11:03,331 - INFO - Env 01, Goal (-03.1, -08.4), Episode 00001, setp 152, Reward 18.7 , Distance 009.2, Time out
+2019-07-24 19:11:03,331 - INFO - Env 13, Goal (000.3, -01.6), Episode 00002, setp 109, Reward 3.3  , Distance 008.4, Crashed
+2019-07-24 19:11:03,774 - INFO - Env 04, Goal (005.9, -04.2), Episode 00002, setp 033, Reward -9.4 , Distance 009.4, Crashed
+2019-07-24 19:11:04,267 - INFO - Env 12, Goal (-06.2, 000.4), Episode 00002, setp 053, Reward -8.2 , Distance 009.2, Crashed
+2019-07-24 19:11:06,000 - INFO - Env 07, Goal (005.8, 001.7), Episode 00003, setp 067, Reward -2.9 , Distance 008.3, Crashed
+2019-07-24 19:11:06,738 - INFO - Env 05, Goal (005.6, -06.4), Episode 00002, setp 090, Reward 35.8 , Distance 008.9, Reach Goal
+2019-07-24 19:11:07,617 - INFO - Env 19, Goal (006.7, -01.0), Episode 00002, setp 117, Reward 35.1 , Distance 008.5, Reach Goal
+2019-07-24 19:11:09,254 - INFO - Env 11, Goal (-04.1, 002.6), Episode 00002, setp 104, Reward 35.3 , Distance 008.6, Reach Goal
+2019-07-24 19:11:09,626 - INFO - Env 20, Goal (-03.4, 001.9), Episode 00003, setp 105, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 19:11:10,226 - INFO - Env 00, Goal (002.2, -06.3), Episode 00003, setp 106, Reward 33.9 , Distance 008.1, Reach Goal
+2019-07-24 19:11:10,481 - INFO - Env 18, Goal (-03.2, -01.6), Episode 00003, setp 152, Reward 22.3 , Distance 009.7, Time out
+2019-07-24 19:11:10,481 - INFO - Env 08, Goal (-06.0, -01.1), Episode 00002, setp 107, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 19:11:11,632 - INFO - Env 10, Goal (000.2, 001.3), Episode 00003, setp 064, Reward -6.7 , Distance 009.5, Crashed
+2019-07-24 19:11:12,335 - INFO - Env 16, Goal (-01.0, -01.4), Episode 00002, setp 092, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:11:13,650 - INFO - Env 22, Goal (005.6, 004.1), Episode 00002, setp 123, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:11:14,105 - INFO - Env 23, Goal (005.0, 000.0), Episode 00002, setp 152, Reward 17.1 , Distance 009.4, Time out
+2019-07-24 19:11:14,621 - INFO - Env 16, Goal (-05.8, -00.9), Episode 00003, setp 016, Reward -13.4, Distance 009.8, Crashed
+2019-07-24 19:11:14,914 - INFO - Env 01, Goal (004.8, 005.4), Episode 00002, setp 082, Reward -2.6 , Distance 009.5, Crashed
+2019-07-24 19:11:14,914 - INFO - Env 09, Goal (-08.7, -01.3), Episode 00002, setp 082, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 19:11:14,915 - INFO - Env 16, Goal (-03.3, -04.4), Episode 00004, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 19:11:15,276 - INFO - Env 03, Goal (002.9, -00.6), Episode 00002, setp 104, Reward 3.7  , Distance 008.3, Crashed
+2019-07-24 19:11:15,277 - INFO - Env 09, Goal (-00.2, 007.7), Episode 00003, setp 002, Reward -15.0, Distance 009.5, Crashed
+2019-07-24 19:11:15,644 - INFO - Env 21, Goal (001.9, 001.1), Episode 00003, setp 102, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 19:11:17,058 - INFO - Env 17, Goal (-00.7, 004.1), Episode 00003, setp 096, Reward 33.6 , Distance 008.0, Reach Goal
+2019-07-24 19:11:17,359 - INFO - Env 09, Goal (-04.4, 007.7), Episode 00004, setp 015, Reward -15.8, Distance 009.5, Crashed
+2019-07-24 19:11:17,359 - INFO - Env 02, Goal (004.0, -01.5), Episode 00002, setp 099, Reward 36.1 , Distance 009.1, Reach Goal
+2019-07-24 19:11:17,694 - INFO - Env 13, Goal (008.0, -02.7), Episode 00003, setp 099, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:11:18,057 - INFO - Env 13, Goal (-05.3, 002.2), Episode 00004, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 19:11:18,058 - INFO - Env 08, Goal (-02.5, -02.3), Episode 00003, setp 048, Reward -4.6 , Distance 008.9, Crashed
+2019-07-24 19:11:18,499 - INFO - Env 15, Goal (000.4, 000.7), Episode 00002, setp 112, Reward 33.7 , Distance 008.1, Reach Goal
+2019-07-24 19:11:20,011 - INFO - Env 01, Goal (004.7, -06.5), Episode 00003, setp 028, Reward -13.8, Distance 008.1, Crashed
+2019-07-24 19:11:20,721 - INFO - Env 04, Goal (-00.5, -05.6), Episode 00003, setp 112, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 19:11:21,025 - INFO - Env 23, Goal (-07.9, -02.0), Episode 00003, setp 037, Reward -12.0, Distance 008.8, Crashed
+2019-07-24 19:11:21,447 - INFO - Env 06, Goal (005.9, -05.0), Episode 00002, setp 116, Reward 36.5 , Distance 009.2, Reach Goal
+2019-07-24 19:11:21,800 - INFO - Env 14, Goal (002.2, -01.3), Episode 00003, setp 119, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 19:11:21,800 - INFO - Env 12, Goal (003.8, -07.8), Episode 00003, setp 113, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 19:11:22,239 - INFO - Env 21, Goal (-06.2, -03.4), Episode 00004, setp 036, Reward -10.8, Distance 009.8, Crashed
+2019-07-24 19:11:22,648 - INFO - Env 09, Goal (004.7, 005.5), Episode 00005, setp 025, Reward -13.0, Distance 009.5, Crashed
+2019-07-24 19:11:23,831 - INFO - Env 07, Goal (005.7, 006.5), Episode 00004, setp 111, Reward 36.9 , Distance 009.4, Reach Goal
+2019-07-24 19:11:24,717 - INFO - Env 05, Goal (-05.6, -04.0), Episode 00003, setp 112, Reward 33.9 , Distance 008.1, Reach Goal
+2019-07-24 19:11:25,257 - INFO - Env 11, Goal (-01.9, -05.9), Episode 00003, setp 095, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 19:11:25,543 - INFO - Env 11, Goal (005.0, -05.8), Episode 00004, setp 002, Reward -15.0, Distance 009.5, Crashed
+2019-07-24 19:11:25,543 - INFO - Env 15, Goal (-04.6, -01.0), Episode 00003, setp 041, Reward -7.0 , Distance 010.0, Crashed
+2019-07-24 19:11:25,865 - INFO - Env 11, Goal (007.5, 000.4), Episode 00005, setp 002, Reward -15.0, Distance 009.5, Crashed
+2019-07-24 19:11:25,897 - INFO - Env 00, Goal (001.4, -08.2), Episode 00004, setp 092, Reward 6.9  , Distance 009.9, Crashed
+2019-07-24 19:11:26,400 - INFO - Env 19, Goal (-01.1, -03.9), Episode 00003, setp 114, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 19:11:27,233 - INFO - Env 10, Goal (000.8, -04.0), Episode 00004, setp 092, Reward 37.8 , Distance 009.6, Reach Goal
+2019-07-24 19:11:28,430 - INFO - Env 03, Goal (-02.5, 007.5), Episode 00003, setp 080, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 19:11:28,893 - INFO - Env 16, Goal (002.5, 005.2), Episode 00005, setp 084, Reward 36.7 , Distance 009.3, Reach Goal
+2019-07-24 19:11:29,865 - INFO - Env 19, Goal (-07.5, 004.8), Episode 00004, setp 025, Reward -10.0, Distance 009.5, Crashed
+2019-07-24 19:11:29,865 - INFO - Env 20, Goal (002.4, -05.3), Episode 00004, setp 123, Reward 33.9 , Distance 008.1, Reach Goal
+2019-07-24 19:11:30,251 - INFO - Env 02, Goal (-00.2, -01.4), Episode 00003, setp 076, Reward 34.0 , Distance 008.2, Reach Goal
+2019-07-24 19:11:31,650 - INFO - Env 15, Goal (-04.9, -01.2), Episode 00004, setp 043, Reward -9.4 , Distance 009.4, Crashed
+2019-07-24 19:11:31,939 - INFO - Env 22, Goal (-05.5, -05.7), Episode 00003, setp 109, Reward 35.8 , Distance 008.9, Reach Goal
+2019-07-24 19:11:32,838 - INFO - Env 12, Goal (006.9, 004.1), Episode 00004, setp 074, Reward 33.6 , Distance 008.0, Reach Goal
+2019-07-24 19:11:33,294 - INFO - Env 17, Goal (001.3, -08.2), Episode 00004, setp 099, Reward 38.2 , Distance 009.8, Reach Goal
+2019-07-24 19:11:34,623 - INFO - Env 18, Goal (-06.0, -04.4), Episode 00004, setp 152, Reward 18.5 , Distance 008.9, Time out
+2019-07-24 19:11:35,045 - INFO - Env 13, Goal (004.0, -06.1), Episode 00005, setp 106, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 19:11:35,333 - INFO - Env 23, Goal (-05.5, 002.4), Episode 00004, setp 092, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:11:35,690 - INFO - Env 01, Goal (007.0, -00.6), Episode 00004, setp 099, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 19:11:36,051 - INFO - Env 17, Goal (004.1, -05.3), Episode 00005, setp 015, Reward -15.3, Distance 008.2, Crashed
+2019-07-24 19:11:36,396 - INFO - Env 08, Goal (-01.9, -08.3), Episode 00004, setp 111, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 19:11:37,039 - INFO - Env 00, Goal (002.2, 003.8), Episode 00005, setp 072, Reward -5.9 , Distance 008.6, Crashed
+2019-07-24 19:11:37,326 - INFO - Env 09, Goal (002.2, -06.4), Episode 00006, setp 095, Reward 36.1 , Distance 008.9, Reach Goal
+2019-07-24 19:11:37,655 - INFO - Env 17, Goal (-01.3, -07.4), Episode 00006, setp 009, Reward -14.7, Distance 009.0, Crashed
+2019-07-24 19:11:38,242 - INFO - Env 06, Goal (-00.1, -00.4), Episode 00003, setp 104, Reward 35.2 , Distance 008.6, Reach Goal
+2019-07-24 19:11:39,832 - INFO - Env 08, Goal (001.7, 008.1), Episode 00005, setp 024, Reward -14.8, Distance 009.8, Crashed
+2019-07-24 19:11:39,831 - INFO - Env 21, Goal (000.7, 002.4), Episode 00005, setp 114, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 19:11:40,220 - INFO - Env 08, Goal (-02.1, 001.8), Episode 00006, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 19:11:40,220 - INFO - Env 07, Goal (008.7, 000.3), Episode 00005, setp 104, Reward 1.9  , Distance 009.0, Crashed
+2019-07-24 19:11:42,099 - INFO - Env 16, Goal (000.8, -03.6), Episode 00006, setp 082, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 19:11:42,729 - INFO - Env 14, Goal (008.8, -01.1), Episode 00004, setp 133, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 19:11:43,105 - INFO - Env 05, Goal (001.2, 006.2), Episode 00004, setp 115, Reward 7.2  , Distance 009.9, Crashed
+2019-07-24 19:11:43,653 - INFO - Env 04, Goal (-01.5, -01.9), Episode 00004, setp 142, Reward 38.2 , Distance 009.8, Reach Goal
+2019-07-24 19:11:44,324 - INFO - Env 12, Goal (000.6, -05.5), Episode 00005, setp 070, Reward -12.2, Distance 008.1, Crashed
+2019-07-24 19:11:44,663 - INFO - Env 20, Goal (003.5, -03.6), Episode 00005, setp 091, Reward 34.9 , Distance 008.5, Reach Goal
+2019-07-24 19:11:45,044 - INFO - Env 17, Goal (006.3, 005.4), Episode 00007, setp 047, Reward -6.7 , Distance 009.3, Crashed
+2019-07-24 19:11:45,826 - INFO - Env 22, Goal (-05.6, 003.2), Episode 00004, setp 083, Reward -5.2 , Distance 009.0, Crashed
+2019-07-24 19:11:46,480 - INFO - Env 10, Goal (001.6, -01.2), Episode 00005, setp 120, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:11:46,872 - INFO - Env 18, Goal (008.6, -02.2), Episode 00005, setp 069, Reward -0.7 , Distance 009.8, Crashed
+2019-07-24 19:11:47,735 - INFO - Env 03, Goal (-04.4, -03.8), Episode 00004, setp 117, Reward 36.7 , Distance 009.3, Reach Goal
+2019-07-24 19:11:49,260 - INFO - Env 11, Goal (003.2, 004.8), Episode 00006, setp 149, Reward 35.7 , Distance 008.8, Reach Goal
+2019-07-24 19:11:50,126 - INFO - Env 11, Goal (004.7, 003.4), Episode 00007, setp 008, Reward -15.1, Distance 008.9, Crashed
+2019-07-24 19:11:50,128 - INFO - Env 08, Goal (-01.3, 008.0), Episode 00007, setp 065, Reward -10.2, Distance 009.2, Crashed
+2019-07-24 19:11:50,435 - INFO - Env 16, Goal (006.7, 000.3), Episode 00007, setp 054, Reward -1.1 , Distance 008.9, Crashed
+2019-07-24 19:11:51,380 - INFO - Env 23, Goal (002.2, 000.6), Episode 00005, setp 102, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:11:51,853 - INFO - Env 00, Goal (003.9, 003.7), Episode 00006, setp 095, Reward 36.8 , Distance 009.3, Reach Goal
+2019-07-24 19:11:52,166 - INFO - Env 08, Goal (-04.4, 005.6), Episode 00008, setp 012, Reward -15.5, Distance 009.0, Crashed
+2019-07-24 19:11:52,166 - INFO - Env 00, Goal (005.1, 003.9), Episode 00007, setp 002, Reward -15.0, Distance 008.3, Crashed
+2019-07-24 19:11:52,527 - INFO - Env 03, Goal (000.3, 000.5), Episode 00005, setp 034, Reward -8.7 , Distance 008.7, Crashed
+2019-07-24 19:11:53,529 - INFO - Env 01, Goal (-01.9, -00.4), Episode 00005, setp 113, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 19:11:53,811 - INFO - Env 09, Goal (003.1, -06.1), Episode 00007, setp 106, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:11:54,149 - INFO - Env 11, Goal (001.5, 004.9), Episode 00008, setp 024, Reward -11.9, Distance 008.3, Crashed
+2019-07-24 19:11:54,149 - INFO - Env 02, Goal (004.6, -01.7), Episode 00004, setp 150, Reward 7.8  , Distance 009.9, Crashed
+2019-07-24 19:11:54,428 - INFO - Env 19, Goal (002.5, 005.5), Episode 00005, setp 152, Reward 20.8 , Distance 010.0, Time out
+2019-07-24 19:11:54,996 - INFO - Env 06, Goal (002.0, -06.1), Episode 00004, setp 107, Reward 38.2 , Distance 009.9, Reach Goal
+2019-07-24 19:11:56,248 - INFO - Env 07, Goal (-01.0, -01.9), Episode 00006, setp 101, Reward 37.0 , Distance 009.3, Reach Goal
+2019-07-24 19:11:56,248 - INFO - Env 17, Goal (-02.3, 007.0), Episode 00008, setp 073, Reward 34.0 , Distance 008.1, Reach Goal
+2019-07-24 19:11:56,637 - INFO - Env 15, Goal (004.4, 002.4), Episode 00005, setp 152, Reward 21.7 , Distance 009.8, Time out
+2019-07-24 19:11:58,166 - INFO - Env 10, Goal (-08.4, 002.7), Episode 00006, setp 078, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:11:58,523 - INFO - Env 11, Goal (-02.1, 001.9), Episode 00009, setp 030, Reward -9.8 , Distance 009.5, Crashed
+2019-07-24 19:11:58,901 - INFO - Env 05, Goal (-06.2, 004.8), Episode 00005, setp 101, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:11:59,351 - INFO - Env 13, Goal (000.9, -01.9), Episode 00006, setp 150, Reward 38.2 , Distance 009.9, Reach Goal
+2019-07-24 19:11:59,633 - INFO - Env 18, Goal (006.8, -02.8), Episode 00006, setp 084, Reward 36.0 , Distance 009.0, Reach Goal
+2019-07-24 19:11:59,633 - INFO - Env 13, Goal (005.6, 006.4), Episode 00007, setp 002, Reward -15.0, Distance 008.1, Crashed
+2019-07-24 19:11:59,997 - INFO - Env 12, Goal (002.0, -03.1), Episode 00006, setp 097, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 19:12:02,445 - INFO - Env 22, Goal (-05.8, -00.2), Episode 00005, setp 106, Reward 36.5 , Distance 009.2, Reach Goal
+2019-07-24 19:12:03,059 - INFO - Env 14, Goal (003.1, -00.7), Episode 00005, setp 126, Reward 37.2 , Distance 009.4, Reach Goal
+2019-07-24 19:12:03,730 - INFO - Env 01, Goal (-01.5, -04.7), Episode 00006, setp 062, Reward -6.1 , Distance 008.2, Crashed
+2019-07-24 19:12:04,153 - INFO - Env 21, Goal (006.5, -01.9), Episode 00006, setp 150, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:12:05,207 - INFO - Env 20, Goal (002.2, 008.2), Episode 00006, setp 130, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:12:05,652 - INFO - Env 23, Goal (-07.2, 000.9), Episode 00006, setp 085, Reward 34.9 , Distance 008.6, Reach Goal
+2019-07-24 19:12:06,004 - INFO - Env 02, Goal (-00.4, 006.7), Episode 00005, setp 072, Reward -2.5 , Distance 009.3, Crashed
+2019-07-24 19:12:06,004 - INFO - Env 06, Goal (-05.2, -00.0), Episode 00005, setp 068, Reward -3.7 , Distance 009.2, Crashed
+2019-07-24 19:12:06,021 - INFO - Env 00, Goal (-04.7, -00.9), Episode 00008, setp 084, Reward 34.0 , Distance 008.2, Reach Goal
+2019-07-24 19:12:07,633 - INFO - Env 04, Goal (000.7, 001.6), Episode 00005, setp 152, Reward 18.2 , Distance 008.5, Time out
+2019-07-24 19:12:09,206 - INFO - Env 14, Goal (005.3, 001.8), Episode 00006, setp 046, Reward -12.2, Distance 009.4, Crashed
+2019-07-24 19:12:09,816 - INFO - Env 20, Goal (-08.7, -00.3), Episode 00007, setp 035, Reward -10.5, Distance 009.4, Crashed
+2019-07-24 19:12:10,435 - INFO - Env 03, Goal (001.6, 004.7), Episode 00006, setp 117, Reward 34.8 , Distance 008.5, Reach Goal
+2019-07-24 19:12:10,687 - INFO - Env 09, Goal (-00.2, 004.0), Episode 00008, setp 109, Reward 36.1 , Distance 008.9, Reach Goal
+2019-07-24 19:12:10,688 - INFO - Env 16, Goal (-03.5, 002.1), Episode 00008, setp 130, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:12:11,508 - INFO - Env 08, Goal (-06.0, 003.9), Episode 00009, setp 125, Reward 6.3  , Distance 009.6, Crashed
+2019-07-24 19:12:12,309 - INFO - Env 07, Goal (001.8, 005.3), Episode 00007, setp 106, Reward 36.1 , Distance 008.9, Reach Goal
+2019-07-24 19:12:12,629 - INFO - Env 15, Goal (006.9, 001.0), Episode 00006, setp 106, Reward 37.9 , Distance 009.8, Reach Goal
+2019-07-24 19:12:13,005 - INFO - Env 19, Goal (005.7, 003.0), Episode 00006, setp 121, Reward 38.0 , Distance 009.7, Reach Goal
+2019-07-24 19:12:13,523 - INFO - Env 05, Goal (-05.6, -06.0), Episode 00006, setp 093, Reward 37.6 , Distance 009.6, Reach Goal
+2019-07-24 19:12:14,017 - INFO - Env 13, Goal (-03.3, 007.7), Episode 00008, setp 093, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 19:12:14,438 - INFO - Env 10, Goal (006.2, 000.0), Episode 00007, setp 102, Reward 37.5 , Distance 009.6, Reach Goal
+2019-07-24 19:12:14,741 - INFO - Env 06, Goal (000.2, 002.8), Episode 00006, setp 059, Reward -2.7 , Distance 009.0, Crashed
+2019-07-24 19:12:15,012 - INFO - Env 20, Goal (003.4, -03.3), Episode 00008, setp 028, Reward -12.8, Distance 009.6, Crashed
+2019-07-24 19:12:15,013 - INFO - Env 06, Goal (004.3, -02.2), Episode 00007, setp 002, Reward -15.0, Distance 008.5, Crashed
+2019-07-24 19:12:15,900 - INFO - Env 22, Goal (-02.5, 002.5), Episode 00006, setp 086, Reward 3.5  , Distance 008.8, Crashed
+2019-07-24 19:12:16,964 - INFO - Env 12, Goal (-01.3, 003.9), Episode 00007, setp 109, Reward 34.7 , Distance 008.5, Reach Goal
+2019-07-24 19:12:17,448 - INFO - Env 18, Goal (005.2, 003.0), Episode 00007, setp 113, Reward 37.0 , Distance 009.3, Reach Goal
+2019-07-24 19:12:17,786 - INFO - Env 07, Goal (-03.0, -01.0), Episode 00008, setp 030, Reward -12.3, Distance 009.8, Crashed
+2019-07-24 19:12:17,786 - INFO - Env 04, Goal (005.4, 006.2), Episode 00006, setp 063, Reward -1.7 , Distance 009.3, Crashed
+2019-07-24 19:12:18,972 - INFO - Env 23, Goal (-05.2, 006.2), Episode 00007, setp 087, Reward 36.9 , Distance 009.3, Reach Goal
+2019-07-24 19:12:19,352 - INFO - Env 01, Goal (-08.2, 000.1), Episode 00007, setp 099, Reward 33.9 , Distance 008.0, Reach Goal
+2019-07-24 19:12:19,741 - INFO - Env 03, Goal (003.1, -00.8), Episode 00007, setp 054, Reward -7.2 , Distance 008.7, Crashed
+2019-07-24 19:12:20,020 - INFO - Env 19, Goal (001.1, -03.7), Episode 00007, setp 040, Reward -8.8 , Distance 008.7, Crashed
+2019-07-24 19:12:20,021 - INFO - Env 03, Goal (-05.2, 003.2), Episode 00008, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 19:12:20,324 - INFO - Env 11, Goal (002.6, 003.7), Episode 00010, setp 133, Reward 37.5 , Distance 009.5, Reach Goal
+2019-07-24 19:12:20,783 - INFO - Env 17, Goal (004.3, 004.9), Episode 00009, setp 152, Reward 20.8 , Distance 009.4, Time out
+2019-07-24 19:12:21,232 - INFO - Env 19, Goal (002.4, -00.7), Episode 00008, setp 006, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 19:12:21,233 - INFO - Env 17, Goal (-04.3, 005.7), Episode 00010, setp 002, Reward -15.0, Distance 009.6, Crashed
+2019-07-24 19:12:22,902 - INFO - Env 21, Goal (-04.8, -02.9), Episode 00007, setp 113, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:12:23,648 - INFO - Env 00, Goal (002.0, 004.5), Episode 00009, setp 107, Reward 38.0 , Distance 009.7, Reach Goal
+2019-07-24 19:12:23,963 - INFO - Env 12, Goal (-01.8, -07.3), Episode 00008, setp 036, Reward -5.0 , Distance 008.3, Crashed
+2019-07-24 19:12:23,965 - INFO - Env 00, Goal (-08.7, -01.5), Episode 00010, setp 002, Reward -15.0, Distance 008.9, Crashed
+2019-07-24 19:12:25,147 - INFO - Env 02, Goal (000.1, -07.7), Episode 00006, setp 118, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 19:12:25,458 - INFO - Env 12, Goal (004.6, -03.9), Episode 00009, setp 012, Reward -14.7, Distance 009.6, Crashed
+2019-07-24 19:12:25,459 - INFO - Env 02, Goal (-04.5, 007.3), Episode 00007, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 19:12:25,773 - INFO - Env 22, Goal (005.3, 004.8), Episode 00007, setp 055, Reward -2.3 , Distance 008.4, Crashed
+2019-07-24 19:12:25,774 - INFO - Env 12, Goal (002.3, -06.4), Episode 00010, setp 002, Reward -15.0, Distance 008.7, Crashed
+2019-07-24 19:12:25,774 - INFO - Env 14, Goal (002.6, -03.6), Episode 00007, setp 092, Reward 3.9  , Distance 008.7, Crashed
+2019-07-24 19:12:25,774 - INFO - Env 02, Goal (-01.8, 005.6), Episode 00008, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 19:12:26,549 - INFO - Env 16, Goal (-06.5, 005.7), Episode 00009, setp 089, Reward 34.8 , Distance 008.5, Reach Goal
+2019-07-24 19:12:26,953 - INFO - Env 09, Goal (-01.7, 001.1), Episode 00009, setp 091, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:12:27,991 - INFO - Env 08, Goal (-03.7, 005.7), Episode 00010, setp 095, Reward 37.8 , Distance 009.7, Reach Goal
+2019-07-24 19:12:28,392 - INFO - Env 22, Goal (001.2, -03.4), Episode 00008, setp 019, Reward -12.2, Distance 009.4, Crashed
+2019-07-24 19:12:28,911 - INFO - Env 13, Goal (006.1, 000.9), Episode 00009, setp 085, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:12:30,852 - INFO - Env 15, Goal (001.8, 008.8), Episode 00007, setp 109, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 19:12:31,535 - INFO - Env 10, Goal (-02.8, -06.8), Episode 00008, setp 105, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 19:12:32,111 - INFO - Env 07, Goal (-04.9, 001.0), Episode 00009, setp 090, Reward 36.4 , Distance 009.1, Reach Goal
+2019-07-24 19:12:32,467 - INFO - Env 09, Goal (-07.2, 000.9), Episode 00010, setp 041, Reward -9.4 , Distance 009.9, Crashed
+2019-07-24 19:12:32,467 - INFO - Env 20, Goal (002.0, -03.8), Episode 00009, setp 108, Reward 36.9 , Distance 009.4, Reach Goal
+2019-07-24 19:12:32,876 - INFO - Env 09, Goal (001.4, -04.6), Episode 00011, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 19:12:32,876 - INFO - Env 13, Goal (004.1, 000.3), Episode 00010, setp 029, Reward -11.9, Distance 008.5, Crashed
+2019-07-24 19:12:33,108 - INFO - Env 05, Goal (-00.2, -02.8), Episode 00007, setp 117, Reward 36.3 , Distance 009.0, Reach Goal
+2019-07-24 19:12:33,438 - INFO - Env 06, Goal (-00.8, -02.6), Episode 00008, setp 111, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:12:34,487 - INFO - Env 01, Goal (-05.8, 002.7), Episode 00008, setp 093, Reward 36.0 , Distance 008.9, Reach Goal
+2019-07-24 19:12:34,488 - INFO - Env 04, Goal (003.8, -00.8), Episode 00007, setp 103, Reward 34.0 , Distance 008.1, Reach Goal
+2019-07-24 19:12:35,928 - INFO - Env 03, Goal (-03.4, -07.0), Episode 00009, setp 102, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 19:12:36,263 - INFO - Env 07, Goal (-06.0, -05.6), Episode 00010, setp 027, Reward -11.3, Distance 008.2, Crashed
+2019-07-24 19:12:36,264 - INFO - Env 23, Goal (-03.7, 005.4), Episode 00008, setp 107, Reward 37.8 , Distance 009.7, Reach Goal
+2019-07-24 19:12:36,264 - INFO - Env 03, Goal (-06.5, 004.3), Episode 00010, setp 002, Reward -15.0, Distance 009.8, Crashed
+2019-07-24 19:12:36,633 - INFO - Env 21, Goal (-05.9, -04.4), Episode 00008, setp 091, Reward 4.2  , Distance 008.7, Crashed
+2019-07-24 19:12:36,634 - INFO - Env 03, Goal (-04.5, 005.1), Episode 00011, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 19:12:37,027 - INFO - Env 00, Goal (005.7, -06.1), Episode 00011, setp 087, Reward 35.3 , Distance 008.8, Reach Goal
+2019-07-24 19:12:37,499 - INFO - Env 14, Goal (001.3, 007.6), Episode 00008, setp 078, Reward -5.5 , Distance 009.4, Crashed
+2019-07-24 19:12:37,500 - INFO - Env 08, Goal (002.7, -01.2), Episode 00011, setp 062, Reward -4.1 , Distance 008.3, Crashed
+2019-07-24 19:12:37,500 - INFO - Env 17, Goal (-03.7, 006.3), Episode 00011, setp 103, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:12:37,888 - INFO - Env 19, Goal (-06.2, 000.5), Episode 00009, setp 104, Reward 37.6 , Distance 009.7, Reach Goal
+2019-07-24 19:12:37,888 - INFO - Env 11, Goal (-05.7, 004.1), Episode 00011, setp 108, Reward 4.6  , Distance 008.9, Crashed
+2019-07-24 19:12:37,889 - INFO - Env 17, Goal (002.9, 004.3), Episode 00012, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 19:12:38,509 - INFO - Env 02, Goal (-03.5, -01.7), Episode 00009, setp 082, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:12:38,855 - INFO - Env 05, Goal (-02.2, 003.5), Episode 00008, setp 034, Reward -14.5, Distance 009.5, Crashed
+2019-07-24 19:12:39,614 - INFO - Env 23, Goal (002.2, 000.4), Episode 00009, setp 017, Reward -11.1, Distance 009.9, Crashed
+2019-07-24 19:12:40,890 - INFO - Env 18, Goal (000.8, -06.4), Episode 00008, setp 143, Reward 37.7 , Distance 009.6, Reach Goal
+2019-07-24 19:12:41,617 - INFO - Env 12, Goal (-02.9, 001.0), Episode 00011, setp 104, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 19:12:41,930 - INFO - Env 23, Goal (002.0, -00.1), Episode 00010, setp 017, Reward -14.6, Distance 008.8, Crashed
+2019-07-24 19:12:42,408 - INFO - Env 16, Goal (-01.6, -08.8), Episode 00010, setp 102, Reward 34.4 , Distance 008.3, Reach Goal
+2019-07-24 19:12:43,699 - INFO - Env 15, Goal (-07.0, -02.7), Episode 00008, setp 074, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 19:12:45,841 - INFO - Env 09, Goal (003.1, 008.2), Episode 00012, setp 082, Reward -2.5 , Distance 009.0, Crashed
+2019-07-24 19:12:47,637 - INFO - Env 04, Goal (004.9, 007.4), Episode 00008, setp 087, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 19:12:47,655 - INFO - Env 00, Goal (-05.2, -01.0), Episode 00012, setp 072, Reward -3.3 , Distance 008.5, Crashed
+2019-07-24 19:12:48,021 - INFO - Env 22, Goal (-00.9, -03.3), Episode 00009, setp 130, Reward 35.3 , Distance 008.7, Reach Goal
+2019-07-24 19:12:48,912 - INFO - Env 10, Goal (000.8, -05.8), Episode 00009, setp 112, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 19:12:49,248 - INFO - Env 20, Goal (002.5, 006.9), Episode 00010, setp 108, Reward 38.3 , Distance 009.9, Reach Goal
+2019-07-24 19:12:49,732 - INFO - Env 10, Goal (003.0, 002.1), Episode 00010, setp 004, Reward -14.9, Distance 008.4, Crashed
+2019-07-24 19:12:49,733 - INFO - Env 00, Goal (-04.3, -07.5), Episode 00013, setp 012, Reward -13.5, Distance 008.3, Crashed
+2019-07-24 19:12:50,052 - INFO - Env 00, Goal (-01.3, 003.0), Episode 00014, setp 002, Reward -15.0, Distance 009.0, Crashed
+2019-07-24 19:12:50,292 - INFO - Env 17, Goal (000.8, 003.3), Episode 00013, setp 081, Reward 1.6  , Distance 008.3, Crashed
+2019-07-24 19:12:50,293 - INFO - Env 00, Goal (-02.0, -06.2), Episode 00015, setp 002, Reward -15.0, Distance 008.5, Crashed
+2019-07-24 19:12:50,701 - INFO - Env 11, Goal (-03.4, -00.1), Episode 00012, setp 082, Reward 34.3 , Distance 008.3, Reach Goal
+2019-07-24 19:12:51,022 - INFO - Env 11, Goal (008.1, 003.7), Episode 00013, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 19:12:51,022 - INFO - Env 06, Goal (-04.6, -00.9), Episode 00009, setp 111, Reward 4.3  , Distance 009.9, Crashed
+2019-07-24 19:12:51,023 - INFO - Env 12, Goal (-00.9, 000.3), Episode 00012, setp 058, Reward -6.4 , Distance 008.4, Crashed
+2019-07-24 19:12:51,023 - INFO - Env 14, Goal (-05.9, 006.2), Episode 00009, setp 084, Reward 1.1  , Distance 009.9, Crashed
+2019-07-24 19:12:51,023 - INFO - Env 00, Goal (-03.3, -04.3), Episode 00016, setp 003, Reward -14.6, Distance 009.3, Crashed
+2019-07-24 19:12:52,729 - INFO - Env 13, Goal (-02.6, 005.9), Episode 00011, setp 127, Reward 36.9 , Distance 009.3, Reach Goal
+2019-07-24 19:12:52,729 - INFO - Env 19, Goal (-00.0, -04.2), Episode 00010, setp 097, Reward 35.5 , Distance 008.7, Reach Goal
+2019-07-24 19:12:53,021 - INFO - Env 22, Goal (-02.4, -08.2), Episode 00010, setp 029, Reward -14.9, Distance 009.3, Crashed
+2019-07-24 19:12:53,025 - INFO - Env 19, Goal (003.5, 003.6), Episode 00011, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 19:12:53,443 - INFO - Env 03, Goal (-01.4, -05.0), Episode 00012, setp 104, Reward 38.6 , Distance 009.9, Reach Goal
+2019-07-24 19:12:53,722 - INFO - Env 08, Goal (002.3, -02.7), Episode 00012, setp 101, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 19:12:54,516 - INFO - Env 02, Goal (002.6, 000.7), Episode 00010, setp 103, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 19:12:54,815 - INFO - Env 07, Goal (002.5, -01.3), Episode 00011, setp 113, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 19:12:55,211 - INFO - Env 06, Goal (-00.4, -01.4), Episode 00010, setp 027, Reward -13.8, Distance 008.4, Crashed
+2019-07-24 19:12:55,538 - INFO - Env 22, Goal (004.2, 002.6), Episode 00011, setp 013, Reward -14.8, Distance 008.4, Crashed
+2019-07-24 19:12:55,539 - INFO - Env 18, Goal (001.5, -04.8), Episode 00009, setp 090, Reward 2.1  , Distance 009.9, Crashed
+2019-07-24 19:12:56,043 - INFO - Env 01, Goal (007.3, -00.4), Episode 00009, setp 131, Reward 34.0 , Distance 008.1, Reach Goal
+2019-07-24 19:12:56,729 - INFO - Env 17, Goal (-00.2, -07.9), Episode 00014, setp 037, Reward -15.2, Distance 008.9, Crashed
+2019-07-24 19:12:57,020 - INFO - Env 16, Goal (000.2, 000.8), Episode 00011, setp 090, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:12:58,108 - INFO - Env 22, Goal (-06.9, 005.7), Episode 00012, setp 017, Reward -15.1, Distance 008.7, Crashed
+2019-07-24 19:12:58,109 - INFO - Env 16, Goal (-02.7, -00.9), Episode 00012, setp 009, Reward -15.2, Distance 009.8, Crashed
+2019-07-24 19:12:58,819 - INFO - Env 23, Goal (001.1, 006.7), Episode 00011, setp 104, Reward 35.2 , Distance 008.6, Reach Goal
+2019-07-24 19:13:00,317 - INFO - Env 09, Goal (005.9, -03.2), Episode 00013, setp 091, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 19:13:00,620 - INFO - Env 15, Goal (001.9, -01.5), Episode 00009, setp 111, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:13:00,620 - INFO - Env 09, Goal (-00.0, 007.0), Episode 00014, setp 002, Reward -15.0, Distance 008.4, Crashed
+2019-07-24 19:13:00,621 - INFO - Env 16, Goal (000.2, 007.7), Episode 00013, setp 018, Reward -15.2, Distance 008.6, Crashed
+2019-07-24 19:13:01,012 - INFO - Env 21, Goal (006.2, -05.4), Episode 00009, setp 149, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 19:13:01,594 - INFO - Env 19, Goal (-02.4, -03.3), Episode 00012, setp 050, Reward -8.7 , Distance 009.4, Crashed
+2019-07-24 19:13:02,005 - INFO - Env 23, Goal (008.0, 000.6), Episode 00012, setp 019, Reward -14.1, Distance 009.4, Crashed
+2019-07-24 19:13:02,005 - INFO - Env 19, Goal (-07.9, 000.0), Episode 00013, setp 002, Reward -15.0, Distance 009.3, Crashed
+2019-07-24 19:13:02,986 - INFO - Env 16, Goal (-04.5, 003.4), Episode 00014, setp 013, Reward -15.3, Distance 008.1, Crashed
+2019-07-24 19:13:03,359 - INFO - Env 05, Goal (-04.1, 004.2), Episode 00009, setp 152, Reward 19.2 , Distance 008.2, Time out
+2019-07-24 19:13:05,623 - INFO - Env 20, Goal (001.8, 007.7), Episode 00011, setp 094, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 19:13:06,311 - INFO - Env 01, Goal (004.3, -02.9), Episode 00010, setp 063, Reward -4.8 , Distance 009.1, Crashed
+2019-07-24 19:13:06,326 - INFO - Env 00, Goal (-05.2, -06.3), Episode 00017, setp 092, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:13:06,625 - INFO - Env 06, Goal (-05.2, 002.5), Episode 00011, setp 067, Reward 0.8  , Distance 008.2, Crashed
+2019-07-24 19:13:10,122 - INFO - Env 04, Goal (001.1, 001.9), Episode 00009, setp 141, Reward 37.2 , Distance 009.4, Reach Goal
+2019-07-24 19:13:10,419 - INFO - Env 04, Goal (-03.7, 005.8), Episode 00010, setp 002, Reward -15.0, Distance 008.3, Crashed
+2019-07-24 19:13:10,419 - INFO - Env 14, Goal (-00.9, 000.1), Episode 00010, setp 127, Reward 5.2  , Distance 009.4, Crashed
+2019-07-24 19:13:10,986 - INFO - Env 03, Goal (005.8, -03.0), Episode 00013, setp 114, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 19:13:11,626 - INFO - Env 22, Goal (003.0, 001.5), Episode 00013, setp 091, Reward -0.5 , Distance 009.7, Crashed
+2019-07-24 19:13:12,122 - INFO - Env 08, Goal (004.5, 004.9), Episode 00013, setp 119, Reward 33.9 , Distance 008.1, Reach Goal
+2019-07-24 19:13:12,575 - INFO - Env 13, Goal (004.2, -04.4), Episode 00012, setp 125, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 19:13:13,225 - INFO - Env 18, Goal (-03.8, 003.2), Episode 00010, setp 116, Reward 38.2 , Distance 009.8, Reach Goal
+2019-07-24 19:13:13,226 - INFO - Env 07, Goal (000.7, 005.3), Episode 00012, setp 119, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:13:13,651 - INFO - Env 09, Goal (001.1, -08.3), Episode 00015, setp 084, Reward 1.4  , Distance 010.0, Crashed
+2019-07-24 19:13:13,651 - INFO - Env 07, Goal (-02.5, -00.1), Episode 00013, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 19:13:13,969 - INFO - Env 12, Goal (003.3, 004.7), Episode 00013, setp 145, Reward 37.7 , Distance 009.7, Reach Goal
+2019-07-24 19:13:14,220 - INFO - Env 10, Goal (003.4, 006.1), Episode 00011, setp 150, Reward 33.7 , Distance 008.0, Reach Goal
+2019-07-24 19:13:14,529 - INFO - Env 13, Goal (-07.7, -04.2), Episode 00013, setp 009, Reward -13.0, Distance 009.8, Crashed
+2019-07-24 19:13:14,845 - INFO - Env 17, Goal (-00.1, -04.7), Episode 00015, setp 114, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 19:13:15,435 - INFO - Env 11, Goal (-00.5, 001.0), Episode 00014, setp 152, Reward 18.3 , Distance 008.5, Time out
+2019-07-24 19:13:16,348 - INFO - Env 21, Goal (-02.9, 007.3), Episode 00010, setp 098, Reward 38.7 , Distance 010.0, Reach Goal
+2019-07-24 19:13:16,738 - INFO - Env 09, Goal (000.7, -01.4), Episode 00016, setp 017, Reward -10.3, Distance 009.2, Crashed
+2019-07-24 19:13:16,739 - INFO - Env 21, Goal (003.7, -00.4), Episode 00011, setp 002, Reward -15.0, Distance 008.3, Crashed
+2019-07-24 19:13:17,404 - INFO - Env 19, Goal (001.9, -07.9), Episode 00014, setp 100, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:13:17,802 - INFO - Env 19, Goal (-04.8, 000.7), Episode 00015, setp 002, Reward -15.0, Distance 008.0, Crashed
+2019-07-24 19:13:17,802 - INFO - Env 18, Goal (-08.3, 002.3), Episode 00011, setp 024, Reward -10.9, Distance 009.9, Crashed
+2019-07-24 19:13:18,727 - INFO - Env 01, Goal (000.2, 000.5), Episode 00011, setp 081, Reward 1.2  , Distance 008.3, Crashed
+2019-07-24 19:13:18,727 - INFO - Env 16, Goal (007.9, 003.2), Episode 00015, setp 100, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:13:19,129 - INFO - Env 02, Goal (005.3, 005.0), Episode 00011, setp 150, Reward 3.7  , Distance 008.4, Crashed
+2019-07-24 19:13:19,130 - INFO - Env 16, Goal (005.8, -04.7), Episode 00016, setp 002, Reward -15.0, Distance 008.8, Crashed
+2019-07-24 19:13:19,703 - INFO - Env 20, Goal (-05.9, -05.8), Episode 00012, setp 090, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:13:20,255 - INFO - Env 20, Goal (003.9, 003.2), Episode 00013, setp 003, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 19:13:21,609 - INFO - Env 05, Goal (-06.8, 005.9), Episode 00010, setp 117, Reward 36.0 , Distance 008.9, Reach Goal
+2019-07-24 19:13:22,166 - INFO - Env 15, Goal (000.6, -01.5), Episode 00010, setp 133, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 19:13:22,166 - INFO - Env 22, Goal (-00.7, -00.6), Episode 00014, setp 060, Reward -1.2 , Distance 009.0, Crashed
+2019-07-24 19:13:22,535 - INFO - Env 15, Goal (-07.4, 002.7), Episode 00011, setp 002, Reward -15.0, Distance 009.0, Crashed
+2019-07-24 19:13:22,535 - INFO - Env 16, Goal (-03.3, 000.9), Episode 00017, setp 022, Reward -10.5, Distance 008.6, Crashed
+2019-07-24 19:13:23,112 - INFO - Env 23, Goal (-08.4, 001.0), Episode 00013, setp 132, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 19:13:25,774 - INFO - Env 00, Goal (005.2, 006.1), Episode 00018, setp 123, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 19:13:26,613 - INFO - Env 15, Goal (-04.9, -06.8), Episode 00012, setp 028, Reward -11.9, Distance 008.3, Crashed
+2019-07-24 19:13:27,307 - INFO - Env 11, Goal (-06.6, 005.9), Episode 00015, setp 075, Reward 34.2 , Distance 008.3, Reach Goal
+2019-07-24 19:13:28,504 - INFO - Env 06, Goal (-04.2, 006.3), Episode 00012, setp 144, Reward 35.0 , Distance 008.6, Reach Goal
+2019-07-24 19:13:29,163 - INFO - Env 10, Goal (-02.1, 004.9), Episode 00012, setp 095, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 19:13:29,437 - INFO - Env 10, Goal (006.6, 000.9), Episode 00013, setp 002, Reward -15.0, Distance 008.5, Crashed
+2019-07-24 19:13:29,437 - INFO - Env 12, Goal (-06.6, 002.6), Episode 00014, setp 097, Reward 38.6 , Distance 010.0, Reach Goal
+2019-07-24 19:13:29,437 - INFO - Env 08, Goal (000.2, 006.8), Episode 00014, setp 106, Reward 33.4 , Distance 008.0, Reach Goal
+2019-07-24 19:13:29,437 - INFO - Env 22, Goal (-06.7, 005.8), Episode 00015, setp 049, Reward -8.9 , Distance 008.6, Crashed
+2019-07-24 19:13:29,437 - INFO - Env 04, Goal (-06.9, 000.9), Episode 00011, setp 115, Reward 36.1 , Distance 008.9, Reach Goal
+2019-07-24 19:13:29,846 - INFO - Env 13, Goal (006.1, -04.9), Episode 00014, setp 096, Reward 36.0 , Distance 009.0, Reach Goal
+2019-07-24 19:13:29,846 - INFO - Env 07, Goal (001.4, 008.8), Episode 00014, setp 099, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:13:30,121 - INFO - Env 02, Goal (002.7, 006.3), Episode 00012, setp 071, Reward -0.3 , Distance 009.5, Crashed
+2019-07-24 19:13:30,121 - INFO - Env 14, Goal (001.0, 002.7), Episode 00011, setp 117, Reward 36.0 , Distance 009.1, Reach Goal
+2019-07-24 19:13:30,121 - INFO - Env 07, Goal (004.2, -06.2), Episode 00015, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 19:13:30,920 - INFO - Env 01, Goal (-04.7, -06.7), Episode 00012, setp 078, Reward 33.8 , Distance 008.0, Reach Goal
+2019-07-24 19:13:31,801 - INFO - Env 21, Goal (000.7, 007.9), Episode 00012, setp 097, Reward 36.2 , Distance 009.0, Reach Goal
+2019-07-24 19:13:32,245 - INFO - Env 17, Goal (-03.7, 001.3), Episode 00016, setp 110, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:13:32,839 - INFO - Env 19, Goal (005.4, 002.3), Episode 00016, setp 096, Reward 34.5 , Distance 008.4, Reach Goal
+2019-07-24 19:13:33,189 - INFO - Env 03, Goal (001.5, 006.1), Episode 00014, setp 134, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:13:33,908 - INFO - Env 09, Goal (-08.5, 001.5), Episode 00017, setp 109, Reward 36.5 , Distance 009.1, Reach Goal
+2019-07-24 19:13:35,695 - INFO - Env 18, Goal (-00.8, -02.6), Episode 00012, setp 118, Reward 5.1  , Distance 008.7, Crashed
+2019-07-24 19:13:36,104 - INFO - Env 20, Goal (-00.4, -01.4), Episode 00014, setp 106, Reward 1.8  , Distance 008.3, Crashed
+2019-07-24 19:13:36,535 - INFO - Env 05, Goal (002.3, 008.2), Episode 00011, setp 098, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 19:13:38,398 - INFO - Env 02, Goal (002.5, -04.3), Episode 00013, setp 061, Reward -5.0 , Distance 009.6, Crashed
+2019-07-24 19:13:38,690 - INFO - Env 16, Goal (007.8, 004.1), Episode 00018, setp 111, Reward 34.3 , Distance 008.3, Reach Goal
+2019-07-24 19:13:39,204 - INFO - Env 23, Goal (-05.0, 003.7), Episode 00014, setp 112, Reward 37.9 , Distance 009.7, Reach Goal
+2019-07-24 19:13:39,657 - INFO - Env 03, Goal (000.4, -01.6), Episode 00015, setp 047, Reward -8.7 , Distance 009.9, Crashed
+2019-07-24 19:13:39,658 - INFO - Env 10, Goal (-01.7, 002.5), Episode 00014, setp 069, Reward -0.7 , Distance 008.6, Crashed
+2019-07-24 19:13:39,658 - INFO - Env 00, Goal (008.7, 000.7), Episode 00019, setp 096, Reward 35.9 , Distance 008.9, Reach Goal
+2019-07-24 19:13:39,937 - INFO - Env 23, Goal (000.8, 001.5), Episode 00015, setp 003, Reward -14.7, Distance 008.3, Crashed
+2019-07-24 19:13:42,047 - INFO - Env 07, Goal (005.9, 000.1), Episode 00016, setp 086, Reward 34.6 , Distance 008.4, Reach Goal
+2019-07-24 19:13:44,030 - INFO - Env 15, Goal (-06.8, -00.4), Episode 00013, setp 119, Reward 38.0 , Distance 009.7, Reach Goal
+2019-07-24 19:13:44,432 - INFO - Env 06, Goal (-01.3, 006.8), Episode 00013, setp 105, Reward 35.6 , Distance 008.8, Reach Goal
+2019-07-24 19:13:44,433 - INFO - Env 13, Goal (-02.0, 004.3), Episode 00015, setp 099, Reward -2.1 , Distance 009.6, Crashed
+2019-07-24 19:13:44,434 - INFO - Env 15, Goal (005.2, -07.3), Episode 00014, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 19:13:44,797 - INFO - Env 14, Goal (-01.0, -05.8), Episode 00012, setp 100, Reward 6.5  , Distance 009.3, Crashed
+2019-07-24 19:13:45,403 - INFO - Env 19, Goal (-00.2, -02.9), Episode 00017, setp 085, Reward -6.8 , Distance 008.1, Crashed
+2019-07-24 19:13:47,810 - INFO - Env 11, Goal (-00.1, -01.6), Episode 00016, setp 141, Reward 36.3 , Distance 009.0, Reach Goal
+2019-07-24 19:13:48,280 - INFO - Env 12, Goal (007.8, -02.0), Episode 00015, setp 127, Reward -1.1 , Distance 009.4, Crashed
+2019-07-24 19:13:48,775 - INFO - Env 01, Goal (-01.5, 001.2), Episode 00013, setp 122, Reward 34.1 , Distance 008.2, Reach Goal
+2019-07-24 19:13:49,234 - INFO - Env 21, Goal (001.6, 004.0), Episode 00013, setp 118, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:13:49,647 - INFO - Env 14, Goal (-01.3, -07.3), Episode 00013, setp 033, Reward -12.1, Distance 008.6, Crashed
+2019-07-24 19:13:49,648 - INFO - Env 21, Goal (000.7, 004.3), Episode 00014, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 19:13:50,075 - INFO - Env 04, Goal (005.4, 002.6), Episode 00012, setp 135, Reward 34.2 , Distance 008.2, Reach Goal
+2019-07-24 19:13:50,326 - INFO - Env 22, Goal (003.5, -01.1), Episode 00016, setp 136, Reward 36.9 , Distance 009.3, Reach Goal
+2019-07-24 19:13:51,126 - INFO - Env 08, Goal (001.0, 002.1), Episode 00015, setp 141, Reward 38.0 , Distance 009.8, Reach Goal
+2019-07-24 19:13:51,440 - INFO - Env 05, Goal (-05.8, -05.0), Episode 00012, setp 096, Reward 37.2 , Distance 009.5, Reach Goal
+2019-07-24 19:13:51,771 - INFO - Env 09, Goal (004.8, 003.2), Episode 00018, setp 116, Reward 2.7  , Distance 010.0, Crashed
+2019-07-24 19:13:51,771 - INFO - Env 05, Goal (-00.5, -06.1), Episode 00013, setp 002, Reward -15.0, Distance 009.9, Crashed
+2019-07-24 19:13:52,962 - INFO - Env 20, Goal (-06.3, 001.5), Episode 00015, setp 110, Reward 37.7 , Distance 009.6, Reach Goal
+2019-07-24 19:13:53,527 - INFO - Env 13, Goal (-00.6, 000.9), Episode 00016, setp 057, Reward -4.3 , Distance 009.1, Crashed
+2019-07-24 19:13:53,850 - INFO - Env 00, Goal (-03.2, 005.8), Episode 00020, setp 089, Reward 37.3 , Distance 009.5, Reach Goal
+2019-07-24 19:13:54,444 - INFO - Env 02, Goal (-00.5, -07.0), Episode 00014, setp 099, Reward 37.8 , Distance 009.7, Reach Goal
+2019-07-24 19:13:55,369 - INFO - Env 17, Goal (001.1, -03.2), Episode 00017, setp 152, Reward 18.2 , Distance 009.9, Time out
+2019-07-24 19:13:55,369 - INFO - Env 18, Goal (001.2, 003.4), Episode 00013, setp 126, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:13:56,406 - INFO - Env 07, Goal (005.0, 001.9), Episode 00017, setp 089, Reward 35.4 , Distance 008.7, Reach Goal
+2019-07-24 19:13:56,770 - INFO - Env 03, Goal (-00.3, 000.4), Episode 00016, setp 109, Reward 34.0 , Distance 008.1, Reach Goal
+2019-07-24 19:13:57,033 - INFO - Env 16, Goal (005.4, -04.4), Episode 00019, setp 115, Reward 37.2 , Distance 009.4, Reach Goal
+2019-07-24 19:13:57,366 - INFO - Env 15, Goal (007.6, -00.4), Episode 00015, setp 080, Reward 34.9 , Distance 008.5, Reach Goal
+2019-07-24 19:13:57,631 - INFO - Env 00, Goal (001.2, -00.4), Episode 00021, setp 024, Reward -11.6, Distance 009.3, Crashed
+2019-07-24 19:13:57,911 - INFO - Env 01, Goal (000.8, 000.5), Episode 00014, setp 052, Reward -10.2, Distance 008.6, Crashed
+2019-07-24 19:13:57,911 - INFO - Env 00, Goal (002.6, 003.0), Episode 00022, setp 002, Reward -15.0, Distance 009.0, Crashed
+2019-07-24 19:13:58,239 - INFO - Env 23, Goal (005.4, 005.1), Episode 00016, setp 113, Reward 37.0 , Distance 009.4, Reach Goal
+2019-07-24 19:13:58,240 - INFO - Env 00, Goal (002.3, 005.2), Episode 00023, setp 002, Reward -15.0, Distance 009.3, Crashed
+2019-07-24 19:13:58,647 - INFO - Env 04, Goal (002.6, 002.6), Episode 00013, setp 049, Reward -11.2, Distance 009.3, Crashed
+2019-07-24 19:13:59,524 - INFO - Env 05, Goal (004.6, -07.6), Episode 00014, setp 048, Reward -6.6 , Distance 008.8, Crashed
+2019-07-24 19:14:01,032 - INFO - Env 12, Goal (-08.7, 001.7), Episode 00016, setp 077, Reward 34.0 , Distance 008.2, Reach Goal
+2019-07-24 19:14:02,580 - INFO - Env 19, Goal (007.8, -04.0), Episode 00018, setp 111, Reward 37.0 , Distance 009.3, Reach Goal
+2019-07-24 19:14:03,306 - INFO - Env 10, Goal (001.3, -07.2), Episode 00015, setp 152, Reward 38.2 , Distance 009.8, Time out
+2019-07-24 19:14:04,116 - INFO - Env 06, Goal (001.1, 003.7), Episode 00014, setp 122, Reward 35.7 , Distance 008.8, Reach Goal
+2019-07-24 19:14:04,954 - INFO - Env 03, Goal (-00.4, 001.9), Episode 00017, setp 051, Reward -10.1, Distance 009.6, Crashed
+2019-07-24 19:14:06,138 - INFO - Env 11, Goal (002.1, -06.7), Episode 00017, setp 112, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:14:06,593 - INFO - Env 21, Goal (001.5, 001.1), Episode 00015, setp 107, Reward 36.6 , Distance 009.2, Reach Goal
+2019-07-24 19:14:07,006 - INFO - Env 14, Goal (-01.5, 000.7), Episode 00014, setp 108, Reward 36.3 , Distance 009.1, Reach Goal
+2019-07-24 19:14:07,311 - INFO - Env 08, Goal (004.7, -01.6), Episode 00016, setp 102, Reward 34.6 , Distance 008.3, Reach Goal
+2019-07-24 19:14:07,753 - INFO - Env 12, Goal (-02.1, -04.5), Episode 00017, setp 042, Reward -8.6 , Distance 008.2, Crashed
+2019-07-24 19:14:07,753 - INFO - Env 20, Goal (006.9, -03.3), Episode 00016, setp 092, Reward 34.5 , Distance 008.3, Reach Goal
+2019-07-24 19:14:08,389 - INFO - Env 13, Goal (005.0, -00.6), Episode 00017, setp 093, Reward 35.0 , Distance 008.5, Reach Goal
+2019-07-24 19:14:08,725 - INFO - Env 12, Goal (005.0, -00.8), Episode 00018, setp 006, Reward -13.9, Distance 009.8, Crashed
+2019-07-24 19:14:08,725 - INFO - Env 13, Goal (007.2, 000.0), Episode 00018, setp 002, Reward -15.0, Distance 009.7, Crashed
+2019-07-24 19:14:09,003 - INFO - Env 15, Goal (-00.2, 002.9), Episode 00016, setp 072, Reward 0.5  , Distance 008.5, Crashed
+2019-07-24 19:14:09,004 - INFO - Env 12, Goal (002.4, -07.8), Episode 00019, setp 002, Reward -15.0, Distance 009.1, Crashed
+2019-07-24 19:14:09,413 - INFO - Env 09, Goal (-05.5, 001.0), Episode 00019, setp 109, Reward 38.1 , Distance 009.8, Reach Goal
+2019-07-24 19:14:09,844 - INFO - Env 02, Goal (004.5, 004.6), Episode 00015, setp 093, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:14:10,132 - INFO - Env 16, Goal (005.5, 006.0), Episode 00020, setp 077, Reward 34.8 , Distance 008.5, Reach Goal
+2019-07-24 19:14:10,838 - INFO - Env 07, Goal (000.9, -08.0), Episode 00018, setp 083, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:14:11,148 - INFO - Env 05, Goal (-02.2, 001.5), Episode 00015, setp 070, Reward 2.9  , Distance 009.8, Crashed
+2019-07-24 19:14:12,053 - INFO - Env 17, Goal (004.2, -07.8), Episode 00018, setp 099, Reward 35.8 , Distance 008.9, Reach Goal
+2019-07-24 19:14:13,709 - INFO - Env 18, Goal (004.1, -06.3), Episode 00014, setp 113, Reward 35.8 , Distance 008.9, Reach Goal
+2019-07-24 19:14:14,417 - INFO - Env 23, Goal (006.0, -06.0), Episode 00017, setp 103, Reward 37.1 , Distance 009.3, Reach Goal
+2019-07-24 19:14:15,025 - INFO - Env 22, Goal (-01.4, 006.8), Episode 00017, setp 152, Reward 21.3 , Distance 009.8, Time out
+2019-07-24 19:14:15,443 - INFO - Env 01, Goal (-02.0, 003.7), Episode 00015, setp 108, Reward 37.1 , Distance 009.4, Reach Goal
+2019-07-24 19:14:16,765 - INFO - Env 00, Goal (002.7, 000.2), Episode 00024, setp 118, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 19:14:17,679 - INFO - Env 14, Goal (-00.2, 001.1), Episode 00015, setp 066, Reward -3.7 , Distance 008.5, Crashed
+2019-07-24 19:14:18,484 - INFO - Env 04, Goal (-05.4, -01.1), Episode 00014, setp 130, Reward 38.4 , Distance 009.9, Reach Goal
+2019-07-24 19:14:19,429 - INFO - Env 06, Goal (007.4, -02.4), Episode 00015, setp 100, Reward 36.3 , Distance 009.0, Reach Goal
+2019-07-24 19:14:20,757 - INFO - Env 11, Goal (-02.4, -00.8), Episode 00018, setp 095, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:14:21,060 - INFO - Env 03, Goal (-02.1, -07.5), Episode 00018, setp 106, Reward 2.3  , Distance 008.6, Crashed
+2019-07-24 19:14:21,061 - INFO - Env 22, Goal (006.5, 004.1), Episode 00018, setp 046, Reward -8.9 , Distance 008.1, Crashed
+2019-07-24 19:14:21,061 - INFO - Env 11, Goal (006.6, -02.0), Episode 00019, setp 002, Reward -15.0, Distance 008.2, Crashed
+2019-07-24 19:14:21,527 - INFO - Env 10, Goal (-05.5, -04.7), Episode 00016, setp 115, Reward 37.7 , Distance 009.6, Reach Goal
+2019-07-24 19:14:21,821 - INFO - Env 10, Goal (003.3, -00.9), Episode 00017, setp 002, Reward -15.0, Distance 008.5, Crashed
+2019-07-24 19:14:21,822 - INFO - Env 08, Goal (-03.4, -07.8), Episode 00017, setp 094, Reward 3.6  , Distance 008.5, Crashed
+2019-07-24 19:14:22,230 - INFO - Env 02, Goal (004.5, 007.3), Episode 00016, setp 085, Reward 35.7 , Distance 008.8, Reach Goal
+2019-07-24 19:14:22,603 - INFO - Env 20, Goal (-00.1, -04.9), Episode 00017, setp 096, Reward 35.1 , Distance 008.5, Reach Goal
+2019-07-24 19:14:23,036 - INFO - Env 07, Goal (-06.5, -05.6), Episode 00019, setp 083, Reward 35.1 , Distance 008.7, Reach Goal
+2019-07-24 19:14:23,036 - INFO - Env 09, Goal (001.9, 008.4), Episode 00020, setp 090, Reward 35.5 , Distance 008.9, Reach Goal
+2019-07-24 19:14:23,363 - INFO - Env 22, Goal (-06.1, 002.9), Episode 00019, setp 010, Reward -14.3, Distance 008.1, Crashed
+2019-07-24 19:14:23,363 - INFO - Env 12, Goal (-03.3, 001.5), Episode 00020, setp 092, Reward 34.5 , Distance 008.5, Reach Goal
+2019-07-24 19:14:23,363 - INFO - Env 09, Goal (001.7, 005.9), Episode 00021, setp 002, Reward -15.0, Distance 008.9, Crashed
+2019-07-24 19:14:25,751 - INFO - Env 05, Goal (-02.4, -08.3), Episode 00016, setp 097, Reward 35.7 , Distance 008.9, Reach Goal
+2019-07-24 19:14:26,522 - INFO - Env 13, Goal (-00.8, -02.8), Episode 00019, setp 113, Reward 36.8 , Distance 009.3, Reach Goal
+2019-07-24 19:14:27,205 - INFO - Env 19, Goal (001.2, 000.7), Episode 00019, setp 152, Reward 18.0 , Distance 008.7, Time out
+2019-07-24 19:14:27,636 - INFO - Env 21, Goal (002.8, -02.7), Episode 00016, setp 128, Reward 5.4  , Distance 008.7, Crashed
+2019-07-24 19:14:27,637 - INFO - Env 19, Goal (-06.4, 000.4), Episode 00020, setp 002, Reward -15.0, Distance 009.2, Crashed
+2019-07-24 19:14:28,040 - INFO - Env 08, Goal (-00.8, 008.2), Episode 00018, setp 034, Reward -13.7, Distance 009.2, Crashed
+2019-07-24 19:14:28,441 - INFO - Env 14, Goal (-00.5, -03.8), Episode 00016, setp 065, Reward -2.6 , Distance 009.1, Crashed
+2019-07-24 19:15:07,246 - INFO - ####################################
+2019-07-24 19:15:07,246 - INFO - ############Loading Model###########
+2019-07-24 19:15:07,246 - INFO - ####################################
+2019-07-24 19:15:10,384 - INFO - Env 02, Goal (005.3, 002.1), Episode 00001, setp 025, Reward 35.1 , Distance 008.6, Reach Goal
+2019-07-24 19:15:11,818 - INFO - Env 14, Goal (-07.2, -02.2), Episode 00001, setp 038, Reward 36.4 , Distance 009.1, Reach Goal
+2019-07-24 19:15:12,758 - INFO - Env 15, Goal (003.5, 008.2), Episode 00001, setp 044, Reward -24.6, Distance 009.3, Crashed
+2019-07-24 19:15:13,018 - INFO - Env 06, Goal (-02.5, 005.6), Episode 00001, setp 045, Reward 35.5 , Distance 008.8, Reach Goal
+2019-07-24 19:15:13,842 - INFO - Env 11, Goal (-05.6, 000.0), Episode 00001, setp 051, Reward 37.6 , Distance 009.6, Reach Goal
+2019-07-24 19:20:08,836 - INFO - ####################################
+2019-07-24 19:20:08,836 - INFO - ############Loading Model###########
+2019-07-24 19:20:08,837 - INFO - ####################################
+2019-07-24 19:20:09,591 - INFO - Env 02, Goal (007.0, 004.3), Episode 00001, setp 002, Reward 15.0 , Distance 009.2, Reach Goal
+2019-07-24 19:20:10,935 - INFO - Env 17, Goal (-01.5, -06.2), Episode 00001, setp 013, Reward 34.7 , Distance 008.4, Reach Goal
+2019-07-24 19:20:14,782 - INFO - Env 20, Goal (-00.3, 004.6), Episode 00001, setp 048, Reward -12.8, Distance 009.4, Crashed
+2019-07-24 19:20:15,701 - INFO - Env 01, Goal (005.7, -02.4), Episode 00001, setp 055, Reward 38.5 , Distance 009.9, Reach Goal
+2019-07-24 19:20:16,060 - INFO - Env 19, Goal (001.3, -02.3), Episode 00001, setp 056, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 19:20:16,060 - INFO - Env 21, Goal (-07.0, 001.0), Episode 00001, setp 056, Reward -18.1, Distance 008.5, Crashed
+2019-07-24 19:20:16,415 - INFO - Env 07, Goal (-02.9, -04.4), Episode 00001, setp 057, Reward -13.5, Distance 008.4, Crashed
+2019-07-24 19:27:53,291 - INFO - ####################################
+2019-07-24 19:27:53,291 - INFO - ############Loading Model###########
+2019-07-24 19:27:53,291 - INFO - ####################################
+2019-07-24 19:27:57,088 - INFO - Env 12, Goal (-07.7, -01.6), Episode 00001, setp 032, Reward 36.1 , Distance 009.0, Reach Goal
+2019-07-24 19:27:57,683 - INFO - Env 16, Goal (005.3, 000.2), Episode 00001, setp 036, Reward -14.4, Distance 009.2, Crashed
+2019-07-24 19:27:58,160 - INFO - Env 14, Goal (-01.8, 003.7), Episode 00001, setp 039, Reward -7.2 , Distance 009.3, Crashed
+2019-07-24 19:27:59,480 - INFO - Env 19, Goal (001.7, -03.1), Episode 00001, setp 050, Reward 2.7  , Distance 008.2, Crashed
+2019-07-24 19:28:01,576 - INFO - Env 00, Goal (-04.2, -07.3), Episode 00001, setp 068, Reward -8.9 , Distance 008.1, Crashed
+2019-07-24 19:28:01,992 - INFO - Env 17, Goal (-06.4, 003.7), Episode 00001, setp 070, Reward -9.9 , Distance 009.7, Crashed
+2019-07-24 19:28:02,512 - INFO - Env 01, Goal (-02.0, -03.0), Episode 00001, setp 073, Reward -3.7 , Distance 009.2, Crashed
+2019-07-24 19:28:02,803 - INFO - Env 08, Goal (000.1, -02.7), Episode 00001, setp 074, Reward -1.4 , Distance 009.4, Crashed
+2019-07-24 19:28:03,213 - INFO - Env 23, Goal (005.0, 004.2), Episode 00001, setp 076, Reward 37.4 , Distance 009.5, Reach Goal
+2019-07-24 19:28:03,854 - INFO - Env 20, Goal (-01.0, 006.8), Episode 00001, setp 079, Reward -14.6, Distance 009.6, Crashed
+2019-07-24 19:28:04,255 - INFO - Env 02, Goal (003.3, -01.6), Episode 00001, setp 081, Reward 34.4 , Distance 008.3, Reach Goal
+2019-07-24 19:28:05,008 - INFO - Env 07, Goal (001.9, 002.7), Episode 00001, setp 087, Reward 36.7 , Distance 009.2, Reach Goal
+2019-07-24 19:28:05,743 - INFO - Env 11, Goal (-04.9, -06.0), Episode 00001, setp 092, Reward 36.2 , Distance 009.1, Reach Goal
+2019-07-24 19:28:06,736 - INFO - Env 22, Goal (-05.2, 006.2), Episode 00001, setp 099, Reward -14.9, Distance 008.3, Crashed
+2019-07-24 19:28:07,607 - INFO - Env 16, Goal (001.2, -08.8), Episode 00002, setp 070, Reward -7.6 , Distance 008.9, Crashed
+2019-07-24 19:28:09,235 - INFO - Env 15, Goal (005.0, 007.3), Episode 00001, setp 118, Reward -14.5, Distance 009.8, Crashed
+2019-07-24 19:28:09,954 - INFO - Env 03, Goal (003.1, -04.1), Episode 00001, setp 123, Reward 38.1 , Distance 009.7, Reach Goal
+2019-07-24 20:12:27,022 - INFO - rosport: 11517 robotIndex: 0
+2019-07-24 20:12:27,025 - INFO - rosport: 11516 robotIndex: 0
+2019-07-24 20:12:27,032 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:12:27,050 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:13:04,364 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:13:04,368 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:13:04,429 - INFO - rosport: 11517 robotIndex: 0
+2019-07-24 20:13:04,516 - INFO - rosport: 11516 robotIndex: 0
+2019-07-24 20:13:10,750 - INFO - ####################################
+2019-07-24 20:13:10,751 - INFO - ############Loading Model###########
+2019-07-24 20:13:10,751 - INFO - ####################################
+2019-07-24 20:13:33,960 - INFO - rosport: 11516 robotIndex: 0
+2019-07-24 20:13:33,965 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:13:33,994 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:13:34,064 - INFO - rosport: 11517 robotIndex: 0
+2019-07-24 20:13:39,815 - INFO - ####################################
+2019-07-24 20:13:39,816 - INFO - ############Loading Model###########
+2019-07-24 20:13:39,816 - INFO - ####################################
+2019-07-24 20:16:58,669 - INFO - rosport: 11517 robotIndex: 0
+2019-07-24 20:16:58,691 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:16:58,706 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:16:58,730 - INFO - rosport: 11516 robotIndex: 0
+2019-07-24 20:17:05,960 - INFO - ####################################
+2019-07-24 20:17:05,960 - INFO - ############Loading Model###########
+2019-07-24 20:17:05,960 - INFO - ####################################
+2019-07-24 20:17:51,438 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:17:51,453 - INFO - rosport: 11517 robotIndex: 0
+2019-07-24 20:17:51,471 - INFO - rosport: 11516 robotIndex: 1
+2019-07-24 20:17:51,499 - INFO - rosport: 11516 robotIndex: 0
+2019-07-24 20:17:57,641 - INFO - ####################################
+2019-07-24 20:17:57,641 - INFO - ############Loading Model###########
+2019-07-24 20:17:57,642 - INFO - ####################################
+2019-07-24 20:20:08,923 - INFO - rosport: 11516 robotIndex: 1 ranl:1
+2019-07-24 20:20:08,962 - INFO - rosport: 11516 robotIndex: 1 ranl:3
+2019-07-24 20:20:09,014 - INFO - rosport: 11516 robotIndex: 0 ranl:0
+2019-07-24 20:20:09,043 - INFO - rosport: 11517 robotIndex: 0 ranl:2
+2019-07-24 20:20:15,297 - INFO - ####################################
+2019-07-24 20:20:15,297 - INFO - ############Loading Model###########
+2019-07-24 20:20:15,297 - INFO - ####################################
+2019-07-24 20:21:14,331 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:21:14,331 - INFO - rosport: 11516 robotIndex: 1 rank:3
+2019-07-24 20:21:14,335 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:21:14,432 - INFO - rosport: 11517 robotIndex: 0 rank:2
+2019-07-24 20:22:57,910 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:22:57,939 - INFO - rosport: 11517 robotIndex: 0 rank:2
+2019-07-24 20:23:04,115 - INFO - ####################################
+2019-07-24 20:23:04,115 - INFO - ############Loading Model###########
+2019-07-24 20:23:04,115 - INFO - ####################################
+2019-07-24 20:23:38,222 - INFO - rosport: 11517 robotIndex: 1 rank:3
+2019-07-24 20:23:38,230 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:23:38,232 - INFO - rosport: 11517 robotIndex: 0 rank:2
+2019-07-24 20:23:38,232 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:23:44,736 - INFO - ####################################
+2019-07-24 20:23:44,736 - INFO - ############Loading Model###########
+2019-07-24 20:23:44,736 - INFO - ####################################
+2019-07-24 20:30:00,890 - INFO - rosport: 11517 robotIndex: 0 rank:2
+2019-07-24 20:30:00,899 - INFO - rosport: 11517 robotIndex: 1 rank:3
+2019-07-24 20:30:00,904 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:30:00,955 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:30:07,066 - INFO - #####################################
+2019-07-24 20:30:07,066 - INFO - ############Start Training###########
+2019-07-24 20:30:07,066 - INFO - #####################################
+2019-07-24 20:31:31,584 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:31:31,586 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:31:31,616 - INFO - rosport: 11517 robotIndex: 1 rank:3
+2019-07-24 20:31:31,671 - INFO - rosport: 11517 robotIndex: 0 rank:2
+2019-07-24 20:31:37,581 - INFO - #####################################
+2019-07-24 20:31:37,581 - INFO - ############Start Training###########
+2019-07-24 20:31:37,581 - INFO - #####################################
+2019-07-24 20:35:19,371 - INFO - rosport: 11516 robotIndex: 3 rank:3
+2019-07-24 20:35:19,397 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:35:19,405 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:35:19,452 - INFO - rosport: 11516 robotIndex: 2 rank:2
+2019-07-24 20:35:26,057 - INFO - #####################################
+2019-07-24 20:35:26,057 - INFO - ############Start Training###########
+2019-07-24 20:35:26,057 - INFO - #####################################
+2019-07-24 20:35:53,626 - INFO - rosport: 11517 robotIndex: 4 rank:16
+2019-07-24 20:35:53,640 - INFO - rosport: 11517 robotIndex: 8 rank:20
+2019-07-24 20:35:53,663 - INFO - rosport: 11516 robotIndex: 7 rank:7
+2019-07-24 20:35:53,667 - INFO - rosport: 11516 robotIndex: 8 rank:8
+2019-07-24 20:35:53,669 - INFO - rosport: 11516 robotIndex: 2 rank:2
+2019-07-24 20:35:53,670 - INFO - rosport: 11517 robotIndex: 0 rank:12
+2019-07-24 20:35:53,671 - INFO - rosport: 11517 robotIndex: 5 rank:17
+2019-07-24 20:35:53,688 - INFO - rosport: 11517 robotIndex: 2 rank:14
+2019-07-24 20:35:53,707 - INFO - rosport: 11516 robotIndex: 4 rank:4
+2019-07-24 20:35:53,708 - INFO - rosport: 11517 robotIndex: 6 rank:18
+2019-07-24 20:35:53,712 - INFO - rosport: 11516 robotIndex: 5 rank:5
+2019-07-24 20:35:53,718 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:35:53,735 - INFO - rosport: 11516 robotIndex: 11 rank:11
+2019-07-24 20:35:53,739 - INFO - rosport: 11517 robotIndex: 1 rank:13
+2019-07-24 20:35:53,741 - INFO - rosport: 11516 robotIndex: 6 rank:6
+2019-07-24 20:35:53,741 - INFO - rosport: 11516 robotIndex: 3 rank:3
+2019-07-24 20:35:53,742 - INFO - rosport: 11516 robotIndex: 10 rank:10
+2019-07-24 20:35:53,742 - INFO - rosport: 11517 robotIndex: 7 rank:19
+2019-07-24 20:35:53,746 - INFO - rosport: 11517 robotIndex: 9 rank:21
+2019-07-24 20:35:53,749 - INFO - rosport: 11517 robotIndex: 10 rank:22
+2019-07-24 20:35:53,750 - INFO - rosport: 11516 robotIndex: 9 rank:9
+2019-07-24 20:35:53,750 - INFO - rosport: 11517 robotIndex: 11 rank:23
+2019-07-24 20:35:53,751 - INFO - rosport: 11517 robotIndex: 3 rank:15
+2019-07-24 20:35:53,759 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:35:59,732 - INFO - #####################################
+2019-07-24 20:35:59,733 - INFO - ############Start Training###########
+2019-07-24 20:35:59,733 - INFO - #####################################
+2019-07-24 20:38:07,397 - INFO - rosport: 11517 robotIndex: 4 rank:16
+2019-07-24 20:38:07,483 - INFO - rosport: 11516 robotIndex: 9 rank:9
+2019-07-24 20:38:07,488 - INFO - rosport: 11517 robotIndex: 2 rank:14
+2019-07-24 20:38:07,493 - INFO - rosport: 11516 robotIndex: 8 rank:8
+2019-07-24 20:38:07,494 - INFO - rosport: 11516 robotIndex: 3 rank:3
+2019-07-24 20:38:07,502 - INFO - rosport: 11517 robotIndex: 7 rank:19
+2019-07-24 20:38:07,502 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:38:07,502 - INFO - rosport: 11517 robotIndex: 1 rank:13
+2019-07-24 20:38:07,506 - INFO - rosport: 11517 robotIndex: 11 rank:23
+2019-07-24 20:38:07,508 - INFO - rosport: 11517 robotIndex: 6 rank:18
+2019-07-24 20:38:07,514 - INFO - rosport: 11517 robotIndex: 10 rank:22
+2019-07-24 20:38:07,519 - INFO - rosport: 11516 robotIndex: 11 rank:11
+2019-07-24 20:38:07,520 - INFO - rosport: 11516 robotIndex: 4 rank:4
+2019-07-24 20:38:07,531 - INFO - rosport: 11517 robotIndex: 0 rank:12
+2019-07-24 20:38:07,531 - INFO - rosport: 11516 robotIndex: 10 rank:10
+2019-07-24 20:38:07,532 - INFO - rosport: 11516 robotIndex: 2 rank:2
+2019-07-24 20:38:07,536 - INFO - rosport: 11517 robotIndex: 5 rank:17
+2019-07-24 20:38:07,537 - INFO - rosport: 11516 robotIndex: 7 rank:7
+2019-07-24 20:38:07,540 - INFO - rosport: 11517 robotIndex: 8 rank:20
+2019-07-24 20:38:07,542 - INFO - rosport: 11516 robotIndex: 6 rank:6
+2019-07-24 20:38:07,545 - INFO - rosport: 11516 robotIndex: 5 rank:5
+2019-07-24 20:38:07,545 - INFO - rosport: 11517 robotIndex: 3 rank:15
+2019-07-24 20:38:07,545 - INFO - rosport: 11517 robotIndex: 9 rank:21
+2019-07-24 20:38:07,553 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:38:13,973 - INFO - #####################################
+2019-07-24 20:38:13,973 - INFO - ############Start Training###########
+2019-07-24 20:38:13,973 - INFO - #####################################
+2019-07-24 20:42:02,319 - INFO - rosport: 11516 robotIndex: 11 rank:11
+2019-07-24 20:42:02,383 - INFO - rosport: 11517 robotIndex: 10 rank:22
+2019-07-24 20:42:02,398 - INFO - rosport: 11516 robotIndex: 8 rank:8
+2019-07-24 20:42:02,413 - INFO - rosport: 11517 robotIndex: 6 rank:18
+2019-07-24 20:42:02,425 - INFO - rosport: 11517 robotIndex: 9 rank:21
+2019-07-24 20:42:02,435 - INFO - rosport: 11516 robotIndex: 2 rank:2
+2019-07-24 20:42:02,435 - INFO - rosport: 11517 robotIndex: 2 rank:14
+2019-07-24 20:42:02,439 - INFO - rosport: 11517 robotIndex: 4 rank:16
+2019-07-24 20:42:02,439 - INFO - rosport: 11516 robotIndex: 4 rank:4
+2019-07-24 20:42:02,440 - INFO - rosport: 11517 robotIndex: 0 rank:12
+2019-07-24 20:42:02,441 - INFO - rosport: 11516 robotIndex: 9 rank:9
+2019-07-24 20:42:02,443 - INFO - rosport: 11517 robotIndex: 11 rank:23
+2019-07-24 20:42:02,458 - INFO - rosport: 11516 robotIndex: 10 rank:10
+2019-07-24 20:42:02,461 - INFO - rosport: 11517 robotIndex: 8 rank:20
+2019-07-24 20:42:02,471 - INFO - rosport: 11516 robotIndex: 3 rank:3
+2019-07-24 20:42:02,472 - INFO - rosport: 11517 robotIndex: 5 rank:17
+2019-07-24 20:42:02,473 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:42:02,473 - INFO - rosport: 11516 robotIndex: 7 rank:7
+2019-07-24 20:42:02,473 - INFO - rosport: 11517 robotIndex: 1 rank:13
+2019-07-24 20:42:02,473 - INFO - rosport: 11516 robotIndex: 6 rank:6
+2019-07-24 20:42:02,473 - INFO - rosport: 11517 robotIndex: 7 rank:19
+2019-07-24 20:42:02,477 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:42:02,479 - INFO - rosport: 11517 robotIndex: 3 rank:15
+2019-07-24 20:42:02,486 - INFO - rosport: 11516 robotIndex: 5 rank:5
+2019-07-24 20:42:09,893 - INFO - #####################################
+2019-07-24 20:42:09,893 - INFO - ############Start Training###########
+2019-07-24 20:42:09,893 - INFO - #####################################
+2019-07-24 20:43:05,624 - INFO - rosport: 11517 robotIndex: 1 rank:13
+2019-07-24 20:43:05,669 - INFO - rosport: 11517 robotIndex: 6 rank:18
+2019-07-24 20:43:05,696 - INFO - rosport: 11516 robotIndex: 9 rank:9
+2019-07-24 20:43:05,697 - INFO - rosport: 11516 robotIndex: 11 rank:11
+2019-07-24 20:43:05,715 - INFO - rosport: 11516 robotIndex: 5 rank:5
+2019-07-24 20:43:05,723 - INFO - rosport: 11516 robotIndex: 6 rank:6
+2019-07-24 20:43:05,723 - INFO - rosport: 11516 robotIndex: 2 rank:2
+2019-07-24 20:43:05,739 - INFO - rosport: 11517 robotIndex: 0 rank:12
+2019-07-24 20:43:05,741 - INFO - rosport: 11516 robotIndex: 7 rank:7
+2019-07-24 20:43:05,743 - INFO - rosport: 11516 robotIndex: 0 rank:0
+2019-07-24 20:43:05,746 - INFO - rosport: 11516 robotIndex: 3 rank:3
+2019-07-24 20:43:05,747 - INFO - rosport: 11517 robotIndex: 8 rank:20
+2019-07-24 20:43:05,748 - INFO - rosport: 11517 robotIndex: 9 rank:21
+2019-07-24 20:43:05,749 - INFO - rosport: 11517 robotIndex: 7 rank:19
+2019-07-24 20:43:05,753 - INFO - rosport: 11517 robotIndex: 2 rank:14
+2019-07-24 20:43:05,757 - INFO - rosport: 11517 robotIndex: 5 rank:17
+2019-07-24 20:43:05,758 - INFO - rosport: 11516 robotIndex: 1 rank:1
+2019-07-24 20:43:05,758 - INFO - rosport: 11517 robotIndex: 11 rank:23
+2019-07-24 20:43:05,761 - INFO - rosport: 11517 robotIndex: 10 rank:22
+2019-07-24 20:43:05,761 - INFO - rosport: 11516 robotIndex: 8 rank:8
+2019-07-24 20:43:05,767 - INFO - rosport: 11517 robotIndex: 3 rank:15
+2019-07-24 20:43:05,767 - INFO - rosport: 11516 robotIndex: 4 rank:4
+2019-07-24 20:43:05,797 - INFO - rosport: 11516 robotIndex: 10 rank:10
+2019-07-24 20:43:05,807 - INFO - rosport: 11517 robotIndex: 4 rank:16
+2019-07-24 20:43:12,107 - INFO - #####################################
+2019-07-24 20:43:12,107 - INFO - ############Start Training###########
+2019-07-24 20:43:12,107 - INFO - #####################################
+2019-07-24 20:43:12,803 - INFO - Env 02, Goal (001.9, -08.2), Episode 00001, setp 002, Reward -15.0, Distance 008.5, Crashed
+2019-07-24 20:43:12,803 - INFO - Env 03, Goal (-06.9, 005.7), Episode 00001, setp 002, Reward -15.0, Distance 009.4, Crashed
+2019-07-24 20:43:13,153 - INFO - Env 08, Goal (-05.3, 003.8), Episode 00001, setp 003, Reward -1.2 , Distance 008.9, Crashed
+2019-07-24 20:43:16,559 - INFO - Env 04, Goal (004.7, -01.1), Episode 00001, setp 032, Reward -12.7, Distance 008.1, Crashed
+2019-07-24 20:43:16,831 - INFO - Env 09, Goal (-01.1, 001.7), Episode 00001, setp 033, Reward -14.6, Distance 008.5, Crashed
+2019-07-24 20:43:16,832 - INFO - Env 06, Goal (000.5, 001.8), Episode 00001, setp 033, Reward -17.0, Distance 008.2, Crashed
+2019-07-24 20:43:17,212 - INFO - Env 07, Goal (007.7, -04.7), Episode 00001, setp 034, Reward -11.6, Distance 009.5, Crashed
+2019-07-24 20:43:17,599 - INFO - Env 05, Goal (005.8, 001.7), Episode 00001, setp 035, Reward -14.1, Distance 008.3, Crashed
+2019-07-24 20:43:18,057 - INFO - Env 04, Goal (-08.5, 002.2), Episode 00001, setp 038, Reward -22.8, Distance 008.6, Crashed
+2019-07-24 20:43:18,104 - INFO - Env 11, Goal (-01.6, -01.8), Episode 00001, setp 038, Reward -21.8, Distance 008.1, Crashed
+2019-07-24 20:43:19,859 - INFO - Env 06, Goal (003.9, 004.9), Episode 00001, setp 052, Reward -5.8 , Distance 008.9, Crashed
+2019-07-24 20:43:20,293 - INFO - Env 09, Goal (-04.0, -05.9), Episode 00001, setp 053, Reward -15.4, Distance 009.6, Crashed
+2019-07-24 20:43:21,914 - INFO - Env 02, Goal (005.1, 001.9), Episode 00002, setp 065, Reward -11.4, Distance 009.2, Crashed
+2019-07-24 20:43:21,914 - INFO - Env 06, Goal (001.3, -01.0), Episode 00002, setp 034, Reward -19.7, Distance 008.9, Crashed
+2019-07-24 20:43:22,673 - INFO - Env 03, Goal (-05.0, -01.2), Episode 00001, setp 071, Reward -18.3, Distance 008.2, Crashed
+2019-07-24 20:43:23,460 - INFO - Env 09, Goal (-02.1, -01.6), Episode 00002, setp 023, Reward -18.2, Distance 010.0, Crashed
+2019-07-24 20:43:23,460 - INFO - Env 07, Goal (-02.9, -07.9), Episode 00001, setp 075, Reward -19.3, Distance 009.8, Crashed
+2019-07-24 20:43:26,185 - INFO - Env 11, Goal (004.8, 000.0), Episode 00001, setp 097, Reward -8.4 , Distance 009.5, Crashed
+2019-07-24 20:43:27,358 - INFO - Env 10, Goal (-03.4, 000.4), Episode 00001, setp 104, Reward -3.6 , Distance 008.2, Crashed
+2019-07-24 20:43:27,733 - INFO - Env 00, Goal (003.7, -00.0), Episode 00001, setp 105, Reward -22.6, Distance 009.9, Crashed
+2019-07-24 20:43:28,366 - INFO - Env 02, Goal (-02.6, -01.9), Episode 00001, setp 110, Reward -5.6 , Distance 008.0, Crashed
+2019-07-24 20:43:28,366 - INFO - Env 01, Goal (-04.0, -05.5), Episode 00001, setp 110, Reward -8.7 , Distance 010.0, Crashed
