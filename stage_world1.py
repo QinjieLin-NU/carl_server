@@ -73,6 +73,13 @@ class StageWorld():
         # -----------Service-------------------
         self.reset_stage = rospy.ServiceProxy('reset_positions', Empty)
 
+        # # get initial pose for resetting
+        self.first_pose = None
+        while self.first_pose is None:
+            try:
+                self.first_pose = rospy.wait_for_message(odom_topic, Odometry, timeout=5).pose.pose
+            except:
+                pass
 
         # # Wait until the first callback
         self.speed = None
@@ -214,16 +221,20 @@ class StageWorld():
         return reward, terminate, result
 
     def reset_pose(self):
-        random_pose = self.generate_random_pose()
+        # random_pose = self.generate_random_pose()
+        ## reset robot pose to the initial position
+        first_pose = self.first_pose
         rospy.sleep(0.01)
-        self.control_pose(random_pose)
-        [x_robot, y_robot, theta] = self.get_self_stateGT()
+        self.cmd_pose.publish(first_pose)
+        rospy.sleep(0.01)
+        # self.control_pose(random_pose)
+        # [x_robot, y_robot, theta] = self.get_self_stateGT()
 
-        # start_time = time.time()
-        while np.abs(random_pose[0] - x_robot) > 0.2 or np.abs(random_pose[1] - y_robot) > 0.2:
-            [x_robot, y_robot, theta] = self.get_self_stateGT()
-            self.control_pose(random_pose)
-        rospy.sleep(0.01)
+        # # start_time = time.time()
+        # while np.abs(random_pose[0] - x_robot) > 0.2 or np.abs(random_pose[1] - y_robot) > 0.2:
+        #     [x_robot, y_robot, theta] = self.get_self_stateGT()
+        #     self.control_pose(random_pose)
+        # rospy.sleep(0.01)
 
 
     def control_vel(self, action):

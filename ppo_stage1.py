@@ -135,8 +135,8 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11312
-    NUM_BOT = 12
-    NUM_ENV = 36
+    NUM_BOT = 8
+    NUM_ENV = 32
 
     # config log
     hostname = socket.gethostname()
@@ -189,7 +189,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/stage1_2.pth'
+        file = policy_path + '/stage_lin.pth'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
