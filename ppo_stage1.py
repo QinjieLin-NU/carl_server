@@ -20,6 +20,7 @@ from model.ppo import transform_buffer
 
 
 MAX_EPISODES = 5000
+EP_LEN = 200
 LASER_BEAM = 360
 LASER_HIST = 3
 HORIZON = 128
@@ -52,6 +53,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
         env.generate_goal_point()
         terminal = False
+        next_ep = False
         ep_reward = 0
         step = 1
 
@@ -61,7 +63,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         speed = np.asarray(env.get_self_speed())
         state = [obs_stack, goal, speed]
 
-        while not terminal and not rospy.is_shutdown():
+        while not next_ep and not rospy.is_shutdown():
             state_list = comm.gather(state, root=0)
 
 
@@ -80,6 +82,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             r, terminal, result = env.get_reward_and_terminate(step)
             ep_reward += r
             global_step += 1
+
+            if (terminal):
+                env.reset_pose()
+            if(step > EP_LEN):
+                next_ep = True
 
 
             # get next state

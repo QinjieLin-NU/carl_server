@@ -23,6 +23,7 @@ class StageWorld():
         self.num_env = num_env
         self.env_index = env_index
         node_name = 'StageEnv_' + str(index)
+        print("rank: %d node name:%s"%(mpi_rank,node_name))
         rospy.init_node(node_name, anonymous=None)
 
         self.beam_mum = beam_num
@@ -74,6 +75,7 @@ class StageWorld():
         self.reset_stage = rospy.ServiceProxy('reset_positions', Empty)
 
         # # get initial pose for resetting
+        self.odom_topic = odom_topic
         self.first_pose = None
         while self.first_pose is None:
             try:
@@ -178,6 +180,13 @@ class StageWorld():
         self.step_r_cnt = 0.
         self.start_time = time.time()
         rospy.sleep(0.5)
+        self.first_pose = None
+        while self.first_pose is None:
+            try:
+                # print("waiting")
+                self.first_pose = rospy.wait_for_message(self.odom_topic, Odometry, timeout=5).pose.pose
+            except:
+                pass
 
 
     def generate_goal_point(self):
