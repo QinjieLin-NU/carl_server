@@ -209,7 +209,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/stage_lin.pth'
+        file = policy_path + '/Stage1_780'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
