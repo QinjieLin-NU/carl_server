@@ -80,7 +80,7 @@ window
 define agent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.30 0.28 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area

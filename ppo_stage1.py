@@ -148,13 +148,20 @@ if __name__ == '__main__':
     ROS_PORT0 = 11312
     NUM_BOT = 8
     NUM_ENV = 32
+    ID = 100
 
     # config log
-    hostname = socket.gethostname()
-    if not os.path.exists('./log/' + hostname):
-        os.makedirs('./log/' + hostname)
-    output_file = './log/' + hostname + '/output.log'
-    cal_file = './log/' + hostname + '/cal.log'
+    # hostname = socket.gethostname()
+    hostname = "autoRL_%d"%ID
+    dirname = '/clever/saved_model_ppo/' + hostname
+    logdir = dirname + "/log"
+    policydir = dirname
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+    if not os.path.exists(logdir):
+        os.makedirs(logdir)
+    output_file =logdir + '/output.log'
+    cal_file = logdir + '/cal.log'
 
     # config log
     logger = logging.getLogger('mylogger')
@@ -191,7 +198,8 @@ if __name__ == '__main__':
     # torch.manual_seed(1)
     # np.random.seed(1)
     if rank == 0:
-        policy_path = 'policy'
+        policy_path = policydir
+        # policy_path = 'policy'
         # policy = MLPPolicy(obs_size, act_size)
         policy = CNNPolicy(frames=LASER_HIST, action_space=2)
         policy.cuda()
