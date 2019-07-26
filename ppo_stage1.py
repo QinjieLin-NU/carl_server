@@ -147,8 +147,8 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 if __name__ == '__main__':
     ROS_PORT0 = 11312
     NUM_BOT = 8
-    NUM_ENV = 32
-    ID = 100
+    NUM_ENV = 40
+    ID = 5
 
     # config log
     # hostname = socket.gethostname()

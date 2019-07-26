@@ -312,6 +312,7 @@ class StageWorld():
         env1_goals = []
         env2_goals = [(5.5,3),(8,2),(0,3),(0,6),(-3,0),(-7,0),(1,-4),(1,-6)]
         env3_goals = [(-2,2),(-2,6),(3,2),(3,6),(-2,-2),(-2,-6),(3,-3),(7,-7)]
+        env4_goals = [(4,2),(2.5,6),(-5,4),(-4,1),(-4,-9),(-4,-3),(4,-4),(-4,1)]
         goal_index = random.randrange(0, 8)     
         if(self.env_index == 0):
             x = env0_goals[goal_index][0]
@@ -327,6 +328,9 @@ class StageWorld():
             x = env3_goals[goal_index][0]
             y = env3_goals[goal_index][1]
             return [x,y]
-
+        elif (self.env_index ==4 ):
+            x = env4_goals[goal_index][0]
+            y = env4_goals[goal_index][1]
+            return [x,y]
 
 
