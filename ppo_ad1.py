@@ -12,7 +12,8 @@ from torch.optim import Adam
 from collections import deque
 
 from model.net import MLPPolicy, CNNPolicy
-from stage_world1 import StageWorld
+# from stage_world1 import StageWorld
+from stage_ad1 import StageWorld
 from model.ppo import ppo_update_stage1, generate_train_data
 from model.ppo import generate_action
 from model.ppo import transform_buffer
@@ -145,10 +146,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11312
-    NUM_BOT = 8
-    NUM_ENV = 48
-    ID = 102
+    ROS_PORT0 = 11321
+    NUM_BOT = 4 #num of robot per stage
+    NUM_ENV = 4 #num of env(robots)
+    ID = 1000
+    ROBO_START = 1
 
     # config log
     # hostname = socket.gethostname()
@@ -185,7 +187,7 @@ if __name__ == '__main__':
     rank = comm.Get_rank()
     size = comm.Get_size()
     rosPort = ROS_PORT0 
-    robotIndex = 0 + (rank%NUM_BOT)
+    robotIndex = ROBO_START + (rank%NUM_BOT)
     envIndex =  int(rank/NUM_BOT)
     rosPort = rosPort + int(rank/NUM_BOT)
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
@@ -193,7 +195,7 @@ if __name__ == '__main__':
 
     env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
     reward = None
-    action_bound = [[0, -1], [1, 1]]
+    action_bound = [[0, -1], [0.7, 1]]
 
     # torch.manual_seed(1)
     # np.random.seed(1)
@@ -209,7 +211,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_1760'
+        file = policy_path + '/Stage1_460'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

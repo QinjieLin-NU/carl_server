@@ -94,6 +94,11 @@ class StageWorld():
                 or self.speed_GT is None or self.state_GT is None:
             pass
 
+        self.goal_roboIndex = 0
+        goalRobo_odom_topic = 'robot_' + str(self.goal_roboIndex) + '/odom'
+        self.goalRobo_odom_sub = rospy.Subscriber(goalRobo_odom_topic, Odometry, self.goalRobo_odometry_callback)
+        self.goal_roboPos = [0,0,0]
+
         rospy.sleep(1.)
         # # What function to call when you ctrl + c
         # rospy.on_shutdown(self.shutdown)
@@ -120,6 +125,11 @@ class StageWorld():
         Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
         self.state = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
         self.speed = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
+
+    def goalRobo_odometry_callback(self, odometry):
+        Quaternions = odometry.pose.pose.orientation
+        Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
+        self.goal_point = [odometry.pose.pose.position.x, odometry.pose.pose.position.y]
 
     def sim_clock_callback(self, clock):
         self.sim_time = clock.clock.secs + clock.clock.nsecs / 1000000000.
@@ -199,8 +209,9 @@ class StageWorld():
 
 
     def generate_goal_point(self):
-        [x_g, y_g] = self.generate_stage_goal()
-        self.goal_point = [x_g, y_g]
+        # goal point is assigned in the callback
+        # [x_g, y_g] = self.generate_stage_goal()
+        # self.goal_point = [x_g, y_g]
         [x, y] = self.get_local_goal()
 
         self.pre_distance = np.sqrt(x ** 2 + y ** 2)
@@ -220,15 +231,15 @@ class StageWorld():
         result = 0
         is_crash = self.get_crash_state()
 
-        if self.distance < self.goal_size:
-            terminate = True
-            reward_g = 15
-            result = 'Reach Goal'
-
         if is_crash == 1:
-            terminate = True
-            reward_c = -15.
-            result = 'Crashed'
+            if self.distance < self.goal_size:
+                terminate = True
+                reward_c = 15.
+                result = 'goal Crashed'
+            else:
+                terminate = True
+                reward_c = -15
+                result = 'self Crashed'
 
         if np.abs(w) >  1.05:
             reward_w = -0.1 * np.abs(w)

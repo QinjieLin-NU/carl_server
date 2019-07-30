@@ -55,5 +55,17 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-av
 ```    
 mpiexec --allow-run-as-root -np 32 python ppo_stage1.py      
 ```   
-
-
+### run ad and ag  (training ad, not training ag)
+```    
+roscore -p 11312   
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap1.world   
+mpiexec --allow-run-as-root -np 4 python ppo_ad1.py 
+python ppo_ag1.py 
+```   
+### run ad and ag  (training ad, training ag)
+```    
+roscore -p 11312   
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap1.world   
+mpiexec --allow-run-as-root -np 4 python ppo_ad1.py 
+mpiexec --allow-run-as-root -np 1 python ppo_ag2.py
+```   

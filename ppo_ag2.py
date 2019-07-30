@@ -12,7 +12,8 @@ from torch.optim import Adam
 from collections import deque
 
 from model.net import MLPPolicy, CNNPolicy
-from stage_world1 import StageWorld
+# from stage_world1 import StageWorld
+from stage_ag1 import StageWorld
 from model.ppo import ppo_update_stage1, generate_train_data
 from model.ppo import generate_action
 from model.ppo import transform_buffer
@@ -84,6 +85,9 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             ep_reward += r
             global_step += 1
 
+            if(result == "Reach Goal"):
+                print("reaching goal:",env.goal_point)
+                env.generate_goal_point()
             if (terminal):
                 env.reset_pose()
             if(step > EP_LEN):
@@ -145,10 +149,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11312
-    NUM_BOT = 8
-    NUM_ENV = 48
-    ID = 102
+    ROS_PORT0 = 11321
+    NUM_BOT = 1
+    NUM_ENV = 1
+    ID = 8
+    ENV_INDEX =1 # supposed that we only train in the circle
 
     # config log
     # hostname = socket.gethostname()
@@ -191,7 +196,7 @@ if __name__ == '__main__':
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
 
-    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
+    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = ENV_INDEX)
     reward = None
     action_bound = [[0, -1], [1, 1]]
 
@@ -209,7 +214,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_1760'
+        file = policy_path + '/Stage1_300'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

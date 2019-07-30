@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-fileid = 5
+fileid = 7
 rewards=[]
 hostname = "autoRL_%d/"%fileid
 dirname = '/clever/saved_model_ppo/' + hostname + "log"
