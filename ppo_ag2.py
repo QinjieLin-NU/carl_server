@@ -149,11 +149,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11321
-    NUM_BOT = 1
-    NUM_ENV = 1
-    ID = 8
-    ENV_INDEX =1 # supposed that we only train in the circle
+    ROS_PORT0 = 11321 #ros port starty from 11321
+    NUM_BOT = 1 #num of robot per stage
+    NUM_ENV = 1 #num of total robots
+    ID = 9 #policy saved directory
+    ENV_INDEX =6 # supposed that we only train in the circle
 
     # config log
     # hostname = socket.gethostname()
@@ -214,7 +214,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_300'
+        file = policy_path + '/Stage1_780'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

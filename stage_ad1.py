@@ -16,7 +16,7 @@ from std_msgs.msg import Int8
 
 
 class StageWorld():
-    def __init__(self, beam_num, index, num_env,ros_port,mpi_rank,env_index):
+    def __init__(self, beam_num, index, num_env,ros_port,mpi_rank,env_index,goal_robotIndex):
         os.environ["ROS_MASTER_URI"]="http://localhost:%d"%ros_port
         self.mpi_rank =mpi_rank
         self.index = index
@@ -94,7 +94,7 @@ class StageWorld():
                 or self.speed_GT is None or self.state_GT is None:
             pass
 
-        self.goal_roboIndex = 0
+        self.goal_roboIndex = goal_robotIndex
         goalRobo_odom_topic = 'robot_' + str(self.goal_roboIndex) + '/odom'
         self.goalRobo_odom_sub = rospy.Subscriber(goalRobo_odom_topic, Odometry, self.goalRobo_odometry_callback)
         self.goal_roboPos = [0,0,0]

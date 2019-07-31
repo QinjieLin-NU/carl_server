@@ -149,8 +149,9 @@ if __name__ == '__main__':
     ROS_PORT0 = 11321
     NUM_BOT = 4 #num of robot per stage
     NUM_ENV = 4 #num of env(robots)
-    ID = 1000
-    ROBO_START = 1
+    ID = 1001 #policy saved directory
+    ROBO_START = 1 #ad robtos start index
+    GOAL_START = 0 # goal robot start index
 
     # config log
     # hostname = socket.gethostname()
@@ -193,7 +194,7 @@ if __name__ == '__main__':
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
 
-    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
+    env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex,goal_robotIndex=GOAL_START)
     reward = None
     action_bound = [[0, -1], [0.7, 1]]
 
@@ -211,7 +212,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_460'
+        file = policy_path + '/Stage1_1760'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
