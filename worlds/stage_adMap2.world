@@ -130,7 +130,7 @@ define adent position
   # acceleration_bounds [-500 500 0 0 0 0 -90 90.0 ]
   )
 
-agent( pose [-2.5.00 -2.5.00 0.00 225.00])
+agent( pose [-2.5.00 -2.5.00 0.00 45.00])
 adent( pose [4.00 0.00 0.00 180.00])
 adent( pose [3.81 1.04 0.00 195.00])
 adent( pose [3.47 2.00 0.00 210.00])

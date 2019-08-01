@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-fileid = 1000
+fileid = 11
+len_episode = 4#num of robot
 rewards=[]
 hostname = "autoRL_%d/"%fileid
 dirname = '/clever/saved_model_ppo/' + hostname + "log"
@@ -10,7 +11,6 @@ with open(dirname+"/cal.log", 'r') as f:
 rewards = map(lambda s: s.strip(), rewards)
 rewards = map(float,rewards)
 num = len(rewards)
-len_episode = 32
 num_episode = int(num / len_episode)
 new_rewards=[]
 for i in range(num_episode):
