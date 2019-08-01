@@ -49,6 +49,9 @@ class StageWorld():
         self.stop_counter = 0
 
         # -----------Publisher and Subscriber-------------
+        goal_topic = 'robot_' + str(index) + '/goal_pose'
+        self.goal_pub = rospy.Publisher(goal_topic, Pose, queue_size=10)
+
         cmd_vel_topic = 'robot_' + str(index) + '/cmd_vel'
         self.cmd_vel = rospy.Publisher(cmd_vel_topic, Twist, queue_size=10)
 
@@ -205,6 +208,12 @@ class StageWorld():
 
         self.pre_distance = np.sqrt(x ** 2 + y ** 2)
         self.distance = copy.deepcopy(self.pre_distance)
+
+        #------broadcast the goal with the adversarial robot------#
+        goal = Pose()
+        goal.position.x = x_g
+        goal.position.y = y_g
+        self.goal_pub.publish(goal)
 
 
     def get_reward_and_terminate(self, t):
