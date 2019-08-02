@@ -210,10 +210,7 @@ class StageWorld():
 
     def generate_goal_point(self):
         # goal point is assigned in the callback
-        # [x_g, y_g] = self.generate_stage_goal()
-        # self.goal_point = [x_g, y_g]
         [x, y] = self.get_local_goal()
-
         self.pre_distance = np.sqrt(x ** 2 + y ** 2)
         self.distance = copy.deepcopy(self.pre_distance)
 
@@ -258,6 +255,10 @@ class StageWorld():
         rospy.sleep(0.01)
         self.cmd_pose.publish(first_pose)
         rospy.sleep(0.01)
+        #recompute the distance when resetting
+        [x, y] = self.get_local_goal()
+        self.pre_distance = np.sqrt(x ** 2 + y ** 2)
+        self.distance = copy.deepcopy(self.pre_distance)
         # self.control_pose(random_pose)
         # [x_robot, y_robot, theta] = self.get_self_stateGT()
 

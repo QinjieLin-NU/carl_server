@@ -206,6 +206,7 @@ class StageWorld():
         self.goal_point = [x_g, y_g]
         [x, y] = self.get_local_goal()
 
+        #------recalculate the distance when generate new goal --- #
         self.pre_distance = np.sqrt(x ** 2 + y ** 2)
         self.distance = copy.deepcopy(self.pre_distance)
 
@@ -247,6 +248,8 @@ class StageWorld():
             # result = 'Time out'
         reward = reward_g + reward_c + reward_w
 
+        # print("my goal:",self.goal_point,"my reward_g",reward_g)
+
         return reward, terminate, result
 
     def reset_pose(self):
@@ -256,14 +259,10 @@ class StageWorld():
         rospy.sleep(0.01)
         self.cmd_pose.publish(first_pose)
         rospy.sleep(0.01)
-        # self.control_pose(random_pose)
-        # [x_robot, y_robot, theta] = self.get_self_stateGT()
-
-        # # start_time = time.time()
-        # while np.abs(random_pose[0] - x_robot) > 0.2 or np.abs(random_pose[1] - y_robot) > 0.2:
-        #     [x_robot, y_robot, theta] = self.get_self_stateGT()
-        #     self.control_pose(random_pose)
-        # rospy.sleep(0.01)
+        #------recalculate the distance when reset the robot pose --- #
+        [x, y] = self.get_local_goal()
+        self.pre_distance = np.sqrt(x ** 2 + y ** 2)
+        self.distance = copy.deepcopy(self.pre_distance)
 
 
     def control_vel(self, action):

@@ -50,13 +50,13 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
     for id in range(MAX_EPISODES):
-        env.reset_pose()
-
         env.generate_goal_point()
         terminal = False
         next_ep = False
         ep_reward = 0
         step = 1
+
+        env.reset_pose()
 
         obs = env.get_laser_observation()
         obs_stack = deque([obs, obs, obs])
@@ -148,10 +148,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11322 #ros port starty from 11321
+    ROS_PORT0 = 11323 #ros port starty from 11321
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of total robots
-    ID = 11 #policy saved directory
+    ID = 12 #policy saved directory
     ENV_INDEX =6 # supposed that we only train in the circle
 
     # config log

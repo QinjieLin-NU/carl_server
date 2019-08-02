@@ -50,13 +50,13 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
     for id in range(MAX_EPISODES):
-        env.reset_pose()
-
         env.generate_goal_point()
         terminal = False
         next_ep = False
         ep_reward = 0
         step = 1
+
+        env.reset_pose()
 
         obs = env.get_laser_observation()
         obs_stack = deque([obs, obs, obs])
@@ -145,10 +145,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11322
-    NUM_BOT = 4 #num of robot per stage
-    NUM_ENV = 4 #num of env(robots)
-    ID = 1003 #policy saved directory
+    ROS_PORT0 = 11323
+    NUM_BOT = 1 #num of robot per stage
+    NUM_ENV = 1 #num of env(robots)
+    ID = 1004 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
 
@@ -188,7 +188,7 @@ if __name__ == '__main__':
     size = comm.Get_size()
     rosPort = ROS_PORT0 
     robotIndex = ROBO_START + (rank%NUM_BOT)
-    envIndex =  int(rank/NUM_BOT)
+    envIndex =  int(rank/NUM_BOT) #no need for the adversary
     rosPort = rosPort + int(rank/NUM_BOT)
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
