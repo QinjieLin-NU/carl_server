@@ -61,8 +61,14 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         speed = np.asarray(env.get_self_speed())
         state = [obs_stack, goal, speed]
 
+        print(env.index,"before while")
+
         while not group_terminal and not rospy.is_shutdown():
+            print(env.index," before gather %d step"%global_step)
+
             state_list = comm.gather(state, root=0)
+
+            print(env.index," in while %d step"%global_step)
 
             # generate actions at rank==0
             v, a, logprob, scaled_action=generate_action(env=env, state_list=state_list,
@@ -125,7 +131,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
             state = state_next
 
-
+        print("out of while loop")
 
         if env.index == 0:
             if global_update != 0 and global_update % 20 == 0:
