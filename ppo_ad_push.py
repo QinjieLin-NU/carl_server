@@ -11,9 +11,9 @@ from mpi4py import MPI
 from torch.optim import Adam
 from collections import deque
 
-from model.net import MLPPolicy, CNNPolicy
+from model.net import MLPPolicy, CNNPolicy,AdversaryPush_CNNPolicy
 from stage_ad_push import StageWorld
-from model.ppo import ppo_update_stage1, generate_train_data
+from model.ppo import ppo_update_stage1, generate_train_data,ppo_update_adversayPush
 from model.ppo import generate_action
 from model.ppo import transform_buffer
 
@@ -60,8 +60,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
         obs = env.get_laser_observation()
         obs_stack = deque([obs, obs, obs])
-        goal = np.asarray(env.get_local_goal())
-        speed = np.asarray(env.get_self_speed())
+        # goal = np.asarray(env.get_local_goal())
+        # speed = np.asarray(env.get_self_speed())
+        goal = np.asarray(env.get_local_and_robo_pos())
+        speed = np.asarray(env.get_ad_and_ag_speed())
         state = [obs_stack, goal, speed]
 
         while not next_ep and not rospy.is_shutdown():
@@ -94,8 +96,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             s_next = env.get_laser_observation()
             left = obs_stack.popleft()
             obs_stack.append(s_next)
-            goal_next = np.asarray(env.get_local_goal())
-            speed_next = np.asarray(env.get_self_speed())
+            # goal_next = np.asarray(env.get_local_goal())
+            # speed_next = np.asarray(env.get_self_speed())
+            goal_next = np.asarray(env.get_local_and_robo_pos())
+            speed_next = np.asarray(env.get_ad_and_ag_speed())
             state_next = [obs_stack, goal_next, speed_next]
 
             if global_step % HORIZON == 0:
@@ -115,11 +119,14 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                                                               last_value=last_v, dones=d_batch, lam=LAMDA)
                     memory = (s_batch, goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
                     print("PPO update start")
-                    ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
+                    # ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
+                    #                         epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
+                    #                         num_env=NUM_ENV, frames=LASER_HIST,
+                    #                         obs_size=OBS_SIZE, act_size=ACT_SIZE)
+                    ppo_update_adversayPush(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
                                             epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
                                             num_env=NUM_ENV, frames=LASER_HIST,
                                             obs_size=OBS_SIZE, act_size=ACT_SIZE)
-
                     print("PPO update finish")
                     buff = []
                     global_update += 1
@@ -148,7 +155,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11323
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of env(robots)
-    ID = 1004 #policy saved directory
+    ID = 1005 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
 
@@ -203,7 +210,8 @@ if __name__ == '__main__':
         policy_path = policydir
         # policy_path = 'policy'
         # policy = MLPPolicy(obs_size, act_size)
-        policy = CNNPolicy(frames=LASER_HIST, action_space=2)
+        # policy = CNNPolicy(frames=LASER_HIST, action_space=2)
+        policy = AdversaryPush_CNNPolicy(frames=LASER_HIST, action_space=2)
         policy.cuda()
         opt = Adam(policy.parameters(), lr=LEARNING_RATE)
         mse = nn.MSELoss()

@@ -78,6 +78,9 @@ class StageWorld():
 
         goalRobo_odom_topic = 'robot_' + str(self.goal_roboIndex) + '/odom'
         self.goalRobo_odom_sub = rospy.Subscriber(goalRobo_odom_topic, Odometry, self.goalRobo_odometry_callback)
+
+        # goalRobo_speed_topic = 'robot_' + str(self.goal_roboIndex) + '/cmd_vel'
+        # self.goalRobo_speed_sub = rospy.Subscriber(goalRobo_speed_topic, Twist, self.goalRobo_speed_callback)
         # -----------Service-------------------
         self.reset_stage = rospy.ServiceProxy('reset_positions', Empty)
 
@@ -98,6 +101,7 @@ class StageWorld():
         self.speed_GT = None
         self.state_GT = None
         self.goal_roboPos = [0,0,0]
+        self.speed_goalRobo = [0,0]
         while self.scan is None or self.speed is None or self.state is None\
                 or self.speed_GT is None or self.state_GT is None:
             pass
@@ -139,6 +143,8 @@ class StageWorld():
         Quaternions = odometry.pose.pose.orientation
         Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
         self.goal_roboPos = [odometry.pose.pose.position.x, odometry.pose.pose.position.y,Euler]
+        self.speed_goalRobo = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
+
 
     def sim_clock_callback(self, clock):
         self.sim_time = clock.clock.secs + clock.clock.nsecs / 1000000000.
@@ -240,14 +246,13 @@ class StageWorld():
 
         if is_crash == 1:
             terminate = True
-            reward_c = -15
+            # reward_c = -15
             result = 'Crashed'
 
-        if np.abs(w) >  1.05:
-            reward_w = -0.1 * np.abs(w)
+        # if np.abs(w) >  1.05:
+        #     reward_w = -0.1 * np.abs(w)
 
-        if t > 150:
-            # terminate = True
+        if t > 200:
             result = 'Time out'
 
         reward = reward_g + reward_c + reward_w
@@ -357,5 +362,27 @@ class StageWorld():
             x = env5_goals[goal_index][0]
             y = env5_goals[goal_index][1]
             return [x,y]
+
+    def get_local_goalRobo(self):
+        [x, y, theta] = self.get_self_stateGT()
+        [ag_x, ag_y,ag_ang] = self.goal_roboPos
+        local_x = (ag_x - x) * np.cos(theta) + (ag_y - y) * np.sin(theta)
+        local_y = -(ag_x - x) * np.sin(theta) + (ag_y - y) * np.cos(theta)
+        return [local_x, local_y]
+    
+    def get_goalRobo_speed(self):
+        return self.speed_goalRobo
+
+    def get_local_and_robo_pos(self):
+        local_goal_pos = self.get_local_goal()
+        local_robo_pos = self.get_local_goalRobo()
+        return local_goal_pos+local_robo_pos
+    
+    def get_ad_and_ag_speed(self):
+        ad_speed = self.get_self_speed()
+        ag_speed = self.get_goalRobo_speed()
+        return ad_speed+ag_speed
+
+
 
 

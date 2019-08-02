@@ -259,4 +259,55 @@ def ppo_update_stage2(policy, optimizer, batch_size, memory, filter_index, epoch
     print('filter {} transitions; update'.format(len(filter_index)))
 
 
+def ppo_update_adversayPush(policy, optimizer, batch_size, memory, epoch,
+               coeff_entropy=0.02, clip_value=0.2,
+               num_step=2048, num_env=12, frames=1, obs_size=24, act_size=4):
+    obss, goals, speeds, actions, logprobs, targets, values, rewards, advs = memory
 
+    advs = (advs - advs.mean()) / advs.std()
+
+    obss = obss.reshape((num_step*num_env, frames, obs_size))
+    goals = goals.reshape((num_step*num_env, 4))
+    speeds = speeds.reshape((num_step*num_env, 4))
+    actions = actions.reshape(num_step*num_env, act_size)
+    logprobs = logprobs.reshape(num_step*num_env, 1)
+    advs = advs.reshape(num_step*num_env, 1)
+    targets = targets.reshape(num_step*num_env, 1)
+
+    for update in range(epoch):
+        sampler = BatchSampler(SubsetRandomSampler(list(range(advs.shape[0]))), batch_size=batch_size,
+                               drop_last=False)
+        for i, index in enumerate(sampler):
+            sampled_obs = Variable(torch.from_numpy(obss[index])).float().cuda()
+            sampled_goals = Variable(torch.from_numpy(goals[index])).float().cuda()
+            sampled_speeds = Variable(torch.from_numpy(speeds[index])).float().cuda()
+
+            sampled_actions = Variable(torch.from_numpy(actions[index])).float().cuda()
+            sampled_logprobs = Variable(torch.from_numpy(logprobs[index])).float().cuda()
+            sampled_targets = Variable(torch.from_numpy(targets[index])).float().cuda()
+            sampled_advs = Variable(torch.from_numpy(advs[index])).float().cuda()
+
+
+            new_value, new_logprob, dist_entropy = policy.evaluate_actions(sampled_obs, sampled_goals, sampled_speeds, sampled_actions)
+
+            sampled_logprobs = sampled_logprobs.view(-1, 1)
+            ratio = torch.exp(new_logprob - sampled_logprobs)
+
+            sampled_advs = sampled_advs.view(-1, 1)
+            surrogate1 = ratio * sampled_advs
+            surrogate2 = torch.clamp(ratio, 1 - clip_value, 1 + clip_value) * sampled_advs
+            policy_loss = -torch.min(surrogate1, surrogate2).mean()
+
+            sampled_targets = sampled_targets.view(-1, 1)
+            value_loss = F.mse_loss(new_value, sampled_targets)
+
+            loss = policy_loss + 20 * value_loss - coeff_entropy * dist_entropy
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            info_p_loss, info_v_loss, info_entropy = float(policy_loss.detach().cpu().numpy()), \
+                                                     float(value_loss.detach().cpu().numpy()), float(
+                                                    dist_entropy.detach().cpu().numpy())
+            logger_ppo.info('{}, {}, {}'.format(info_p_loss, info_v_loss, info_entropy))
+
+    print('update')

@@ -151,7 +151,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of total robots
-    ID = 12 #policy saved directory
+    ID = 14 #policy saved directory
     ENV_INDEX =6 # supposed that we only train in the circle
 
     # config log
