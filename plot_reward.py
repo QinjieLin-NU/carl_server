@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-fileids = [11,13]
-len_episodes = [10,35]#num of robot
+fileids = [15,1006]
+len_episodes = [1,1]#num of robot
 for i in range(len(fileids)):
     fileid = fileids[i]
     len_episode = len_episodes[i]

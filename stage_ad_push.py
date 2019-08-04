@@ -37,7 +37,7 @@ class StageWorld():
 
         # used in generate goal point
         self.map_size = np.array([8., 8.], dtype=np.float32)  # 20x20m
-        self.goal_size = 0.5
+        self.goal_size = 1.0
 
         self.robot_value = 10.
         self.goal_value = 0.
@@ -102,6 +102,7 @@ class StageWorld():
         self.state_GT = None
         self.goal_roboPos = [0,0,0]
         self.speed_goalRobo = [0,0]
+        self.ag_distance = 0
         while self.scan is None or self.speed is None or self.state is None\
                 or self.speed_GT is None or self.state_GT is None:
             pass
@@ -137,7 +138,11 @@ class StageWorld():
         self.goal_point = [goal.position.x, goal.position.y]
         [x, y] = self.get_local_goal()
         self.pre_distance = np.sqrt(x ** 2 + y ** 2)
+        self.pre_ag_distance = np.sqrt((self.goal_point[0] - self.goal_roboPos[0]) ** 2 + (self.goal_point[1] - self.goal_roboPos[1]) ** 2)
         self.distance = copy.deepcopy(self.pre_distance)
+        self.ag_distance = copy.deepcopy(self.pre_ag_distance)
+        print("get goal:",self.goal_point)
+
 
     def goalRobo_odometry_callback(self, odometry):
         Quaternions = odometry.pose.pose.orientation
@@ -235,10 +240,13 @@ class StageWorld():
         [v, w] = self.get_self_speedGT()
         self.pre_distance = copy.deepcopy(self.distance)
         self.distance = np.sqrt((self.goal_point[0] - x) ** 2 + (self.goal_point[1] - y) ** 2)
+        self.pre_agDistance = copy.deepcopy(self.ag_distance)
         self.ag_distance = np.sqrt((self.goal_point[0] - self.goal_roboPos[0]) ** 2 + (self.goal_point[1] - self.goal_roboPos[1]) ** 2)
         # reward_g = (self.pre_distance - self.distance) * 2.5
         #reward setting refered by openAI's particles' envs
-        reward_g = (self.ag_distance - self.distance)
+        reward_ad_g  = self.pre_distance - self.distance
+        reward_ag_g  = self.pre_agDistance - self.ag_distance
+        reward_g = (reward_ad_g - reward_ag_g) * 2.5
         reward_c = 0
         reward_w = 0
         result = 0
@@ -246,8 +254,12 @@ class StageWorld():
 
         if is_crash == 1:
             terminate = True
-            # reward_c = -15
+            reward_c = -15
             result = 'Crashed'
+
+        if self.distance < self.goal_size:
+            reward_g = 15
+            result = 'Reach Goal'
 
         # if np.abs(w) >  1.05:
         #     reward_w = -0.1 * np.abs(w)

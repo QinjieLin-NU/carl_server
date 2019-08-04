@@ -14,8 +14,8 @@ from collections import deque
 from model.net import MLPPolicy, CNNPolicy,AdversaryPush_CNNPolicy
 from stage_ad_push import StageWorld
 from model.ppo import ppo_update_stage1, generate_train_data,ppo_update_adversayPush
-from model.ppo import generate_action
-from model.ppo import transform_buffer
+from model.ppo import generate_action,generate_action_adPush
+from model.ppo import transform_buffer,transform_buffer_adPush
 
 
 
@@ -64,14 +64,15 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         # speed = np.asarray(env.get_self_speed())
         goal = np.asarray(env.get_local_and_robo_pos())
         speed = np.asarray(env.get_ad_and_ag_speed())
-        state = [obs_stack, goal, speed]
+        # state = [obs_stack, goal, speed]
+        state = [goal, speed]
 
         while not next_ep and not rospy.is_shutdown():
             state_list = comm.gather(state, root=0)
 
 
             # generate actions at rank==0
-            v, a, logprob, scaled_action=generate_action(env=env, state_list=state_list,
+            v, a, logprob, scaled_action=generate_action_adPush(env=env, state_list=state_list,
                                                          policy=policy, action_bound=action_bound)
 
             # execute actions
@@ -100,11 +101,12 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             # speed_next = np.asarray(env.get_self_speed())
             goal_next = np.asarray(env.get_local_and_robo_pos())
             speed_next = np.asarray(env.get_ad_and_ag_speed())
-            state_next = [obs_stack, goal_next, speed_next]
+            # state_next = [obs_stack, goal_next, speed_next]
+            state_next = [goal_next, speed_next]
 
             if global_step % HORIZON == 0:
                 state_next_list = comm.gather(state_next, root=0)
-                last_v, _, _, _ = generate_action(env=env, state_list=state_next_list, policy=policy,
+                last_v, _, _, _ = generate_action_adPush(env=env, state_list=state_next_list, policy=policy,
                                                                action_bound=action_bound)
             # add transitons in buff and update policy
             r_list = comm.gather(r, root=0)
@@ -113,11 +115,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             if env.mpi_rank == 0:
                 buff.append((state_list, a, r_list, terminal_list, logprob, v))
                 if len(buff) > HORIZON - 1:
-                    s_batch, goal_batch, speed_batch, a_batch, r_batch, d_batch, l_batch, v_batch = \
-                        transform_buffer(buff=buff)
+                    goal_batch, speed_batch, a_batch, r_batch, d_batch, l_batch, v_batch = \
+                        transform_buffer_adPush(buff=buff)
                     t_batch, advs_batch = generate_train_data(rewards=r_batch, gamma=GAMMA, values=v_batch,
                                                               last_value=last_v, dones=d_batch, lam=LAMDA)
-                    memory = (s_batch, goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
+                    memory = (goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
                     print("PPO update start")
                     # ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
                     #                         epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
@@ -153,9 +155,9 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11323
-    NUM_BOT = 1 #num of robot per stage
-    NUM_ENV = 1 #num of env(robots)
-    ID = 1005 #policy saved directory
+    NUM_BOT = 4 #num of robot per stage
+    NUM_ENV = 4 #num of env(robots)
+    ID = 1008 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
 
@@ -202,7 +204,7 @@ if __name__ == '__main__':
 
     env = StageWorld(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex,goal_robotIndex=GOAL_START)
     reward = None
-    action_bound = [[0, -1], [1, 1]]#[0.7, 1]]
+    action_bound = [[0, -2], [1.5, 2]]#[0.7, 1]]
 
     # torch.manual_seed(1)
     # np.random.seed(1)

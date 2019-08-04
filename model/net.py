@@ -137,33 +137,36 @@ class AdversaryPush_CNNPolicy(nn.Module):
         super(AdversaryPush_CNNPolicy, self).__init__()
         self.logstd = nn.Parameter(torch.zeros(action_space))
 
-        self.act_fea_cv1 = nn.Conv1d(in_channels=frames, out_channels=32, kernel_size=5, stride=2, padding=1)
-        self.act_fea_cv2 = nn.Conv1d(in_channels=32, out_channels=32, kernel_size=3, stride=2, padding=1)
-        self.act_fc1 = nn.Linear(90*32, 256)
-        self.act_fc2 =  nn.Linear(256+2+2+2+2, 128)# nn.Linear(256+2+2, 128)
+        # self.act_fea_cv1 = nn.Conv1d(in_channels=frames, out_channels=32, kernel_size=5, stride=2, padding=1)
+        # self.act_fea_cv2 = nn.Conv1d(in_channels=32, out_channels=32, kernel_size=3, stride=2, padding=1)
+        # self.act_fc1 = nn.Linear(90*32, 256)
+        # self.act_fc2 =  nn.Linear(256+2+2+2+2, 128)# nn.Linear(256+2+2, 128)
+        self.act_fc2 =  nn.Linear(2+2+2+2, 128)# nn.Linear(256+2+2, 128)
         self.actor1 = nn.Linear(128, 1)
         self.actor2 = nn.Linear(128, 1)
 
 
-        self.crt_fea_cv1 = nn.Conv1d(in_channels=frames, out_channels=32, kernel_size=5, stride=2, padding=1)
-        self.crt_fea_cv2 = nn.Conv1d(in_channels=32, out_channels=32, kernel_size=3, stride=2, padding=1)
-        self.crt_fc1 = nn.Linear(90*32, 256)
-        self.crt_fc2 = nn.Linear(256+2+2+2+2, 128)#nn.Linear(256+2+2, 128)
+        # self.crt_fea_cv1 = nn.Conv1d(in_channels=frames, out_channels=32, kernel_size=5, stride=2, padding=1)
+        # self.crt_fea_cv2 = nn.Conv1d(in_channels=32, out_channels=32, kernel_size=3, stride=2, padding=1)
+        # self.crt_fc1 = nn.Linear(90*32, 256)
+        # self.crt_fc2 = nn.Linear(256+2+2+2+2, 128)#nn.Linear(256+2+2, 128)
+        self.crt_fc2 = nn.Linear(2+2+2+2, 128)#nn.Linear(256+2+2, 128)
         self.critic = nn.Linear(128, 1)
 
 
 
-    def forward(self, x, goal, speed):
+    def forward(self, goal, speed):
         """
             returns value estimation, action, log_action_prob
         """
         # action
-        a = F.relu(self.act_fea_cv1(x))
-        a = F.relu(self.act_fea_cv2(a))
-        a = a.view(a.shape[0], -1)
-        a = F.relu(self.act_fc1(a))
+        # a = F.relu(self.act_fea_cv1(x))
+        # a = F.relu(self.act_fea_cv2(a))
+        # a = a.view(a.shape[0], -1)
+        # a = F.relu(self.act_fc1(a))
 
-        a = torch.cat((a, goal, speed), dim=-1)
+        # a = torch.cat((a, goal, speed), dim=-1)
+        a = torch.cat((goal, speed), dim=-1)
         a = F.relu(self.act_fc2(a))
         mean1 = F.sigmoid(self.actor1(a))
         mean2 = F.tanh(self.actor2(a))
@@ -177,19 +180,20 @@ class AdversaryPush_CNNPolicy(nn.Module):
         logprob = log_normal_density(action, mean, std=std, log_std=logstd)
 
         # value
-        v = F.relu(self.crt_fea_cv1(x))
-        v = F.relu(self.crt_fea_cv2(v))
-        v = v.view(v.shape[0], -1)
-        v = F.relu(self.crt_fc1(v))
-        v = torch.cat((v, goal, speed), dim=-1)
+        # v = F.relu(self.crt_fea_cv1(x))
+        # v = F.relu(self.crt_fea_cv2(v))
+        # v = v.view(v.shape[0], -1)
+        # v = F.relu(self.crt_fc1(v))
+        # v = torch.cat((v, goal, speed), dim=-1)
+        v = torch.cat((goal, speed), dim=-1)
         v = F.relu(self.crt_fc2(v))
         v = self.critic(v)
 
 
         return v, action, logprob, mean
 
-    def evaluate_actions(self, x, goal, speed, action):
-        v, _, _, mean = self.forward(x, goal, speed)
+    def evaluate_actions(self, goal, speed, action):
+        v, _, _, mean = self.forward(goal, speed)
         logstd = self.logstd.expand_as(mean)
         std = torch.exp(logstd)
         # evaluate
