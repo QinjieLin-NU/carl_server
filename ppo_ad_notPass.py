@@ -34,6 +34,7 @@ NUM_ENV = 4
 OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
+TRAIN = True
 
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
@@ -114,13 +115,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                     t_batch, advs_batch = generate_train_data(rewards=r_batch, gamma=GAMMA, values=v_batch,
                                                               last_value=last_v, dones=d_batch, lam=LAMDA)
                     memory = (s_batch, goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
-                    print("PPO update start")
                     ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
                                             epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
                                             num_env=NUM_ENV, frames=LASER_HIST,
                                             obs_size=OBS_SIZE, act_size=ACT_SIZE)
 
-                    print("PPO update finish")
                     buff = []
                     global_update += 1
 
@@ -129,28 +128,32 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
         if env.mpi_rank == 0:
-            if global_update != 0 and global_update % 20 == 0:
-                torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
-                logger.info('########################## model saved when update {} times#########'
-                            '################'.format(global_update))
+            if TRAIN:
+                if global_update != 0 and global_update % 20 == 0:
+                    torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
+                    logger.info('########################## model saved when update {} times#########'
+                                '################'.format(global_update))
         # distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
-        logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
-                    (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
-        logger_cal.info(ep_reward)
+        if TRAIN:
+            logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
+                        (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
+            logger_cal.info(ep_reward)
 
 
 
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11323
+    ROS_PORT0 = 11325
     NUM_BOT = 4 #num of robot per stage
     NUM_ENV = 4 #num of env(robots)
-    ID = 1010 #policy saved directory
+    ID = 1014 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
+    TRAIN = False
+    POLICY_NAME = "/Stage1_12180"
 
     # config log
     # hostname = socket.gethostname()
@@ -211,7 +214,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_1760'
+        file = policy_path + POLICY_NAME
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

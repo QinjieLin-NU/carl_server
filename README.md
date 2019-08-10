@@ -78,3 +78,19 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-av
 mpiexec --allow-run-as-root -np 1 python ppo_ag_push.py 
 mpiexec --allow-run-as-root -np 1 python ppo_ad_push.py   
 ```   
+### run ad and ag  (training agent in three scenatio)
+``` 
+roscore -p 11323   
+export ROS_MASTER_URI=http://localhost:11323    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap2.world   
+roscore -p 11324  
+export ROS_MASTER_URI=http://localhost:11324    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap3.world 
+roscore -p 11325   
+export ROS_MASTER_URI=http://localhost:11325    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap4.world 
+mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py   
+mpiexec --allow-run-as-root -np 4 python ppo_ad_chase.py   
+mpiexec --allow-run-as-root -np 4 python ppo_ad_push.py   
+mpiexec --allow-run-as-root -np 4 python ppo_ad_notPass.py    
+```   

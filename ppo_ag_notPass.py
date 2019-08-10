@@ -51,7 +51,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
     for id in range(MAX_EPISODES):
         env.reset_pose()
-        env.reset_world()
+        # env.reset_world()
 
         env.generate_goal_point()
         terminal = False
@@ -87,7 +87,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
             if(result == "Reach Goal"):
                 print("reaching goal:",env.goal_point)
-                env.reset_world()
+                # env.reset_world()
                 env.generate_goal_point()
             if (terminal):
                 env.reset_pose()
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of total robots
-    ID = 19 #policy saved directory
+    ID = 20 #policy saved directory
     ENV_INDEX =7 # supposed that we only train in the circle
 
     # config log

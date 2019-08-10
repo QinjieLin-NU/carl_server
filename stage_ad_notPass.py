@@ -68,6 +68,8 @@ class StageWorld():
         crash_topic = 'robot_' + str(index) + '/is_crashed'
         self.check_crash = rospy.Subscriber(crash_topic, Int8, self.crash_callback)
 
+        reach_topic = 'robot_' + str(goal_robotIndex) + '/is_reached'
+        self.check_reach = rospy.Subscriber(reach_topic, Int8, self.reach_callback)
 
         self.sim_clock = rospy.Subscriber('clock', Clock, self.sim_clock_callback)
 
@@ -142,6 +144,9 @@ class StageWorld():
 
     def get_self_speedGT(self):
         return self.speed_GT
+    
+    def reach_callback(self, flag):
+        self.reset_pose()
 
     def get_laser_observation(self):
         scan = copy.deepcopy(self.scan)

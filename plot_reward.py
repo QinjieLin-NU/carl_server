@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-fileids = [19]
-len_episodes = [50]#num of robot
-for i in range(len(fileids)):
+fileids = [21,1012,1014,1013]
+len_episodes = [30,40,40,40]#num of robot
+for i in range(len(fileids)-3):
     fileid = fileids[i]
     len_episode = len_episodes[i]
     rewards=[]

@@ -34,6 +34,7 @@ NUM_ENV = 4
 OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
+TRAIN = True
 
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
@@ -138,28 +139,33 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
         if env.mpi_rank == 0:
-            if global_update != 0 and global_update % 20 == 0:
-                torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
-                logger.info('########################## model saved when update {} times#########'
-                            '################'.format(global_update))
+            if TRAIN:
+                if global_update != 0 and global_update % 20 == 0:
+                    torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
+                    logger.info('########################## model saved when update {} times#########'
+                                '################'.format(global_update))
         # distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
-        logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
-                    (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
-        logger_cal.info(ep_reward)
+        if TRAIN:
+            logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
+                        (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
+            logger_cal.info(ep_reward)
 
 
 
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11323
+    ROS_PORT0 = 11324
     NUM_BOT = 4 #num of robot per stage
     NUM_ENV = 4 #num of env(robots)
-    ID = 1008 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
+    TRAIN = False
+    ID = 1013 #policy saved directory
+    POLICY_NAME = "/Stage1_12020"
+
 
     # config log
     # hostname = socket.gethostname()
@@ -221,7 +227,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_1760'
+        file = policy_path + POLICY_NAME
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
