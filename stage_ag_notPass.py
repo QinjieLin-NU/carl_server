@@ -375,4 +375,6 @@ class StageWorld():
             return self.generate_random_goal_v2()
         elif (self.env_index == 7):
             return self.generate_random_goal_v3()
+        elif(self.env_index ==10):
+            return [0.0,4.0]
 

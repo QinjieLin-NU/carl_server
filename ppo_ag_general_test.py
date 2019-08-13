@@ -163,13 +163,13 @@ if __name__ == '__main__':
     rosPort = ROS_PORT0 + rank
     env = None
     if(rank == 0):
-        envIndex = 6
+        envIndex = 8
         env = StageWorld_chase(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
     elif (rank == 1):
-        envIndex = 6
+        envIndex = 9
         env = StageWorld_push(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
     elif (rank == 2):
-        envIndex = 7
+        envIndex = 10
         env = StageWorld_notPass(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
 
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))

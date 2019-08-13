@@ -68,6 +68,8 @@ class StageWorld():
         crash_topic = 'robot_' + str(index) + '/is_crashed'
         self.check_crash = rospy.Subscriber(crash_topic, Int8, self.crash_callback)
 
+        reach_topic = 'robot_' + str(index) + '/is_reached'
+        self.reach_publisher = rospy.Publisher(reach_topic, Int8, queue_size=2)
 
         self.sim_clock = rospy.Subscriber('clock', Clock, self.sim_clock_callback)
 
@@ -90,6 +92,8 @@ class StageWorld():
         self.state = None
         self.speed_GT = None
         self.state_GT = None
+        self.reach_flag = Int8()
+        self.reach_flag.data = 8
         while self.scan is None or self.speed is None or self.state is None\
                 or self.speed_GT is None or self.state_GT is None:
             pass
@@ -224,6 +228,7 @@ class StageWorld():
             terminate = True
             reward_g = 15
             result = 'Reach Goal'
+            self.reach_publisher.publish(self.reach_flag)
 
         if is_crash == 1:
             terminate = True
@@ -353,5 +358,7 @@ class StageWorld():
             return [x,y]
         elif (self.env_index == 6):
             return self.generate_random_goal_v2()
+        elif (self.env_index == 8):
+            return [0.0,4.0]
 
 

@@ -74,8 +74,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             v, a, logprob, scaled_action=generate_action(env=env, state_list=state_list,
                                                          policy=policy, action_bound=action_bound)
 
+
             # execute actions
             real_action = comm.scatter(scaled_action, root=0)
+            real_action = real_action * 2
             env.control_vel(real_action)
 
             # rate.sleep()
@@ -149,7 +151,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 if __name__ == '__main__':
     ROS_PORT0 = 11323
     NUM_BOT = 4 #num of robot per stage
-    NUM_ENV = 4 #num of env(robots)
+    NUM_ENV = 3 #num of env(robots)
     ID = 1012 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index

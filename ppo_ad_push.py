@@ -158,8 +158,8 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11324
-    NUM_BOT = 4 #num of robot per stage
-    NUM_ENV = 4 #num of env(robots)
+    NUM_BOT = 3 #num of robot per stage
+    NUM_ENV = 3 #num of env(robots)
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
     TRAIN = False

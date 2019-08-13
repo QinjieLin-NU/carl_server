@@ -5,7 +5,7 @@ threads 16
 speedup 10
 
 
-define sicklaser ranger
+define aglaser ranger
 (
   sensor(
     pose [ 0 0 0.1 0 ]
@@ -13,7 +13,7 @@ define sicklaser ranger
     range [ 0.0 3.5 ]
     samples 360
   )
-  color "random"
+  color "green"
   block( 
     points 4
     point[0] [0 0]
@@ -24,6 +24,24 @@ define sicklaser ranger
   )
 )
 
+define adlaser ranger
+(
+  sensor(
+    pose [ 0 0 0.1 0 ]
+    fov 360
+    range [ 0.0 3.5 ]
+    samples 360
+  )
+  color "red"
+  block( 
+    points 4
+    point[0] [0 0]
+    point[1] [0 1]
+    point[2] [1 1]
+    point[3] [1 0]
+    z [0 0.21]
+  )
+)
 
 define floorplan model
 (
@@ -61,7 +79,7 @@ window
 
 
 # GUI options
-  show_data 1
+  show_data 0
   show_flags 1
   show_blocks 1
   show_clock 1
@@ -80,7 +98,7 @@ window
 define agent position
 (
   # actual size
-  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
+  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -89,13 +107,13 @@ define agent position
   # draw a nose on the robot so we can see which way it points
   gui_nose 1
 
-  color "random"
+  color "green"
   drive "diff"		 	# Differential steering model.
   obstacle_return 1           	# Can hit things.
   ranger_return 0.5            	# reflects sonar beams
   blob_return 1               	# Seen by blobfinders  
   fiducial_return 1           	# Seen as "1" fiducial finders
-  sicklaser(
+  aglaser(
 	pose [ 0 0 0 0 ] 
   )
   
@@ -115,13 +133,13 @@ define adent position
   # draw a nose on the robot so we can see which way it points
   gui_nose 1
 
-  color "random"
+  color "red"
   drive "diff"		 	# Differential steering model.
   obstacle_return 1           	# Can hit things.
   ranger_return 0.5            	# reflects sonar beams
   blob_return 1               	# Seen by blobfinders  
   fiducial_return 1           	# Seen as "1" fiducial finders
-  sicklaser(
+  adlaser(
 	pose [ 0 0 0 0 ] 
   )
   
@@ -130,8 +148,7 @@ define adent position
   # acceleration_bounds [-500 500 0 0 0 0 -90 90.0 ]
   )
 
-agent( pose [-2.5.00 -2.5.00 0.00 45.00])
-adent( pose [4.00 0.00 0.00 180.00])
-adent( pose [3.81 1.04 0.00 195.00])
-adent( pose [3.47 2.00 0.00 210.00])
-adent( pose [2.83 2.83 0.00 225.00])
+agent( pose [0.00 -1.00 0.00 90.00])
+adent( pose [0.00 -3.00 0.00 90.00])
+adent( pose [-3.00 -3.00 0.00 90.00])
+adent( pose [3.00 -3.00 0.00 90.00])
