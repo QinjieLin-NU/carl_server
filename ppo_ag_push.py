@@ -149,10 +149,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11323 #ros port starty from 11321
+    ROS_PORT0 = 11324 #ros port starty from 11321
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of total robots
-    ID = 17 #policy saved directory
+    ID = 24 #policy saved directory
     ENV_INDEX =6 # supposed that we only train in the circle
 
     # config log
@@ -202,6 +202,7 @@ if __name__ == '__main__':
 
     # torch.manual_seed(1)
     # np.random.seed(1)
+    print("before trainning")
     if rank == 0:
         policy_path = policydir
         # policy_path = 'policy'

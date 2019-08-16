@@ -37,7 +37,7 @@ class StageWorld():
 
         # used in generate goal point
         self.map_size = np.array([8., 8.], dtype=np.float32)  # 20x20m
-        self.goal_size = 1.0
+        self.goal_size = 0.5
 
         self.robot_value = 10.
         self.goal_value = 0.
@@ -142,6 +142,8 @@ class StageWorld():
         self.distance = copy.deepcopy(self.pre_distance)
         self.ag_distance = copy.deepcopy(self.pre_ag_distance)
         print("get goal:",self.goal_point)
+        self.first_pose = goal
+        self.first_pose.orientation.z = 1.0
 
 
     def goalRobo_odometry_callback(self, odometry):
@@ -252,17 +254,26 @@ class StageWorld():
         result = 0
         is_crash = self.get_crash_state()
 
+        # if is_crash == 1:
+        #     terminate = True
+        #     reward_c = -15
+        #     result = 'Crashed'
+
         if is_crash == 1:
-            terminate = True
-            reward_c = -15
-            result = 'Crashed'
+            if self.distance < self.goal_size:
+                terminate = True
+                result = 'goal Crashed'
+            else:
+                terminate = True
+                reward_c = -15
+                result = 'self Crashed'
 
         if self.distance < self.goal_size:
             reward_g = 15
             result = 'Reach Goal'
 
-        # if np.abs(w) >  1.05:
-        #     reward_w = -0.1 * np.abs(w)
+        if np.abs(w) >  1.05:
+            reward_w = -0.1 * np.abs(w)
 
         if t > 200:
             result = 'Time out'

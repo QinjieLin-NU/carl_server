@@ -100,7 +100,7 @@ window
 define agent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -126,7 +126,7 @@ define agent position
 define adent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -151,6 +151,4 @@ define adent position
   )
 
 agent(pose [0.00 -4.00 0.00 90.00])
-adent( pose [4.00 0.00 0.00 180.00])
-adent( pose [0.00 4.00 0.00 270.00])
-adent( pose [-4.00 0.00 0.00 0.00])
+adent( pose [-4.50 -4.50 0.00 180.00])

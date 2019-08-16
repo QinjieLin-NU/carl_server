@@ -25,7 +25,7 @@ class StageWorld():
         node_name = 'StageEnv_' + str(index)
         print("rank: %d node name:%s"%(mpi_rank,node_name))
         rospy.init_node(node_name, anonymous=None)
-
+        print("init node successfully")
         self.beam_mum = beam_num
         self.laser_cb_num = 0
         self.scan = None
@@ -80,12 +80,14 @@ class StageWorld():
         # # get initial pose for resetting
         self.odom_topic = odom_topic
         self.first_pose = None
+        print("before first pose")
         while self.first_pose is None:
             try:
                 self.first_pose = rospy.wait_for_message(odom_topic, Odometry, timeout=5).pose.pose
             except:
                 pass
         #for compute distance
+        print("after first pose")
         self.init_pose = [self.first_pose.position.x, self.first_pose.position.y]
 
         # # Wait until the first callback
@@ -318,12 +320,12 @@ class StageWorld():
     def generate_random_goal_v2(self):
         self.init_pose = self.get_self_stateGT()
         x = np.random.uniform(-4.5, 4.5)
-        y = np.random.uniform(-4.5, 4.5)
+        y = np.random.uniform(0.0, 4.5)
         dis_origin = np.sqrt(x ** 2 + y ** 2)
         dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
         while (dis_origin > 4.5 or dis_goal > 5 or dis_goal < 4) and not rospy.is_shutdown():
             x = np.random.uniform(-4.5, 4.5)
-            y = np.random.uniform(-4.5, 4.5)
+            y = np.random.uniform(0.0, 4.5)
             dis_origin = np.sqrt(x ** 2 + y ** 2)
             dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
 

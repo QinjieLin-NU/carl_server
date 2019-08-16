@@ -159,11 +159,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 if __name__ == '__main__':
     ROS_PORT0 = 11324
     NUM_BOT = 3 #num of robot per stage
-    NUM_ENV = 3 #num of env(robots)
+    NUM_ENV = 1 #num of env(robots)
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
-    TRAIN = False
-    ID = 1013 #policy saved directory
+    TRAIN = True
+    ID = 1018 #policy saved directory
     POLICY_NAME = "/Stage1_12020"
 
 
