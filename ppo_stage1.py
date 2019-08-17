@@ -148,7 +148,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11312
     NUM_BOT = 8
     NUM_ENV = 48
-    ID = 102
+    ID = 25
 
     # config log
     # hostname = socket.gethostname()
@@ -209,7 +209,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_1760'
+        file = policy_path + '/Stage1_260'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

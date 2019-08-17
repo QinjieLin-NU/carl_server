@@ -52,10 +52,10 @@ floorplan
 
 window
 (
-  size [1550 1550]
+  size [500 500]
   
 # Camera options 
-  scale 35          
+  scale 20          
   center [0  0]
   rotate [ 0.000  0.000 ]
 

@@ -70,7 +70,7 @@ floorplan
 
 window
 (
-  size [1550 1550]
+  size [500 500]
   
 # Camera options 
   scale 35          
@@ -98,7 +98,7 @@ window
 define agent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -124,7 +124,7 @@ define agent position
 define adent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -149,6 +149,6 @@ define adent position
   )
 
 agent( pose [0.00 -1.00 0.00 90.00])
-adent( pose [0.00 -3.00 0.00 90.00])
-adent( pose [-3.00 -3.00 0.00 90.00])
-adent( pose [3.00 -3.00 0.00 90.00])
+adent(pose [0.00  -2.00 0.00 90.00])
+adent(pose [2.00  0.00 0.00 135.00])
+adent(pose [-2.00  0.00 0.00 45.00])

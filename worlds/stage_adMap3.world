@@ -72,7 +72,7 @@ floorplan
 
 window
 (
-  size [1550 1550]
+  size [500 500]
   
 # Camera options 
   scale 35          
@@ -151,4 +151,6 @@ define adent position
   )
 
 agent(pose [0.00 -4.00 0.00 90.00])
-adent( pose [-4.50 -4.50 0.00 180.00])
+adent(pose [0.00  3.00 0.00 270.00])
+adent(pose [3.00  0.00 0.00 180.00])
+adent(pose [-3.00  0.00 0.00 0.00])

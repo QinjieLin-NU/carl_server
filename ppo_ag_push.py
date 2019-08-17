@@ -152,7 +152,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11324 #ros port starty from 11321
     NUM_BOT = 1 #num of robot per stage
     NUM_ENV = 1 #num of total robots
-    ID = 24 #policy saved directory
+    ID = 23 #policy saved directory
     ENV_INDEX =6 # supposed that we only train in the circle
 
     # config log
@@ -215,7 +215,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_780'
+        file = policy_path + '/Stage1_14160'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
