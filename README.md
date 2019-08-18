@@ -41,6 +41,9 @@ rosrun stage_ros_add_pose_and_crash stageros worlds/circle.world
 mpiexec -np 50 python circle_test.py
 ```   
 
+## installing problem  
+export LD_LIBRARY_PATH=path to stage
+
 ## How to run multi-robot and multi-env training
 ### rl_ws  
 ```  
