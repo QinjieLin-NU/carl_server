@@ -2,6 +2,7 @@ import agent
 import network
 import util
 import numpy as np
+from mpi4py import MPI
 
 import time
 import tf
@@ -16,7 +17,7 @@ from std_msgs.msg import Int8
 
 
 class CadrlStage():
-    def __init__(self,ros_port):
+    def __init__(self,ros_port,envIndex):
         #load trained network
         self.possible_actions = network.Actions()
         self.num_actions = self.possible_actions.num_actions
@@ -70,6 +71,7 @@ class CadrlStage():
         rospy.sleep(1.)
         self.goal_x = 0.0
         self.goal_y = 0.0
+        self.envIndex = envIndex
         # self.get_agentCMD()
 
     def crash_callback(self, flag):
@@ -138,7 +140,10 @@ class CadrlStage():
 
     def generate_fixedGoal(self):
         self.goal_x = 0.0
-        self.goal_y = 0.0
+        self.goal_y = 4.0
+        if(self.envIndex == 1):
+            self.goal_x = 0.0
+            self.goal_y = 0.0
 
         goal = Pose()
         goal.position.x = self.goal_x
@@ -217,16 +222,21 @@ class CadrlStage():
         move_cmd.angular.z = 2*yaw_error
 
         self.cmd_vel.publish(move_cmd)
-        rospy.sleep(0.001)
 
 if __name__ == "__main__":
-    ROSPORT = 11324
+    ROSPORT = 11323
 
-    env = CadrlStage(ROSPORT)
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    size = comm.Get_size()
+    envIndex = rank
+
+    env = CadrlStage(ROSPORT+rank,envIndex)
     for i in range(5000):
         env.reset_stage()
         # env.generate_goal()
         env.generate_fixedGoal()
+        result = ""
         terminate = False
         while not terminate:
             host_agent,goal_x,goal_y,terminate,result = env.get_agentState()
@@ -239,5 +249,7 @@ if __name__ == "__main__":
             #predict action from learned model
             action = env.predict_action(obs)
             env.control_vel(action)
+            rospy.sleep(0.1)
+        print(result)
 
 
