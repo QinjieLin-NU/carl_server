@@ -149,6 +149,7 @@ define adent position
   )
 
 agent( pose [0.00 -1.00 0.00 90.00])
+#agent( pose [0.00 -1.00 0.00 0.00])
 adent(pose [0.00  -2.00 0.00 90.00])
 adent(pose [2.00  0.00 0.00 135.00])
 adent(pose [-2.00  0.00 0.00 45.00])
