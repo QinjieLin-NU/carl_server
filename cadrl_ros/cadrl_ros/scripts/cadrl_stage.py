@@ -3,11 +3,15 @@ import network
 import util
 import numpy as np
 from mpi4py import MPI
+import logging
 
 import time
 import tf
 import os
 import rospy
+import sys
+import time
+
 from geometry_msgs.msg import Twist, Pose
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import LaserScan
@@ -223,8 +227,46 @@ class CadrlStage():
 
         self.cmd_vel.publish(move_cmd)
 
+    def stop_agent(self):
+        move_cmd = Twist()
+        self.cmd_vel.publish(move_cmd)
+
+def init_logger():
+    testLogName = '/test.log'
+
+    # config log
+    dirname = '/clever/saved_model_ppo/autoRL_88888' 
+    logdir = dirname + "/log"
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+    if not os.path.exists(logdir):
+        os.makedirs(logdir)
+    cal_file = logdir + testLogName
+    output_file =logdir + '/output.log'
+
+    # config log
+    logger = logging.getLogger('mylogger')
+    logger.setLevel(logging.INFO)
+
+    file_handler = logging.FileHandler(output_file, mode='a')
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setLevel(logging.INFO)
+    logger.addHandler(file_handler)
+    logger.addHandler(stdout_handler)
+
+    logger_cal = logging.getLogger('loggercal')
+    logger_cal.setLevel(logging.INFO)
+    cal_f_handler = logging.FileHandler(cal_file, mode='a')
+    file_handler.setLevel(logging.INFO)
+    logger_cal.addHandler(cal_f_handler)
+
+    return logger_cal
+
 if __name__ == "__main__":
     ROSPORT = 11323
+    log_cal = init_logger()
 
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
@@ -232,12 +274,22 @@ if __name__ == "__main__":
     envIndex = rank
 
     env = CadrlStage(ROSPORT+rank,envIndex)
-    for i in range(5000):
+    for id in range(5000):
         env.reset_stage()
-        # env.generate_goal()
         env.generate_fixedGoal()
         result = ""
         terminate = False
+
+        rospy.sleep(0.5)
+        startPose = [env.state[0],env.state[1]]
+        startTime = time.time()
+        goalPose = [env.goal_x,env.goal_y]
+        deltaDistance = 0.0
+        nowPos = [env.state[0],env.state[1]]
+        lastPos = list(nowPos)
+        reachFlag = 0
+        step = 0
+
         while not terminate:
             host_agent,goal_x,goal_y,terminate,result = env.get_agentState()
             other_agents = env.observe_others(goal_x,goal_y)
@@ -249,7 +301,27 @@ if __name__ == "__main__":
             #predict action from learned model
             action = env.predict_action(obs)
             env.control_vel(action)
-            rospy.sleep(0.1)
-        print(result)
+            rospy.sleep(0.001)
+
+            # calculate daltaDis
+            nowPos = [env.state[0],env.state[1]]
+            tempDeltaDis = np.sqrt((nowPos[0] - lastPos[0])**2 + (nowPos[1]-lastPos[1])**2)
+            deltaDistance += tempDeltaDis
+            step +=1
+            lastPos = nowPos
+            if(result == "reach"):
+                reachFlag =1
+            if(step > 5000):
+                reachFlag = 2
+                break
+
+        env.stop_agent()
+        endTime = time.time()
+        deltaTime = (endTime - startTime)
+        stateInfo = "scenarioId: %d, start:(%4f,%4f), goal: (%4f,%4f), state: %d, time: %4f, distance: %4f"\
+            %(rank,startPose[0],startPose[1],goalPose[0],goalPose[1],reachFlag,deltaTime,deltaDistance)
+        if((id>=50) and (id<150)):
+            print(stateInfo)
+            log_cal.info(stateInfo)
 
 
