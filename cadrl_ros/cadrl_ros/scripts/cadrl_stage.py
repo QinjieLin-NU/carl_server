@@ -322,6 +322,6 @@ if __name__ == "__main__":
             %(rank,startPose[0],startPose[1],goalPose[0],goalPose[1],reachFlag,deltaTime,deltaDistance)
         if((id>=50) and (id<150)):
             print(stateInfo)
-            log_cal.info(stateInfo)
+            # log_cal.info(stateInfo)
 
 

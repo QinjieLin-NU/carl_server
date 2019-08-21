@@ -164,7 +164,7 @@ if __name__ == '__main__':
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
     TRAIN = False
-    ID = 1018#1022#1018 #policy saved directory
+    ID = 1018#1025#1022#1018 #policy saved directory
     POLICY_NAME = "/Stage1_14520"
 
 

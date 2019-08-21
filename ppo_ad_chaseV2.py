@@ -154,7 +154,7 @@ if __name__ == '__main__':
     ROS_PORT0 = 11323
     NUM_BOT = 4 #num of robot per stage
     NUM_ENV = 3 #num of env(robots)
-    ID = 1020# 1020 #policy saved directory
+    ID = 1020#1024# 1020 #policy saved directory
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
     POLICY_NAME = "/Stage1_880" #"/Stage1_12120"

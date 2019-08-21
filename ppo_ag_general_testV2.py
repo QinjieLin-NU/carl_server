@@ -141,19 +141,19 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         deltaTime = (endTime - startTime)
         stateInfo = "scenarioId: %d, start:(%4f,%4f), goal: (%4f,%4f), state: %d, time: %4f, distance: %4f"\
             %(mpiId,startPose[0],startPose[1],goalPose[0],goalPose[1],reachFlag,deltaTime,deltaDistance)
-        print(stateInfo)
-        if( (id < 150) and (id > 50) ):
-            logger_cal.info(stateInfo)
+        if( (id <= 150) and (id > 50) ):
+            print(stateInfo)
+            # logger_cal.info(stateInfo)
 
 
 
 
 if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
-    ID = 27#13#21#25# 21 #policy saved directory
+    ID = 28#27#13#21#25# 21 #policy saved directory
     NUM_ENV = 3 # number of robot
-    POLICY_NAME = "/Stage1_8060"#"/Stage1_260"#"/Stage1_9940"#780
-    LASER_NORM = False
+    POLICY_NAME = "/Stage1_2020"#"/Stage1_2020"#"/Stage1_8060"#"/Stage1_260"#"/Stage1_9940"#780
+    LASER_NORM = True
     testLogName = '/test.log'
 
     # config log

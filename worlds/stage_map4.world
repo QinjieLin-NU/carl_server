@@ -61,7 +61,7 @@ window
 
 
 # GUI options
-  show_data 1
+  show_data 0
   show_flags 1
   show_blocks 1
   show_clock 1
@@ -80,7 +80,7 @@ window
 define agent position
 (
   # actual size
-  size [0.25 0.20 0.22] # sizes from MobileRobots' web site
+  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area

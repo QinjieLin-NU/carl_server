@@ -38,6 +38,7 @@ def plotDatas(successRates,deltaDiss,deltaTimes):
     for i in range(3):
         for j in range(3):
             avSpeeds[i][j] = 0.1 * deltaDiss[i][j] / deltaTimes[i][j]
+    print(avSpeeds)
 
     fig, axes = plt.subplots(nrows=2, ncols=2)
     ax0, ax1, ax2, ax3 = axes.flatten()
@@ -55,7 +56,7 @@ def plotDatas(successRates,deltaDiss,deltaTimes):
     fig.set_figwidth(15)
     plt.show()
 
-fileids = [21,25,88888]
+fileids = [28,25,88888]#21:old ad,27 not normalized
 successRates = []
 exeDistances = []
 exeTimes = []
@@ -63,6 +64,7 @@ for i in range(len(fileids)):
     successRate = [0,0,0]
     exeDistance = [0,0,0]
     exeTime = [0,0,0]
+    num_test = [0,0,0]
     fileid = fileids[i]
     hostname = "autoRL_%d/"%fileid
     dirname = '/clever/saved_model_ppo/' + hostname + "log"
@@ -71,6 +73,7 @@ for i in range(len(fileids)):
             p = re.compile (r'[-+]?[0-9]*\.?[0-9]+')
             floats = [float(i) for i in p.findall(line)]  # Convert strings to float
             scenarioId = int(floats[0])
+            num_test[scenarioId] += 1
             reachFlag = floats[-3]
             reachTime = floats[-2]
             reachDis = floats[-1]
@@ -80,9 +83,9 @@ for i in range(len(fileids)):
             exeDistance[scenarioId] += reachDis
             exeTime[scenarioId] += reachTime
         
-    successRate = [i/100 for i in successRate]
-    exeDistance = [i/100 for i in exeDistance]
-    exeTime = [i/100 for i in exeTime]
+    successRate = [successRate[i]/num_test[i] for i in range(3)]
+    exeDistance = [exeDistance[i]/num_test[i] for i in range(3)]
+    exeTime = [exeTime[i]/num_test[i] for i in range(3)]
     successRates.append(successRate)
     exeDistances.append(exeDistance)
     exeTimes.append(exeTime)

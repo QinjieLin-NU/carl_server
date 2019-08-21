@@ -93,8 +93,8 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             if (terminal):
                 env.reset_pose()
                 obs = env.get_laser_observation()
-                if(not LASER_NORM):
-                    obs = (obs + 0.5)*3.5
+                # if(not LASER_NORM):
+                #     obs = (obs + 0.5)*3.5
                 obs_stack = deque([obs, obs, obs])
             if(step > EP_LEN):
                 next_ep = True
@@ -102,8 +102,8 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
             # get next state
             s_next = env.get_laser_observation()
-            if(not LASER_NORM):
-                s_next = (s_next + 0.5) * 3.5
+            # if(not LASER_NORM):
+            #     s_next = (s_next + 0.5) * 3.5
             left = obs_stack.popleft()
             obs_stack.append(s_next)
             goal_next = np.asarray(env.get_local_goal())
@@ -158,8 +158,9 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
-    ID = 27 #policy saved directory
+    ID = 28 #policy saved directory
     NUM_ENV = 3 # number of robot
+    LASER_NORM = True
 
     # config log
     # hostname = socket.gethostname()
