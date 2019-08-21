@@ -44,7 +44,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
     global_update = 0
     global_step = 0
     mpiId = comm.Get_rank()
-    MAX_EPISODES = 50000
+    MAX_EPISODES = 500
     numTest = 100
 
     if env.index == 0:
@@ -142,7 +142,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         stateInfo = "scenarioId: %d, start:(%4f,%4f), goal: (%4f,%4f), state: %d, time: %4f, distance: %4f"\
             %(mpiId,startPose[0],startPose[1],goalPose[0],goalPose[1],reachFlag,deltaTime,deltaDistance)
         print(stateInfo)
-        if(id < numTest):
+        if( (id < 150) and (id > 50) ):
             logger_cal.info(stateInfo)
 
 
@@ -150,9 +150,9 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
-    ID = 25#21#25# 21 #policy saved directory
+    ID = 27#13#21#25# 21 #policy saved directory
     NUM_ENV = 3 # number of robot
-    POLICY_NAME = "/Stage1_260"#"/Stage1_260"#"/Stage1_9940"
+    POLICY_NAME = "/Stage1_8060"#"/Stage1_260"#"/Stage1_9940"#780
     LASER_NORM = False
     testLogName = '/test.log'
 

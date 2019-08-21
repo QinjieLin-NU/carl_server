@@ -78,6 +78,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
             # execute actions
             real_action = comm.scatter(scaled_action, root=0)
+            real_action[0] = 2 * real_action[0]
             env.control_vel(real_action)
 
             # rate.sleep()
@@ -163,7 +164,7 @@ if __name__ == '__main__':
     ROBO_START = 1 #ad robtos start index
     GOAL_START = 0 # goal robot start index
     TRAIN = False
-    ID = 1018 #policy saved directory
+    ID = 1018#1022#1018 #policy saved directory
     POLICY_NAME = "/Stage1_14520"
 
 
