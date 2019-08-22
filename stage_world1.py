@@ -314,6 +314,12 @@ class StageWorld():
         env3_goals = [(-2,2),(-2,6),(3,2),(3,6),(-2,-2),(-2,-6),(3,-3),(7,-7)]
         env4_goals = [(3,1),(7,1),(1,1),(5,1),(5,-1.5),(7,-1.5),(4,-4),(7.5,6.5)]
         env5_goals = [(0,1),(0,2),(4,-1),(8,-6.5),(0,-7.5),(4,-1),(8,-6.5),(0,-7.5)]
+        env6_goals = [(5,0),(7,0),(0,5),(0,7),(-5,0),(-7,0),(0,-5),(0,-7)]
+        env7_goals = [(3,3),(6,6),(-3,3),(-6,6),(-3,-3),(-6,-6),(3,-3),(6,-6)]
+        env8_goals = [(3,0),(6,0),(-3,0),(-6,0),(0,-3),(0,-6),(0,3),(0,6)]
+        env9_goals = [(7,5),(4,5),(-4,6),(-4,-4),(-4,-6),(0,-6),(5,-4),(8,-6)]
+        env10_goals = [(6,2),(6,4),(-6,5),(-10,2),(0,-7),(6,-3),(8,-3),(-2,-3)]
+        env11_goals = [(2,-6),(4,-6),(-2,-6),(-4,-6),(1,7),(-1,7),(1,5),(-1,5)]
         goal_index = random.randrange(0, 8)     
         if(self.env_index == 0):
             x = env0_goals[goal_index][0]
@@ -337,5 +343,27 @@ class StageWorld():
             x = env5_goals[goal_index][0]
             y = env5_goals[goal_index][1]
             return [x,y]
-
-
+        elif (self.env_index ==6 ):
+            x = env6_goals[goal_index][0]
+            y = env6_goals[goal_index][1]
+            return [x,y]
+        elif (self.env_index ==7 ):
+            x = env7_goals[goal_index][0]
+            y = env7_goals[goal_index][1]
+            return [x,y]
+        elif (self.env_index ==8 ):
+            x = env8_goals[goal_index][0]
+            y = env8_goals[goal_index][1]
+            return [x,y]
+        elif (self.env_index ==9 ):
+            x = env9_goals[goal_index][0]
+            y = env9_goals[goal_index][1]
+            return [x,y]
+        elif (self.env_index ==10 ):
+            x = env10_goals[goal_index][0]
+            y = env10_goals[goal_index][1]
+            return [x,y]            
+        elif (self.env_index ==11 ):
+            x = env11_goals[goal_index][0]
+            y = env11_goals[goal_index][1]
+            return [x,y]               

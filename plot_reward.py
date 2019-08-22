@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 # fileids = [21,1012,1014,1013]
 # len_episodes = [30,40,40,40]#num of robot
-fileids = [24,21,25,28]#23
-len_episodes = [20,20,40,20]#num of robot
+fileids = [25,28,29]#[24,21,25,28]#23
+len_episodes = [40,20,8]#num of robot
 # labels = ["agent with multi-scenarios","agent with push adversary","agent without adversary","agent in complex environments"]
-labels = ["agent without adversary","agent with adversaries","agent in complex environments","agent with ad2"]
+labels = ["agent in complex environments","agent with ad2","multi agents"]
 # labels = ["agent","adversary in predator-prey","adverary in shall not pass","adverary in keep-away"]
 colors = ["yellowgreen","cornflowerblue","coral","chocolate"]
 for i in range(len(fileids)):

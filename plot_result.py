@@ -22,7 +22,7 @@ def plotBars(datas,ax,y_label):
     ax.set_ylabel(y_label)
     ax.set_xticks(ind+width)
     ax.set_xticklabels( ('Scenario1', 'Scenario2', 'Scenario3') )
-    ax.legend( (rects1[0], rects2[0], rects3[0]), ('agent V adversaries', 'agents in complex environments', 'CADRL'),prop={'size':8} )
+    ax.legend( (rects1[0], rects2[0], rects3[0]), ('agent V adversaries', 'agents in complex environments', 'multi-agents'),prop={'size':8} )
     # def autolabel(rects):
     #     for rect in rects:
     #         h = rect.get_height()
@@ -56,7 +56,7 @@ def plotDatas(successRates,deltaDiss,deltaTimes):
     fig.set_figwidth(15)
     plt.show()
 
-fileids = [28,25,88888]#21:old ad,27 not normalized
+fileids = [28,25,29]#21:old ad,27 not normalized, 88888 cadrl
 successRates = []
 exeDistances = []
 exeTimes = []

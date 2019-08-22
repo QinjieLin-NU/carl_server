@@ -145,10 +145,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11312
+    ROS_PORT0 = 11312#11312 we let env_index = 1
     NUM_BOT = 8
     NUM_ENV = 48
-    ID = 25
+    ID = 30
 
     # config log
     # hostname = socket.gethostname()
@@ -186,7 +186,7 @@ if __name__ == '__main__':
     size = comm.Get_size()
     rosPort = ROS_PORT0 
     robotIndex = 0 + (rank%NUM_BOT)
-    envIndex =  int(rank/NUM_BOT)
+    envIndex =  int(rank/NUM_BOT) + 6
     rosPort = rosPort + int(rank/NUM_BOT)
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
