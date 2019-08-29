@@ -1,9 +1,9 @@
 # rl-collision-avoidance
 
 This is a Pytorch implementation of the paper [Towards Optimally Decentralized Multi-Robot Collision Avoidance via Deep Reinforcement Learning](https://arxiv.org/abs/1709.10082)
-
+<!-- 
 ![](./doc/stage2.gif)  |  ![](./doc/circle_test.gif)
-:-------------------------:|:-------------------------:
+:-------------------------:|:-------------------------: -->
 
 ## Requirement
 
@@ -96,4 +96,54 @@ mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py
 mpiexec --allow-run-as-root -np 4 python ppo_ad_chase.py   
 mpiexec --allow-run-as-root -np 4 python ppo_ad_push.py   
 mpiexec --allow-run-as-root -np 4 python ppo_ad_notPass.py    
+```   
+### comand for testing in multi-scenarios 
+#### current workspace        
+```   
+mpiexec --allow-run-as-root -np 48 python ppo_stage1.py    
+```   
+####  rl_ws workspace    
+```   
+roscore -p 11312    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map7.world   
+roscore -p 11313   
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map8.world   
+roscore -p 11314    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map9.world   
+roscore -p 11315    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map10.world   
+roscore -p 11316    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map11.world   
+roscore -p 11317    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map12.world   
+```   
+### command for adversarial training 
+#### command for runing adversarial in stage   
+```  
+roscore -p 11323     
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage_adMap2.world   
+roscore -p 11324    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage_adMap3.world    
+roscore -p 11325    
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage_adMap4.world    
+mpiexec --allow-run-as-root -np 3 python ppo_ad_chaseV2.py     
+mpiexec --allow-run-as-root -np 3 python ppo_ad_push.py    
+mpiexec --allow-run-as-root -np 3 python ppo_ad_notPass.py   
+```    
+#### command for testing cadrl in stage(cadrl_ros/script)    
+```  
+mpiexec --allow-run-as-root -np 3 python cadrl_stage.py     
+```   
+#### comand fot training agents in adversarial scenarios   
+```   
+mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py     
+mpiexec --allow-run-as-root -np 3 python ppo_ag_general_testV2.py     
+```   
+### command fot training in gazebo and stage  
+```   
+export ROS_MASTER_URI=http://localhost:11413     
+roslaunch turtlebot3_autorl turtlebot3_office_envRL1.launch gui:=true    
+roscore -p 11412      
+rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage1.world     
+mpiexec --allow-run-as-root -np 25 python ppo_stage_gazebo.py      
 ```   

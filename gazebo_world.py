@@ -231,6 +231,4 @@ class GazeboWorld():
             result = 'Time out'
         reward = reward_g + reward_c + reward_w
 
-        print("reward:",reward)
-
         return reward, terminate, result
