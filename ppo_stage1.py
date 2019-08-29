@@ -34,7 +34,7 @@ NUM_ENV = 4
 OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
-
+Train = True
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
 
@@ -53,6 +53,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         env.reset_pose()
 
         env.generate_goal_point()
+        print("new goal:",env.goal_point)
         terminal = False
         next_ep = False
         ep_reward = 0
@@ -83,12 +84,6 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             r, terminal, result = env.get_reward_and_terminate(step)
             ep_reward += r
             global_step += 1
-
-            if (terminal):
-                env.reset_pose()
-            if(step > EP_LEN):
-                next_ep = True
-
 
             # get next state
             s_next = env.get_laser_observation()
@@ -124,21 +119,33 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                     buff = []
                     global_update += 1
 
+            if (terminal):
+                env.reset_pose()
+                obs = env.get_laser_observation()
+                obs_stack = deque([obs, obs, obs])
+            if(step > EP_LEN):
+                next_ep = True
+            if(result == 'Reach Goal'):
+                env.generate_goal_point()
+                print("new goal:",env.goal_point)
+
             step += 1
             state = state_next
 
 
         if env.mpi_rank == 0:
             if global_update != 0 and global_update % 20 == 0:
-                torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
-                logger.info('########################## model saved when update {} times#########'
-                            '################'.format(global_update))
+                if(Train):
+                    torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
+                    logger.info('########################## model saved when update {} times#########'
+                                '################'.format(global_update))
         # distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
         logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
                     (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
-        logger_cal.info(ep_reward)
+        if(Train):
+            logger_cal.info(ep_reward)
 
 
 
@@ -146,9 +153,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11312#11312 we let env_index = 1
-    NUM_BOT = 8
-    NUM_ENV = 48
-    ID = 30
+    NUM_BOT = 8#8
+    NUM_ENV = 48#48
+    ID = 32#30
+    Train = True #True
+    envStart = 6#6
 
     # config log
     # hostname = socket.gethostname()
@@ -186,7 +195,7 @@ if __name__ == '__main__':
     size = comm.Get_size()
     rosPort = ROS_PORT0 
     robotIndex = 0 + (rank%NUM_BOT)
-    envIndex =  int(rank/NUM_BOT) + 6
+    envIndex =  int(rank/NUM_BOT) + envStart
     rosPort = rosPort + int(rank/NUM_BOT)
     logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
 
@@ -209,7 +218,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_260'
+        file = policy_path + '/Stage1_2020'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

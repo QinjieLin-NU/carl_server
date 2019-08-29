@@ -158,7 +158,7 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 if __name__ == '__main__':
     ROS_PORT0 = 11323 #ros port starty from 11321
-    ID = 28 #policy saved directory
+    ID = 31 #policy saved directory
     NUM_ENV = 3 # number of robot
     LASER_NORM = True
 

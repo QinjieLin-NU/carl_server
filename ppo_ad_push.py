@@ -127,10 +127,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
                     #                         epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
                     #                         num_env=NUM_ENV, frames=LASER_HIST,
                     #                         obs_size=OBS_SIZE, act_size=ACT_SIZE)
-                    ppo_update_adversayPush(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
-                                            epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
-                                            num_env=NUM_ENV, frames=LASER_HIST,
-                                            obs_size=OBS_SIZE, act_size=ACT_SIZE)
+                    if(TRAIN):
+                        ppo_update_adversayPush(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
+                                                epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
+                                                num_env=NUM_ENV, frames=LASER_HIST,
+                                                obs_size=OBS_SIZE, act_size=ACT_SIZE)
                     print("PPO update finish")
                     buff = []
                     global_update += 1

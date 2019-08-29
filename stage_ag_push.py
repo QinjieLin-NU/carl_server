@@ -319,13 +319,13 @@ class StageWorld():
 
     def generate_random_goal_v2(self):
         self.init_pose = self.get_self_stateGT()
-        x = np.random.uniform(-4.5, 4.5)
-        y = np.random.uniform(0.0, 4.5)
+        x = np.random.uniform(-5.5, 5.5)
+        y = np.random.uniform(0.0, 5.5)
         dis_origin = np.sqrt(x ** 2 + y ** 2)
         dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
-        while (dis_origin > 4.5 or dis_goal > 5 or dis_goal < 4) and not rospy.is_shutdown():
-            x = np.random.uniform(-4.5, 4.5)
-            y = np.random.uniform(0.0, 4.5)
+        while (dis_origin > 5.5 or dis_goal > 5.5 or dis_goal < 4) and not rospy.is_shutdown():
+            x = np.random.uniform(-5.5, 5.5)
+            y = np.random.uniform(0.0, 5.5)
             dis_origin = np.sqrt(x ** 2 + y ** 2)
             dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
 
