@@ -102,7 +102,7 @@ mpiexec --allow-run-as-root -np 4 python ppo_ad_notPass.py
 ```   
 mpiexec --allow-run-as-root -np 48 python ppo_stage1.py    
 ```   
-####  rl_ws workspace    
+####  Sim_gazebo(rl_ws) workspace    
 ```   
 roscore -p 11312    
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map7.world   
