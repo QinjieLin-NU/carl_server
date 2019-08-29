@@ -1,9 +1,9 @@
 # rl-collision-avoidance
 
 This is a Pytorch implementation of the paper [Towards Optimally Decentralized Multi-Robot Collision Avoidance via Deep Reinforcement Learning](https://arxiv.org/abs/1709.10082)
-<!-- 
-![](./doc/stage2.gif)  |  ![](./doc/circle_test.gif)
-:-------------------------:|:-------------------------: -->
+
+<!-- ![](./doc/stage2.gif)  |  ![](./doc/circle_test.gif)
+:-------------------------:|:-------------------------:  -->
 
 ## Requirement
 
@@ -64,6 +64,7 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-av
 roscore -p 11317    
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map12.world   
 ```   
+![](./doc/multi-scenarios.gif)
 
 ## How to do adversarial training 
 ### command for runing adversarial in stage   
