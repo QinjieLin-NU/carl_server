@@ -44,65 +44,12 @@ mpiexec -np 50 python circle_test.py
 ## installing problem  
 export LD_LIBRARY_PATH=path to stage
 
-## How to run multi-robot and multi-env training
-### rl_ws  
-```  
-roscore -p 11312   
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage1.world   
-roscore -p 11313   
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map2.world    
-roscore -p 11314     
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map3.world     
-```  
-### carl_server   
-```    
-mpiexec --allow-run-as-root -np 32 python ppo_stage1.py      
-```   
-### run ad and ag  (chase scenario training ad, not training ag)
-```     
-roscore -p 11312    
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap1.world    
-mpiexec --allow-run-as-root -np 4 python ppo_ad1.py   
-python ppo_ag1.py  
-```   
-### run ad and ag  (chase scenario, training ad, training ag)  
-```     
-roscore -p 11312     
-export ROS_MASTER_URI=http://localhost:11312    
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap2.world      
-mpiexec --allow-run-as-root -np 4 python ppo_ad_chase.py   
-mpiexec --allow-run-as-root -np 1 python ppo_ag_chase.py  
-```    
-### run ad and ag  (push scenario, training ad, training ag)
-```    
-roscore -p 11323   
-export ROS_MASTER_URI=http://localhost:11323  
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap3.world   
-mpiexec --allow-run-as-root -np 1 python ppo_ag_push.py 
-mpiexec --allow-run-as-root -np 1 python ppo_ad_push.py   
-```   
-### run ad and ag  (training agent in three scenatio)
-``` 
-roscore -p 11323   
-export ROS_MASTER_URI=http://localhost:11323    
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap2.world   
-roscore -p 11324  
-export ROS_MASTER_URI=http://localhost:11324    
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap3.world 
-roscore -p 11325   
-export ROS_MASTER_URI=http://localhost:11325    
-rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_adMap4.world 
-mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py   
-mpiexec --allow-run-as-root -np 4 python ppo_ad_chase.py   
-mpiexec --allow-run-as-root -np 4 python ppo_ad_push.py   
-mpiexec --allow-run-as-root -np 4 python ppo_ad_notPass.py    
-```   
-### comand for testing in multi-scenarios 
-#### current workspace        
+## How to train in multi-scenarios 
+### current workspace        
 ```   
 mpiexec --allow-run-as-root -np 48 python ppo_stage1.py    
 ```   
-####  Sim_gazebo(rl_ws) workspace    
+###  Sim_gazebo(rl_ws) workspace    
 ```   
 roscore -p 11312    
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map7.world   
@@ -117,8 +64,9 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-av
 roscore -p 11317    
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map12.world   
 ```   
-### command for adversarial training 
-#### command for runing adversarial in stage   
+
+## How to do adversarial training 
+### command for runing adversarial in stage   
 ```  
 roscore -p 11323     
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage_adMap2.world   
@@ -130,16 +78,17 @@ mpiexec --allow-run-as-root -np 3 python ppo_ad_chaseV2.py
 mpiexec --allow-run-as-root -np 3 python ppo_ad_push.py    
 mpiexec --allow-run-as-root -np 3 python ppo_ad_notPass.py   
 ```    
-#### command for testing cadrl in stage(cadrl_ros/script)    
+### command for testing cadrl in stage(cadrl_ros/script)    
 ```  
 mpiexec --allow-run-as-root -np 3 python cadrl_stage.py     
 ```   
-#### comand fot training agents in adversarial scenarios   
+### comand fot training agents in adversarial scenarios   
 ```   
 mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py     
 mpiexec --allow-run-as-root -np 3 python ppo_ag_general_testV2.py     
-```   
-### command fot training in gazebo and stage  
+```    
+
+## How to train in gazebo and stage  
 ```   
 export ROS_MASTER_URI=http://localhost:11413     
 roslaunch turtlebot3_autorl turtlebot3_office_envRL1.launch gui:=true    
