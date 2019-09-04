@@ -1,9 +1,9 @@
 # rl-collision-avoidance
 
 This is a Pytorch implementation of the paper [Towards Optimally Decentralized Multi-Robot Collision Avoidance via Deep Reinforcement Learning](https://arxiv.org/abs/1709.10082)
-<!-- 
-![](./doc/stage2.gif)  |  ![](./doc/circle_test.gif)
-:-------------------------:|:-------------------------: -->
+
+<!-- ![](./doc/stage2.gif)  |  ![](./doc/circle_test.gif)
+:-------------------------:|:-------------------------:  -->
 
 ## Requirement
 
@@ -64,6 +64,8 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-av
 roscore -p 11317    
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-clision-avoidance/worlds/stage_map12.world   
 ```   
+![](./doc/multi-scenarios.gif)
+:-------------------------:
 
 ## How to do adversarial training 
 ### command for runing adversarial in stage   
@@ -87,6 +89,8 @@ mpiexec --allow-run-as-root -np 3 python cadrl_stage.py
 mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py     
 mpiexec --allow-run-as-root -np 3 python ppo_ag_general_testV2.py     
 ```    
+![](./doc/adversarialTraining.gif)
+:-------------------------:
 
 ## How to train in gazebo and stage  
 ```   
@@ -96,3 +100,5 @@ roscore -p 11412
 rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-avoidance/worlds/stage1.world     
 mpiexec --allow-run-as-root -np 25 python ppo_stage_gazebo.py      
 ```   
+![](./doc/multi-simulator.gif)
+:-------------------------:
