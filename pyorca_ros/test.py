@@ -29,20 +29,26 @@ import random
 import time
 import rospy
 import os
+from std_srvs.srv import Empty
+
 
 ros_port = 11325
 os.environ["ROS_MASTER_URI"]="http://localhost:%d"%ros_port
 rospy.init_node("test_orca", anonymous=None)
+
+reset_stage = rospy.ServiceProxy('reset_positions', Empty)
+reset_stage()
 
 pro_agent= Agent(robo_index = 0, radius = 0.3,max_speed = 1,goal=[0,4])
 ad0 = Agent (robo_index = 1,radius = 0.3, max_speed = 1, goal = [-3,-3])
 ad1 = Agent(robo_index=2,radius = 0.3,max_speed = 1, goal = [0,-3])
 ad2 = Agent(robo_index=3,radius = 0.3,max_speed = 1, goal = [3,-3])
 agents = [pro_agent,ad0,ad1,ad2]
+# agents = [pro_agent,ad2]
 time.sleep(5)
 
 running = True
-FPS = 20
+FPS = 2
 dt = 1/FPS
 tau = 5
 step = 0
@@ -54,16 +60,18 @@ while running:
         candidates = agents[:i] + agents[i + 1:]
         new_vels[i], all_lines[i] = orca(agent, candidates, tau, dt)
 
+    # agents[0].control_vel(new_vels[i])
+
     for i, agent in enumerate(agents):
-        # print("agent%d"%i,new_vels[i])
         agent.control_vel(new_vels[i])
-        # agent.get_state()
+        # if(i==0):
+            # print("agent0:",new_vels[i])
     
     step += 1
-    if(step>500):
+    if(step>100):
         break
 
-    time.sleep(1)
+    time.sleep(0.5)
 
 for agent in agents:
     agent.stop()

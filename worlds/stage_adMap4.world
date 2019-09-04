@@ -2,7 +2,7 @@ show_clock 0
 show_clock_interval 10000
 resolution 0.2
 threads 16
-speedup 10
+speedup 1
 
 
 define aglaser ranger
@@ -121,8 +121,8 @@ define agent position
   )
   
   # [ xmin xmax ymin ymax zmin zmax amin amax ]				
-  # velocity_bounds [-500 500 0 0 0 0 -90.0 90.0 ]					
-  # acceleration_bounds [-500 500 0 0 0 0 -90 90.0 ]
+  # velocity_bounds [-500 500 -50 50 0 0 -90.0 90.0 ]					
+  # acceleration_bounds [-500 500 -500 500 0 0 -90 90.0 ]
   )
 define adent position
 (

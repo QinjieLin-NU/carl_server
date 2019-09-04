@@ -52,6 +52,7 @@ class Agent(object):
         self.position = array([0,0])
         self.velocity = array([0,0])
         self.pref_velocity = array([0,0])
+        self.current_pose = Pose()
 
         odom_topic = 'robot_' + str(robo_index) + '/odom'
         self.odom_sub = rospy.Subscriber(odom_topic, Odometry, self.odometry_callback)        
@@ -59,39 +60,47 @@ class Agent(object):
         cmd_vel_topic = 'robot_' + str(robo_index) + '/cmd_vel'
         self.cmd_vel = rospy.Publisher(cmd_vel_topic, Twist, queue_size=10)
 
+        cmd_pose_topic = 'robot_' + str(robo_index) + '/cmd_pose'
+        self.cmd_pose = rospy.Publisher(cmd_pose_topic, Pose, queue_size=2)
+
     def odometry_callback(self,odometry):
         Quaternions = odometry.pose.pose.orientation
         Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
         [x, y, theta] = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
 
-        self.velocity = odometry.twist.twist.linear.x * array((cos(Euler[2]), sin(Euler[2]))) 
+        self.velocity = odometry.twist.twist.linear.x * array([cos(Euler[2]), sin(Euler[2])]) 
         self.position = array([x,y])
         [goal_x, goal_y] = self.goal
-        local_x = (goal_x - x) * np.cos(theta) + (goal_y - y) * np.sin(theta)
-        local_y = -(goal_x - x) * np.sin(theta) + (goal_y - y) * np.cos(theta)
+        local_x = (goal_x - x) 
+        local_y = (goal_y - y)
         dia_xy = np.sqrt(local_x**2 + local_y**2)
         self.pref_velocity = array([local_x/dia_xy,local_y/dia_xy])
-        self.psi = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
-    
-    def get_state(self):
-        print(self.position)
+        # self.psi = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
+        self.psi = theta
+        self.current_pose =  odometry.pose.pose
 
-    def control_vel(self, action):
-        move_cmd = Twist()
-        move_cmd.linear.x = action[0]
-        move_cmd.linear.y = 0.
-        move_cmd.linear.z = 0.
+    def control_vel(self, vel):
+        # action = [np.sqrt(vel[0]**2 + vel[1]**2), np.arctan(vel[1]/vel[0])]
+        # move_cmd = Twist()
+        # move_cmd.linear.x = action[0]
+        # move_cmd.linear.y = 0.
+        # move_cmd.linear.z = 0.
         
-        move_cmd.angular.x = 0.
-        move_cmd.angular.y = 0.
-        yaw_error = action[1] - self.psi
-        if yaw_error > np.pi:
-            yaw_error -= 2*np.pi
-        if yaw_error < -np.pi:
-            yaw_error += 2*np.pi
-        move_cmd.angular.z = 2*yaw_error
+        # move_cmd.angular.x = 0.
+        # move_cmd.angular.y = 0.
+        # yaw_error = action[1] - self.psi
+        # if yaw_error > np.pi:
+        #     yaw_error -= 2*np.pi
+        # if yaw_error < -np.pi:
+        #     yaw_error += 2*np.pi
+        # move_cmd.angular.z = 2*yaw_error
 
-        self.cmd_vel.publish(move_cmd)
+        # self.cmd_vel.publish(move_cmd)
+
+        target_pose = self.current_pose
+        target_pose.position.x += (vel[0] * 0.5)
+        target_pose.position.y += (vel[1] * 0.5)
+        self.cmd_pose.publish(target_pose)
     
     def stop(self):
         move_cmd = Twist()
