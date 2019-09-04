@@ -84,6 +84,10 @@ mpiexec --allow-run-as-root -np 3 python ppo_ad_notPass.py
 ```  
 mpiexec --allow-run-as-root -np 3 python cadrl_stage.py     
 ```   
+### command for testing orca in stage(pyorca_ros/test.py)    
+```  
+mpiexec --allow-run-as-root -np 3 python test.py     
+```   
 ### comand fot training agents in adversarial scenarios   
 ```   
 mpiexec --allow-run-as-root -np 3 python ppo_ag_general.py     
