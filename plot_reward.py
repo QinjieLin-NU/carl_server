@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 # fileids = [21,1012,1014,1013]
 # len_episodes = [30,40,40,40]#num of robot
 fileids = [34]#[32,28,33,31]#[30,28,29,31]#[24,21,25,28]#23
-len_episodes = [25]#[240,30,120,30]#[10,160,80]#num of robot
+len_episodes = [25*5]#[240,30,120,30]#[10,160,80]#num of robot
 # labels = ["agent with multi-scenarios","agent with push adversary","agent without adversary","agent in complex environments"]
 labels = ["agent in complex environments","agent with ad from scratch","multi agents","agent with learned ad"]
 # labels = ["agent","adversary in predator-prey","adverary in shall not pass","adverary in keep-away"]

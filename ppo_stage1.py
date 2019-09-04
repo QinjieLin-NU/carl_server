@@ -156,7 +156,7 @@ if __name__ == '__main__':
     NUM_BOT = 8#8
     NUM_ENV = 48#48
     ID = 32#30
-    Train = True #True
+    Train = False #True
     envStart = 6#6
 
     # config log
@@ -218,7 +218,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_2020'
+        file = policy_path + '/Stage1_2600'
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
