@@ -95,7 +95,8 @@ class Agent(object):
         # move_cmd.angular.z = 2*yaw_error
 
         # self.cmd_vel.publish(move_cmd)
-
+        
+        self.velocity = array(vel)
         target_pose = self.current_pose
         target_pose.position.x += (vel[0] * 0.5)
         target_pose.position.y += (vel[1] * 0.5)

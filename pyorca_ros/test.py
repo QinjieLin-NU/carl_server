@@ -60,16 +60,14 @@ while running:
         candidates = agents[:i] + agents[i + 1:]
         new_vels[i], all_lines[i] = orca(agent, candidates, tau, dt)
 
-    # agents[0].control_vel(new_vels[i])
+    agents[0].control_vel(new_vels[i])
 
-    for i, agent in enumerate(agents):
-        agent.velocity = array(new_vels[i])
-        agent.control_vel(new_vels[i])
-        # if(i==0):
-            # print("agent0:",new_vels[i])
+    # for i, agent in enumerate(agents):
+        # agent.control_vel(new_vels[i])
+
     
     step += 1
-    if(step>100):
+    if(step>50):
         break
 
     time.sleep(0.5)
