@@ -50,7 +50,7 @@ time.sleep(5)
 running = True
 FPS = 2
 dt = 1/FPS
-tau = 5
+tau = 2
 step = 0
 all_lines = [[]] * len(agents)
 while running:
@@ -63,6 +63,7 @@ while running:
     # agents[0].control_vel(new_vels[i])
 
     for i, agent in enumerate(agents):
+        agent.velocity = array(new_vels[i])
         agent.control_vel(new_vels[i])
         # if(i==0):
             # print("agent0:",new_vels[i])
