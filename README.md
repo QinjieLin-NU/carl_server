@@ -105,4 +105,18 @@ rosrun stage_ros_add_pose_and_crash stageros ../../../home/long_ws/rl-collision-
 mpiexec --allow-run-as-root -np 25 python ppo_stage_gazebo.py      
 ```   
 ![](./doc/multi-simulator.gif)
-:-------------------------:
+:-------------------------:    
+
+## New command for training    
+### protagonist:   
+```   
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 0 0 0 --rosports 11333 11336 11339  --robotIds 0 0 0  --fileId 0 
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 1 1 1 --rosports 11334 11337 11340  --robotIds 0 0 0  --fileId 1 
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 2 2 2 --rosports 11335 11338 11341  --robotIds 0 0 0  --fileId 2   
+```    
+### adversaries:  
+```   
+mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 0 0 0 0 0 0 0 0 0 --rosports 11333 11333 11333  11336 11336 11336 11339 11339 11339 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1000
+mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 1 1 1 1 1 1 1 1 1 --rosports 11334 11334 11334 11337 11337 11337 11340 11340 11340 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1001 
+mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 2 2 2 2 2 2 2 2 2 --rosports 11335 11335 11335 11338 11338 11338 11341 11341 11341 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1002   
+```   

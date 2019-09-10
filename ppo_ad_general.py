@@ -1,3 +1,4 @@
+#!/usr/bin/python2.7
 import os
 import logging
 import sys
@@ -11,15 +12,15 @@ from mpi4py import MPI
 from torch.optim import Adam
 from collections import deque
 
-from model.net import MLPPolicy, CNNPolicy
-from model.ppo import ppo_update_stage1, generate_train_data
-from model.ppo import generate_action
-from model.ppo import transform_buffer
-from stage_ag_chase import StageWorld as StageWorld_chase
-from stage_ag_push import StageWorld as StageWorld_push
-from stage_ag_notPass import StageWorld as StageWorld_notPass
-from stage_ag_general import StageWorld as StageWorld_general
+from model.net import MLPPolicy, CNNPolicy,AdversaryGeneralV2_CNNPolicy
+# from stage_world1 import StageWorld
+from stage_ad_general import StageWorld
+from model.ppo import ppo_update_stage1, generate_train_data,ppo_update_adversayGeneralV2
+from model.ppo import generate_action,generate_action_adGeneralV2
+from model.ppo import transform_buffer,transform_buffer_adGeneralV2
 from stage_utils.arg_parse import parse_args
+
+
 
 MAX_EPISODES = 5000
 EP_LEN = 200
@@ -32,11 +33,12 @@ BATCH_SIZE = 1024
 EPOCH = 2
 COEFF_ENTROPY = 5e-4
 CLIP_VALUE = 0.1
-NUM_ENV = 3
+NUM_ENV = 4
 OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
-LASER_NORM = False
+TRAIN = True
+
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
 
@@ -52,31 +54,23 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
     for id in range(MAX_EPISODES):
-        env.generate_goal_point()
-        print("new goal:",env.goal_point,"and rnak:",env.mpi_rank)
+        env.reset_pose()
+
         terminal = False
         next_ep = False
         ep_reward = 0
         step = 1
 
-        env.reset_pose()
-
-        obs = env.get_laser_observation()
-        if(not LASER_NORM):
-            obs = (obs + 0.5)*3.5
-        obs_stack = deque([obs, obs, obs])
-        goal = np.asarray(env.get_local_goal())
-        speed = np.asarray(env.get_self_speed())
-        state = [obs_stack, goal, speed]
+        goal = np.asarray(env.get_local_pos())
+        speed = np.asarray(env.get_speeds())
+        state = [goal]
 
         while not next_ep and not rospy.is_shutdown():
- 
             state_list = comm.gather(state, root=0)
 
-
             # generate actions at rank==0
-            v, a, logprob, scaled_action=generate_action(env=env, state_list=state_list,
-                                                         policy=policy, action_bound=action_bound)
+            v, a, logprob, scaled_action=generate_action_adGeneralV2(env=env, state_list=state_list,policy=policy, action_bound=action_bound)
+
 
             # execute actions
             real_action = comm.scatter(scaled_action, root=0)
@@ -90,32 +84,20 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             ep_reward += r
             global_step += 1
 
-            if(result == "Reach Goal"):
-                env.generate_goal_point()
-                print("new goal:",env.goal_point)
             if (terminal):
                 env.reset_pose()
-                obs = env.get_laser_observation()
-                # if(not LASER_NORM):
-                #     obs = (obs + 0.5)*3.5
-                obs_stack = deque([obs, obs, obs])
             if(step > EP_LEN):
                 next_ep = True
 
 
             # get next state
-            s_next = env.get_laser_observation()
-            # if(not LASER_NORM):
-            #     s_next = (s_next + 0.5) * 3.5
-            left = obs_stack.popleft()
-            obs_stack.append(s_next)
-            goal_next = np.asarray(env.get_local_goal())
-            speed_next = np.asarray(env.get_self_speed())
-            state_next = [obs_stack, goal_next, speed_next]
+            goal_next = np.asarray(env.get_local_pos())
+            speed_next = np.asarray(env.get_speeds())            
+            state_next = [goal_next]
 
             if global_step % HORIZON == 0:
                 state_next_list = comm.gather(state_next, root=0)
-                last_v, _, _, _ = generate_action(env=env, state_list=state_next_list, policy=policy,
+                last_v, _, _, _ = generate_action_adGeneralV2(env=env, state_list=state_next_list, policy=policy,
                                                                action_bound=action_bound)
             # add transitons in buff and update policy
             r_list = comm.gather(r, root=0)
@@ -124,18 +106,16 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
             if env.mpi_rank == 0:
                 buff.append((state_list, a, r_list, terminal_list, logprob, v))
                 if len(buff) > HORIZON - 1:
-                    s_batch, goal_batch, speed_batch, a_batch, r_batch, d_batch, l_batch, v_batch = \
-                        transform_buffer(buff=buff)
+                    goal_batch, a_batch, r_batch, d_batch, l_batch, v_batch = transform_buffer_adGeneralV2(buff=buff)
                     t_batch, advs_batch = generate_train_data(rewards=r_batch, gamma=GAMMA, values=v_batch,
                                                               last_value=last_v, dones=d_batch, lam=LAMDA)
-                    memory = (s_batch, goal_batch, speed_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
-                    print("PPO update start")
-                    ppo_update_stage1(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
-                                            epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
-                                            num_env=NUM_ENV, frames=LASER_HIST,
-                                            obs_size=OBS_SIZE, act_size=ACT_SIZE)
+                    memory = (goal_batch, a_batch, l_batch, t_batch, v_batch, r_batch, advs_batch)
+                    if(TRAIN):
+                        ppo_update_adversayGeneralV2(policy=policy, optimizer=optimizer, batch_size=BATCH_SIZE, memory=memory,
+                                                epoch=EPOCH, coeff_entropy=COEFF_ENTROPY, clip_value=CLIP_VALUE, num_step=HORIZON,
+                                                num_env=NUM_ENV, frames=LASER_HIST,
+                                                obs_size=OBS_SIZE, act_size=ACT_SIZE)
 
-                    print("PPO update finish")
                     buff = []
                     global_update += 1
 
@@ -144,17 +124,17 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
         if env.mpi_rank == 0:
-            if global_update != 0 and global_update % 20 == 0:
-                torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
-                logger.info('########################## model saved when update {} times#########'
-                            '################'.format(global_update))
-        # distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
+            if(TRAIN):
+                if global_update != 0 and global_update % 20 == 0:
+                    torch.save(policy.state_dict(), policy_path + '/Stage1_{}'.format(global_update))
+                    logger.info('########################## model saved when update {} times#########'
+                                '################'.format(global_update))
         distance = np.sqrt((env.goal_point[0] - env.init_pose[0])**2 + (env.goal_point[1]-env.init_pose[1])**2)
 
-        logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
-                    (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
-        print("befpre ep_reward")
-        logger_cal.info(ep_reward)
+        if TRAIN:
+            logger.info('Env %02d, Goal (%05.1f, %05.1f), Episode %05d, setp %03d, Reward %-5.1f, Distance %05.1f, %s' % \
+                        (env.mpi_rank, env.goal_point[0], env.goal_point[1], id + 1, step, ep_reward, distance, result))
+            logger_cal.info(ep_reward)
 
 
 
@@ -168,21 +148,23 @@ def make_env(arg_list,rankId,size):
     rosPort = rosports[rankId]
     envIndex = scenarios[rankId]
     env = None
-    env = StageWorld_general(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex)
+    env = StageWorld(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex,goal_robotIndex=0)
     return env
 
 if __name__ == '__main__':
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     size = comm.Get_size()
+    POLICY_NAME = "/Stage1_880" #"/Stage1_12120"
+    TRAIN =True
 
+    # make env from arguments
     arg_list = parse_args()
     ID = arg_list.fileId #policy saved directory
     NUM_ENV = size # number of robot
-    LASER_NORM = True
     env = make_env(arg_list,rank,size)
     if(env == None):
-        print("making env fails")
+        print("making env fials")
         sys.exit()
 
     # config log
@@ -217,16 +199,15 @@ if __name__ == '__main__':
     logger_cal.addHandler(cal_f_handler)
 
     logger.info('rosport: %d robotIndex: %d rank:%d' %(arg_list.rosports[rank],arg_list.robotIds[rank],rank))
+
     reward = None
-    action_bound = [[0, -1], [1, 1]]
+    action_bound = [[0, -1], [1, 1]]#[0.7, 1]]
 
     # torch.manual_seed(1)
     # np.random.seed(1)
     if rank == 0:
         policy_path = policydir
-        # policy_path = 'policy'
-        # policy = MLPPolicy(obs_size, act_size)
-        policy = CNNPolicy(frames=LASER_HIST, action_space=2)
+        policy = AdversaryGeneralV2_CNNPolicy(frames=LASER_HIST, action_space=2)
         policy.cuda()
         opt = Adam(policy.parameters(), lr=LEARNING_RATE)
         mse = nn.MSELoss()
@@ -234,7 +215,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_780'
+        file = policy_path + POLICY_NAME
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')
