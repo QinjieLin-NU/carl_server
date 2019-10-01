@@ -72,7 +72,7 @@ our methos(pf-discrete)
 ```
 mpiexec.openmpi --allow-run-as-root -np 6 python ppo_ag_general_ttV2.py  --scenarios 3 3 3 3 3 3 --rosports 11336 11336 11336 11336 11336 11336 --robotIds 0 1 2 3 4 5 --fileIds 41 --modelEps 2320  
 ```
-![](./doc/noAd_ours.gif) 
+![](./doc/noAd_our.gif) 
 :-------------------------:
 
 drlmaca
