@@ -1,0 +1,29 @@
+### new:
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11433 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2  
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11434 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11435 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2 
+
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11533 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11534 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11535 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3 
+
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11633 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11634 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11635 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+
+### new 
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general_testV2.py  --scenarios 4 5 4 --rosports 11336 11337 11338 --robotIds 0 0 0 --fileIds 41 --modelEps 2320      
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.py  --scenarios 0 --rosports 11336 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 1.0 1.0 --stdBound 1.0 1.0 --funIndex 0    
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.py  --scenarios 1 --rosports 11337 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 1.0 1.0 --stdBound 0.5 0.5 --funIndex 0
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.p --scenarios 2 --rosports 11338 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 1.0 1.0 --stdBound 0.8 0.8 --funIndex 0     
+
+
+mpiexec.openmpi --allow-run-as-root -np 6 python ppo_ag_general_ttV2.py  --scenarios 3 3 3 3 3 3 --rosports 11336 11336 11336 11336 11336 11336 --robotIds 0 1 2 3 4 5 --fileIds 41 --modelEps 2320  
+mpiexec.openmpi --allow-run-as-root -np 6 python ppo_ag_general_ttV2.py  --scenarios 3 3 3 3 3 3 --rosports 11336 11336 11336 11336 11336 11336 --robotIds 0 1 2 3 4 5 --fileIds 77777 --modelEps 780     
+mpiexec.openmpi --allow-run-as-root -np 6 python orca_stage_noAd.py    
+mpiexec.openmpi --allow-run-as-root -np 6  python cadrl_stage_noAd.py    
+
+
+
+
+
