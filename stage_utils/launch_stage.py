@@ -14,18 +14,22 @@ def generate_roscoreCmd(rosport):
 
 def generate_stageCmd(rosport,world_path):
     cmd_exp = "export ROS_MASTER_URI=http://localhost:%s"%str(rosport)
-    cmd_stage = "rosrun stage_ros_add_pose_and_crash stageros %s"%(world_path)
+    cmd_stage = "rosrun stage_ros_add_pose_and_crash stageros  %s"%(world_path)
     cmd_bash = "exec bash"
     cmd = cmd_exp + ";" + cmd_stage + ";"+ cmd_bash
     return cmd
 
 
 if __name__ == "__main__":
-    rosport_start = 11333
+    rosport_start = 11336#11333
     worlds_path = ["../worlds/stage_adMap2.world","../worlds/stage_adMap3.world","../worlds/stage_adMap4.world"]
-    worlds_num = 3 #parallel stage nums
+    # worlds_path = ["../worlds/stage_adMap5.world","../worlds/stage_adMap6.world","../worlds/stage_adMap7.world"]
+    # worlds_path = ["../worlds/stage_adMap8.world","../worlds/stage_adMap9.world","../worlds/stage_adMap10.world"]
+    # worlds_path = ["../worlds/stage_adMap14.world","../worlds/stage_adMap15.world","../worlds/stage_adMap16.world"]
+    # worlds_path = ["../worlds/stage_adMap10.world","../worlds/stage_adMap11.world","../worlds/stage_adMap12.world"]
+    worlds_path = ["../worlds/stage3.world"]
+    worlds_num = 1 #parallel stage nums
     rosport = rosport_start
-
     for i in range(worlds_num):
         for path in worlds_path:
             cmd_ros = generate_roscoreCmd(rosport)

@@ -32,17 +32,17 @@ import os
 from std_srvs.srv import Empty
 
 
-ros_port = 11325
+ros_port = 11636
 os.environ["ROS_MASTER_URI"]="http://localhost:%d"%ros_port
 rospy.init_node("test_orca", anonymous=None)
 
 reset_stage = rospy.ServiceProxy('reset_positions', Empty)
 reset_stage()
 
-pro_agent= Agent(robo_index = 0, radius = 0.3,max_speed = 1,goal=[0,4])
-ad0 = Agent (robo_index = 1,radius = 0.3, max_speed = 1, goal = [-3,-3])
-ad1 = Agent(robo_index=2,radius = 0.3,max_speed = 1, goal = [0,-3])
-ad2 = Agent(robo_index=3,radius = 0.3,max_speed = 1, goal = [3,-3])
+pro_agent= Agent(robo_index = 0, radius = 0.3,max_speed = 1,goal=[0,4],env_index = 0)
+ad0 = Agent (robo_index = 1,radius = 0.3, max_speed = 1, goal = [-3,-3],env_index = 0)
+ad1 = Agent(robo_index=2,radius = 0.3,max_speed = 1, goal = [0,-3],env_index = 0)
+ad2 = Agent(robo_index=3,radius = 0.3,max_speed = 1, goal = [3,-3],env_index = 0)
 agents = [pro_agent,ad0,ad1,ad2]
 # agents = [pro_agent,ad2]
 time.sleep(5)
@@ -60,7 +60,7 @@ while running:
         candidates = agents[:i] + agents[i + 1:]
         new_vels[i], all_lines[i] = orca(agent, candidates, tau, dt)
 
-    agents[0].control_vel(new_vels[i])
+    agents[0].control_vel(new_vels[0])
 
     # for i, agent in enumerate(agents):
         # agent.control_vel(new_vels[i])

@@ -349,6 +349,17 @@ class StageWorld():
             dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
         return [x, y]
 
+    def generate_random_goal_v4(self):
+        # agent( pose [7.73 -2.07 0.00 525.00])
+        # agent( pose [8.00 0.00 0.00 180.00])
+        # agent( pose [7.73 2.07 0.00 195.00])
+        # agent( pose [-7.73 2.07 0.00 345.00])
+        # agent( pose [-8.00 -0.00 0.00 360.00])
+        # agent( pose [-7.73 -2.07 0.00 375.00])
+        goals = [[7,-2],[8,0],[7,2],[-7,-2],[-8,0],[-7,2]]
+        # goals = [[7,2],[8,0],[7,-2],[-7,-2],[-8,0],[-7,2]]
+        goalIndex = 5 - self.index
+        return goals[goalIndex]
 
     def generate_stage_goal(self):   
         if(self.env_index == 0):
@@ -357,6 +368,12 @@ class StageWorld():
             return self.generate_random_goal_v2()
         elif (self.env_index ==2):
             return self.generate_random_goal_v3()
+        elif (self.env_index ==3):
+            return self.generate_random_goal_v4()
+        elif (self.env_index ==4):
+            return [0.0,4.0]
+        elif (self.env_index ==5):
+            return [0.0,0.0]
 
 
 

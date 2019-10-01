@@ -37,12 +37,13 @@ OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
 LASER_NORM = False
+ID_EP = 0
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
 
     # rate = rospy.Rate(5)
     buff = []
-    global_update = 0
+    global_update = ID_EP
     global_step = 0
 
 
@@ -171,16 +172,36 @@ def make_env(arg_list,rankId,size):
     env = StageWorld_general(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex)
     return env
 
+def make_env_v2(arg_list,rankId,size):
+
+    scenarios = arg_list.scenarios
+    rosports = arg_list.rosports
+    robotIds = arg_list.robotIds
+
+    num_scene = len(scenarios)
+    rosport_start = rosports[0]
+
+    robotIndex = robotIds[0]
+    rosPort = rosport_start + rankId
+    envIndex = scenarios[rankId%num_scene]
+    env = None
+    env = StageWorld_general(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex)
+    print("rosport: %d, robotID: %d, envIndex: %d"%(rosPort,robotIndex,envIndex))
+    return env
+
 if __name__ == '__main__':
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     size = comm.Get_size()
 
     arg_list = parse_args()
-    ID = arg_list.fileId #policy saved directory
+    ID = arg_list.fileIds[0] #policy saved directory
+    ID_EP = 0
+    if(not (arg_list.modelEps==None)):
+        ID_EP = arg_list.modelEps[0]
     NUM_ENV = size # number of robot
     LASER_NORM = True
-    env = make_env(arg_list,rank,size)
+    env = make_env_v2(arg_list,rank,size)
     if(env == None):
         print("making env fails")
         sys.exit()
@@ -216,7 +237,7 @@ if __name__ == '__main__':
     file_handler.setLevel(logging.INFO)
     logger_cal.addHandler(cal_f_handler)
 
-    logger.info('rosport: %d robotIndex: %d rank:%d' %(arg_list.rosports[rank],arg_list.robotIds[rank],rank))
+    # logger.info('rosport: %d robotIndex: %d rank:%d' %(arg_list.rosports[rank],arg_list.robotIds[rank],rank))
     reward = None
     action_bound = [[0, -1], [1, 1]]
 
@@ -234,7 +255,7 @@ if __name__ == '__main__':
         if not os.path.exists(policy_path):
             os.makedirs(policy_path)
 
-        file = policy_path + '/Stage1_780'
+        file = policy_path + '/Stage1_%d'%ID_EP
         if os.path.exists(file):
             logger.info('####################################')
             logger.info('############Loading Model###########')

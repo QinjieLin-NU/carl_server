@@ -19,6 +19,8 @@ from model.ppo import transform_buffer
 from stage_ag_chase import StageWorld as StageWorld_chase
 from stage_ag_push import StageWorld as StageWorld_push
 from stage_ag_notPass import StageWorld as StageWorld_notPass
+from stage_utils.arg_parse import parse_args
+from stage_ag_general import StageWorld as StageWorld_general
 
 MAX_EPISODES = 5000
 EP_LEN = 400
@@ -141,20 +143,43 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         deltaTime = (endTime - startTime)
         stateInfo = "scenarioId: %d, start:(%4f,%4f), goal: (%4f,%4f), state: %d, time: %4f, distance: %4f"\
             %(mpiId,startPose[0],startPose[1],goalPose[0],goalPose[1],reachFlag,deltaTime,deltaDistance)
-        if( (id <= 150) and (id > 50) ):
+        if( (id <= 1000) and (id > 10) ):
             print(stateInfo)
             logger_cal.info(stateInfo)
 
-
+def make_env(arg_list,rankId,size):
+    scenarios = arg_list.scenarios
+    rosports = arg_list.rosports
+    robotIds = arg_list.robotIds
+    if( not (size == len(robotIds))):
+        return None
+    robotIndex = robotIds[rankId]
+    rosPort = rosports[rankId]
+    envIndex = scenarios[rankId]
+    env = None
+    env = StageWorld_general(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex)
+    return env
 
 
 if __name__ == '__main__':
-    ROS_PORT0 = 11323 #ros port starty from 11321
-    ID = 31#28#27#13#21#25# 21 #policy saved directory
-    NUM_ENV = 3 # number of robot
-    POLICY_NAME = "/Stage1_2080"#"/Stage1_2020"#"/Stage1_8060"#"/Stage1_260"#"/Stage1_9940"#780
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    size = comm.Get_size()
+
+    arg_list = parse_args()
+    ID = arg_list.fileIds[0] #policy saved directory
+    ID_EP = arg_list.modelEps[0]
+    NUM_ENV = size # number of robot
     LASER_NORM = True
-    testLogName = '/test.log'
+    env = make_env(arg_list,rank,size)
+    if(env == None):
+        print("making env fails")
+        sys.exit()
+
+    POLICY_NAME = "/Stage1_%d"%ID_EP#"/Stage1_2020"#"/Stage1_8060"#"/Stage1_260"#"/Stage1_9940"#780
+
+    LASER_NORM = True
+    testLogName = '/test_nothing.log'
 
     # config log
     # hostname = socket.gethostname()
@@ -187,23 +212,7 @@ if __name__ == '__main__':
     file_handler.setLevel(logging.INFO)
     logger_cal.addHandler(cal_f_handler)
 
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
-    size = comm.Get_size()
-    robotIndex = 0
-    rosPort = ROS_PORT0 + rank
-    env = None
-    if(rank == 0):
-        envIndex = 8
-        env = StageWorld_chase(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
-    elif (rank == 1):
-        envIndex = 9
-        env = StageWorld_push(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
-    elif (rank == 2):
-        envIndex = 10
-        env = StageWorld_notPass(beam_num=360, index=robotIndex, num_env=NUM_ENV,ros_port = rosPort,mpi_rank = rank,env_index = envIndex)
-
-    logger.info('rosport: %d robotIndex: %d rank:%d' %(rosPort,robotIndex,rank))
+    logger.info('rosport: %d robotIndex: %d rank:%d' %(arg_list.rosports[rank],arg_list.robotIds[rank],rank))
     reward = None
     action_bound = [[0, -1], [1, 1]]
 

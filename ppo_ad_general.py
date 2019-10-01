@@ -19,11 +19,11 @@ from model.ppo import ppo_update_stage1, generate_train_data,ppo_update_adversay
 from model.ppo import generate_action,generate_action_adGeneralV2
 from model.ppo import transform_buffer,transform_buffer_adGeneralV2
 from stage_utils.arg_parse import parse_args
-
+from stage_utils.degree_funcs import get_factors
 
 
 MAX_EPISODES = 5000
-EP_LEN = 200
+EP_LEN = 150
 LASER_BEAM = 360
 LASER_HIST = 3
 HORIZON = 128
@@ -38,7 +38,12 @@ OBS_SIZE = 360
 ACT_SIZE = 2
 LEARNING_RATE = 5e-5
 TRAIN = True
-
+SPEED_SCALE = 1.0
+STATE_NOISE_STD = 0.0
+ROBOTSIZE = 0.2
+SPEED_BOUND = [0.5,1.2]
+STD_BOUND = [2,0]
+FUN_INDEX = 1
 
 def run(comm, env, policy, policy_path, action_bound, optimizer):
 
@@ -61,9 +66,13 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
         ep_reward = 0
         step = 1
 
-        goal = np.asarray(env.get_local_pos())
+        STATE_NOISE_STD,SPEED_SCALE = get_factors(func_index=FUN_INDEX,ep_lenth=id,std_bound = STD_BOUND,speed_bound=SPEED_BOUND,)
+        print("ep: %d, std: %f, speed: %f"%(id,STATE_NOISE_STD,SPEED_SCALE))
+
+        noise = np.random.normal(0,STATE_NOISE_STD,8)
+        goal = np.asarray(env.get_local_pos()) 
         speed = np.asarray(env.get_speeds())
-        state = [goal]
+        state = [goal+noise]
 
         while not next_ep and not rospy.is_shutdown():
             state_list = comm.gather(state, root=0)
@@ -74,7 +83,11 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
             # execute actions
             real_action = comm.scatter(scaled_action, root=0)
-            env.control_vel(real_action)
+            noise = np.random.normal(0,STATE_NOISE_STD,2)
+            print("noise:",noise)
+            real_action = real_action + np.abs(noise)
+
+            env.control_vel(real_action*SPEED_SCALE)
 
             # rate.sleep()
             rospy.sleep(0.001)
@@ -91,9 +104,10 @@ def run(comm, env, policy, policy_path, action_bound, optimizer):
 
 
             # get next state
-            goal_next = np.asarray(env.get_local_pos())
+            noise = np.random.normal(0,STATE_NOISE_STD,8)
+            goal_next = np.asarray(env.get_local_pos()) 
             speed_next = np.asarray(env.get_speeds())            
-            state_next = [goal_next]
+            state_next = [goal_next+noise] 
 
             if global_step % HORIZON == 0:
                 state_next_list = comm.gather(state_next, root=0)
@@ -151,21 +165,47 @@ def make_env(arg_list,rankId,size):
     env = StageWorld(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex,goal_robotIndex=0)
     return env
 
+def make_env_v2(arg_list,rankId,size):
+
+    scenarios = arg_list.scenarios
+    rosports = arg_list.rosports
+    robotIds = arg_list.robotIds
+
+    robot_num_per_stage = len(robotIds)
+    rosport_start = rosports[0]
+
+    robotIndex = robotIds[rankId%robot_num_per_stage]
+    rosPort = rosport_start + int(rankId/robot_num_per_stage)*3
+    envIndex = scenarios[0]
+    env = None
+    env = StageWorld(beam_num=360, index=robotIndex, num_env=size,ros_port = rosPort,mpi_rank = rankId,env_index = envIndex,goal_robotIndex=0)
+    print("rosport: %d, robotID: %d, envIndex: %d"%(rosPort,robotIndex,envIndex))
+    return env
+
 if __name__ == '__main__':
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     size = comm.Get_size()
-    POLICY_NAME = "/Stage1_880" #"/Stage1_12120"
     TRAIN =True
 
     # make env from arguments
     arg_list = parse_args()
-    ID = arg_list.fileId #policy saved directory
+    speed_limit =1.0
+    SPEED_BOUND = arg_list.speedBound
+    STD_BOUND = arg_list.stdBound
+    FUN_INDEX = arg_list.funIndex
+    ID = arg_list.fileIds[0] #policy saved directory
+    ID_EP = 0
+    if(not (arg_list.modelEps==None)):
+        ID_EP = arg_list.modelEps[0]
+    POLICY_NAME = "/Stage1_%d"%ID_EP #"/Stage1_12120"
     NUM_ENV = size # number of robot
-    env = make_env(arg_list,rank,size)
+    env = make_env_v2(arg_list,rank,size)
     if(env == None):
         print("making env fials")
         sys.exit()
+    if(arg_list.train==0):
+        TRAIN=False
 
     # config log
     # hostname = socket.gethostname()
@@ -198,10 +238,10 @@ if __name__ == '__main__':
     file_handler.setLevel(logging.INFO)
     logger_cal.addHandler(cal_f_handler)
 
-    logger.info('rosport: %d robotIndex: %d rank:%d' %(arg_list.rosports[rank],arg_list.robotIds[rank],rank))
+    logger.info("init successfully")
 
     reward = None
-    action_bound = [[0, -1], [1, 1]]#[0.7, 1]]
+    action_bound = [[0, -1], [speed_limit, 1]]#[0.7, 1]]
 
     # torch.manual_seed(1)
     # np.random.seed(1)
@@ -217,6 +257,8 @@ if __name__ == '__main__':
 
         file = policy_path + POLICY_NAME
         if os.path.exists(file):
+            print("noise:",STD_BOUND ,"speed_bound:",SPEED_BOUND, "fun_index:",FUN_INDEX)
+            logger.info('load model: %s'%file)
             logger.info('####################################')
             logger.info('############Loading Model###########')
             logger.info('####################################')

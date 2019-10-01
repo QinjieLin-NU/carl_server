@@ -118,6 +118,7 @@ def line_halfplane_intersect(line, other_lines):
             if num < 0:
                 # The intersection of the half-planes is empty; there is no
                 # solution.
+                return left_dist, right_dist
                 raise InfeasibleError
             else:
                 # The *half-planes* intersect, but their lines don't cross, so
@@ -136,6 +137,7 @@ def line_halfplane_intersect(line, other_lines):
 
         if left_dist > right_dist:
             # The interval is inconsistent, so the feasible region is empty.
+            return left_dist, right_dist
             raise InfeasibleError
     return left_dist, right_dist
 

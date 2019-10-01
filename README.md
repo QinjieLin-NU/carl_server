@@ -107,16 +107,32 @@ mpiexec --allow-run-as-root -np 25 python ppo_stage_gazebo.py
 ![](./doc/multi-simulator.gif)
 :-------------------------:    
 
-## New command for training    
-### protagonist:   
-```   
-mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 0 0 0 --rosports 11333 11336 11339  --robotIds 0 0 0  --fileId 0 
-mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 1 1 1 --rosports 11334 11337 11340  --robotIds 0 0 0  --fileId 1 
-mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general.py  --scenario 2 2 2 --rosports 11335 11338 11341  --robotIds 0 0 0  --fileId 2   
-```    
-### adversaries:  
-```   
-mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 0 0 0 0 0 0 0 0 0 --rosports 11333 11333 11333  11336 11336 11336 11339 11339 11339 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1000
-mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 1 1 1 1 1 1 1 1 1 --rosports 11334 11334 11334 11337 11337 11337 11340 11340 11340 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1001 
-mpiexec.openmpi --allow-run-as-root -np 9 python ppo_ad_general.py  --scenario 2 2 2 2 2 2 2 2 2 --rosports 11335 11335 11335 11338 11338 11338 11341 11341 11341 --robotIds 1 2 3 1 2 3 1 2 3  --fileId 1002   
-```   
+
+
+### new:
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11433 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2  
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11434 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11435 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 2 
+
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11533 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11534 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11535 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 3 
+
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 0 --rosports 11633 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 1 --rosports 11634 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+mpiexec.openmpi --allow-run-as-root -np 30 python ppo_ad_general.py  --scenarios 2 --rosports 11635 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 0.5 1.2 --stdBound 2.0 0.0 --funIndex 4 
+
+### new 
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ag_general_testV2.py  --scenarios 4 5 4 --rosports 11336 11337 11338 --robotIds 0 0 0 --fileIds 41 --modelEps 2320      
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.py  --scenarios 0 --rosports 11336 --robotIds 1 2 3 --fileIds 1009 --modelEps 1400 --train 0 --speedBound 1.0 1.0 --stdBound 1.0 1.0 --funIndex 0    
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.py  --scenarios 1 --rosports 11337 --robotIds 1 2 3 --fileIds 1010 --modelEps 3380 --train 0 --speedBound 1.0 1.0 --stdBound 0.5 0.5 --funIndex 0
+mpiexec.openmpi --allow-run-as-root -np 3 python ppo_ad_general.p --scenarios 2 --rosports 11338 --robotIds 1 2 3 --fileIds 1011 --modelEps 3380 --train 0 --speedBound 1.0 1.0 --stdBound 0.8 0.8 --funIndex 0     
+mpiexec.openmpi --allow-run-as-root -np 6 python ppo_ag_general_ttV2.py  --scenarios 3 3 3 3 3 3 --rosports 11336 11336 11336 11336 11336 11336 --robotIds 0 1 2 3 4 5 --fileIds 41 --modelEps 2320  
+mpiexec.openmpi --allow-run-as-root -np 6 python ppo_ag_general_ttV2.py  --scenarios 3 3 3 3 3 3 --rosports 11336 11336 11336 11336 11336 11336 --robotIds 0 1 2 3 4 5 --fileIds 77777 --modelEps 780     
+mpiexec.openmpi --allow-run-as-root -np 6 python orca_stage_noAd.py    
+mpiexec.openmpi --allow-run-as-root -np 6  python cadrl_stage_noAd.py    
+
+
+
+
+

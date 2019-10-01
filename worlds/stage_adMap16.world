@@ -2,7 +2,7 @@ show_clock 0
 show_clock_interval 10000
 resolution 0.2
 threads 16
-speedup 5
+speedup 10
 
 
 define aglaser ranger
@@ -13,7 +13,7 @@ define aglaser ranger
     range [ 0.0 3.5 ]
     samples 360
   )
-  color "black"
+  color "green"
   block( 
     points 4
     point[0] [0 0]
@@ -63,7 +63,7 @@ define floorplan model
 floorplan
 (
   name "blank"
-  size [40.000 40.000 0.800]
+  size [20.000 20.000 0.800]
   pose [0.000 0.000 0.000 0.000]
   bitmap "2.png"
 )
@@ -82,7 +82,7 @@ window
 
 
 # GUI options
-  show_data 1
+  show_data 0
   show_flags 1
   show_blocks 1
   show_clock 1
@@ -101,7 +101,7 @@ window
 define agent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.22 0.19 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -110,7 +110,7 @@ define agent position
   # draw a nose on the robot so we can see which way it points
   gui_nose 1
 
-  color "cyan"
+  color "green"
   drive "diff"		 	# Differential steering model.
   obstacle_return 1           	# Can hit things.
   ranger_return 0.5            	# reflects sonar beams
@@ -127,7 +127,7 @@ define agent position
 define adent position
 (
   # actual size
-  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+  size [0.1 0.1 0.22] # sizes from MobileRobots' web site
 
   localization "gps"
   # the pioneer's center of rotation is offset from its center of area
@@ -136,7 +136,7 @@ define adent position
   # draw a nose on the robot so we can see which way it points
   gui_nose 1
 
-  color "black"
+  color "red"
   drive "diff"		 	# Differential steering model.
   obstacle_return 1           	# Can hit things.
   ranger_return 0.5            	# reflects sonar beams

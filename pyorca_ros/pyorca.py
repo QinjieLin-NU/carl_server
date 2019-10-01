@@ -33,6 +33,13 @@ from nav_msgs.msg import Odometry
 import rospy
 import tf
 
+from geometry_msgs.msg import Twist, Pose
+from nav_msgs.msg import Odometry
+from sensor_msgs.msg import LaserScan
+from rosgraph_msgs.msg import Clock
+from std_srvs.srv import Empty
+from std_msgs.msg import Int8
+import math
 
 # Method:
 # For each robot A and potentially colliding robot B, compute smallest change
@@ -41,9 +48,10 @@ import tf
 # For each such velocity 'u' and normal 'n', find half-plane as defined in (6).
 # Intersect half-planes and pick velocity closest to A's preferred velocity.
 
+
 class Agent(object):
     """A disk-shaped agent."""
-    def __init__(self,robo_index, radius, max_speed,goal):
+    def __init__(self,robo_index, radius, max_speed,goal,env_index):
         super(Agent, self).__init__()
         self.radius = radius
         self.max_speed = max_speed
@@ -53,6 +61,9 @@ class Agent(object):
         self.velocity = array([0,0])
         self.pref_velocity = array([0,0])
         self.current_pose = Pose()
+        self.env_index = env_index
+        self.robot_index = robo_index
+        self.state = [0,0]
 
         odom_topic = 'robot_' + str(robo_index) + '/odom'
         self.odom_sub = rospy.Subscriber(odom_topic, Odometry, self.odometry_callback)        
@@ -62,6 +73,32 @@ class Agent(object):
 
         cmd_pose_topic = 'robot_' + str(robo_index) + '/cmd_pose'
         self.cmd_pose = rospy.Publisher(cmd_pose_topic, Pose, queue_size=2)
+
+        crash_topic = 'robot_' + str(robo_index) + '/is_crashed'
+        self.check_crash = rospy.Subscriber(crash_topic, Int8, self.crash_callback)
+        self.is_crashed = 0
+
+        reach_topic = 'robot_' + str(robo_index) + '/is_reached'
+        self.reach_publisher = rospy.Publisher(reach_topic, Int8, queue_size=2)
+
+        goal_topic = 'robot_' + str(robo_index) + '/goal_pose'
+        self.goal_pub = rospy.Publisher(goal_topic, Pose, queue_size=10)
+
+        self.reach_flag = Int8()
+        self.reach_flag.data = 8
+
+        ####record first pose
+        self.first_pose = None
+        print("before first pose")
+        while self.first_pose is None:
+            try:
+                self.first_pose = rospy.wait_for_message(odom_topic, Odometry, timeout=5).pose.pose
+            except:
+                pass
+        print("after first pose")
+
+    def crash_callback(self, flag):
+        self.is_crashed = flag.data
 
     def odometry_callback(self,odometry):
         Quaternions = odometry.pose.pose.orientation
@@ -77,14 +114,27 @@ class Agent(object):
         self.pref_velocity = array([local_x/dia_xy,local_y/dia_xy])
         self.psi = theta
         self.current_pose =  odometry.pose.pose
+        self.state = [x,y]
 
     def control_vel(self, vel):
-        # action = [np.sqrt(vel[0]**2 + vel[1]**2), np.arctan(vel[1]/vel[0])]
-        # move_cmd = Twist()
-        # move_cmd.linear.x = action[0]
-        # move_cmd.linear.y = 0.
-        # move_cmd.linear.z = 0.
-        
+        # [velx,yaw] = [np.sqrt(vel[0]**2 + vel[1]**2), np.arctan(vel[1]/vel[0])]
+        [velx,yaw] = [np.sqrt(vel[0]**2 + vel[1]**2),  math.atan2(vel[1],vel[0])]
+        quaternion = tf.transformations.quaternion_from_euler(0, 0, yaw)
+
+        target_pose = self.current_pose
+        target_pose.orientation.x = quaternion[0]
+        target_pose.orientation.y = quaternion[1]
+        target_pose.orientation.z = quaternion[2]
+        target_pose.orientation.w = quaternion[3]
+        self.cmd_pose.publish(target_pose)
+        rospy.sleep(0.01)
+
+        move_cmd = Twist()
+        move_cmd.linear.x = velx
+        move_cmd.linear.y = 0
+        move_cmd.linear.z = 0.
+        self.cmd_vel.publish(move_cmd)
+
         # move_cmd.angular.x = 0.
         # move_cmd.angular.y = 0.
         # yaw_error = action[1] - self.psi
@@ -94,17 +144,126 @@ class Agent(object):
         #     yaw_error += 2*np.pi
         # move_cmd.angular.z = 2*yaw_error
 
-        # self.cmd_vel.publish(move_cmd)
         
-        self.velocity = array(vel)
-        target_pose = self.current_pose
-        target_pose.position.x += (vel[0] * 0.5)
-        target_pose.position.y += (vel[1] * 0.5)
-        self.cmd_pose.publish(target_pose)
+        # self.velocity = array(vel)
+        # target_pose = self.current_pose
+        # target_pose.position.x += (vel[0] * 0.1)
+        # target_pose.position.y += (vel[1] * 0.1)
+        # self.cmd_pose.publish(target_pose)
     
     def stop(self):
         move_cmd = Twist()
         self.cmd_vel.publish(move_cmd)
+
+    def generate_goal(self):
+        self.goal = self.generate_stage_goal()
+
+        #------broadcast the goal with the adversarial robot------#
+        goal = Pose()
+        goal.position.x = self.goal[0]
+        goal.position.y = self.goal[1]
+        self.goal_pub.publish(goal)
+        return self.goal
+
+    def generate_random_goal_v2(self):
+        self.init_pose = [self.current_pose.position.x,self.current_pose.position.y]
+        x = np.random.uniform(-5.5, 5.5)
+        y = np.random.uniform(-5.5, 5.5)
+        dis_origin = np.sqrt(x ** 2 + y ** 2)
+        dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
+        while (dis_origin > 5.5 or dis_goal > 5.5 or dis_goal < 4) and not rospy.is_shutdown():
+            x = np.random.uniform(-5.5, 5.5)
+            y = np.random.uniform(-5.5, 5.5)
+            dis_origin = np.sqrt(x ** 2 + y ** 2)
+            dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
+
+        return [x, y]
+
+    def generate_random_goal_v3(self):
+        self.init_pose = [self.current_pose.position.x,self.current_pose.position.y]
+        x = np.random.uniform(-5.5, 5.5)
+        y = np.random.uniform(2, 5.5)
+        dis_origin = np.sqrt(x ** 2 + y ** 2)
+        dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
+        while (dis_origin > 5.5 or dis_goal > 5.5 or dis_goal < 4) and not rospy.is_shutdown():
+            x = np.random.uniform(-5.5, 5.5)
+            y = np.random.uniform(2, 5.5)
+            dis_origin = np.sqrt(x ** 2 + y ** 2)
+            dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
+        return [x, y]
+
+    def generate_random_goal_v4(self):
+        # agent( pose [7.73 -2.07 0.00 525.00])
+        # agent( pose [8.00 0.00 0.00 180.00])
+        # agent( pose [7.73 2.07 0.00 195.00])
+        # agent( pose [-7.73 2.07 0.00 345.00])
+        # agent( pose [-8.00 -0.00 0.00 360.00])
+        # agent( pose [-7.73 -2.07 0.00 375.00])
+        goals = [[7,-2],[8,0],[7,2],[-7,-2],[-8,0],[-7,2]]
+        goalIndex = 5 - self.robot_index
+        return goals[goalIndex]
+
+    def generate_stage_goal(self):   
+        if(self.env_index == 0):
+            return self.generate_random_goal_v2()
+        elif (self.env_index ==1):
+            return self.generate_random_goal_v2()
+        elif (self.env_index ==2):
+            return self.generate_random_goal_v3()
+        elif (self.env_index ==3):
+            return self.generate_random_goal_v4()
+
+    def get_agentState(self):
+        result = ""
+        terminate = False
+        [x,y] = [self.state[0],self.state[1]]
+        distance = np.sqrt((self.goal[0] - x) ** 2 + (self.goal[1] - y) ** 2)
+        if(self.is_crashed == 1):
+            terminate = True
+            result = 'Crashed'
+        if(distance < 0.5):
+            result = 'Reach Goal'
+            self.reach_publisher.publish(self.reach_flag)
+            terminate = True
+        
+        return terminate,result
+    
+    def reset_pose(self):
+        self.cmd_pose.publish(self.first_pose)
+        
+
+class AdversarialAgent(object):
+    """A disk-shaped agent."""
+    def __init__(self, robo_index, radius, max_speed,goal,env_index):
+        super(AdversarialAgent, self).__init__()
+        self.radius = radius
+        self.max_speed = max_speed
+        self.goal = goal
+        self.psi = 0
+        self.position = array([0,0])
+        self.velocity = array([0,0])
+        self.pref_velocity = array([0,0])
+        self.current_pose = Pose()
+        self.env_index = env_index
+        self.state = [0,0]
+
+        odom_topic = 'robot_' + str(robo_index) + '/odom'
+        self.odom_sub = rospy.Subscriber(odom_topic, Odometry, self.odometry_callback)     
+
+    def odometry_callback(self,odometry):
+        Quaternions = odometry.pose.pose.orientation
+        Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
+        [x, y, theta] = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
+
+        # self.velocity = odometry.twist.twist.linear.x * array([cos(Euler[2]), sin(Euler[2])]) 
+        self.position = array([x,y])
+        [goal_x, goal_y] = self.goal
+        local_x = (goal_x - x) 
+        local_y = (goal_y - y)
+        dia_xy = np.sqrt(local_x**2 + local_y**2)
+        self.pref_velocity = array([local_x/dia_xy,local_y/dia_xy])
+        self.velocity = self.pref_velocity
+
 
 
 

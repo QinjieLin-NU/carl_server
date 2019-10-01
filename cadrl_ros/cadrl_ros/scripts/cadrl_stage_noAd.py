@@ -21,7 +21,7 @@ from std_msgs.msg import Int8
 
 
 class CadrlStage():
-    def __init__(self,ros_port,envIndex):
+    def __init__(self,ros_port,envIndex,roboIndex):
         #load trained network
         self.possible_actions = network.Actions()
         self.num_actions = self.possible_actions.num_actions
@@ -29,14 +29,17 @@ class CadrlStage():
         self.nn.simple_load('../checkpoints/network_01900000')
         
         os.environ["ROS_MASTER_URI"]="http://localhost:%d"%(ros_port)
-        rospy.init_node("cadrl_stage", anonymous=None)
+        rospy.init_node("cadrl_stage_%d"%roboIndex, anonymous=None)
         
         rospy.sleep(1.)
 
         #-----------------subscriber and publisher----------#
-        roboIndex = 0
+        self.roboIndex = roboIndex
         self.state = [0.0,0.0,1.0]
         self.speed = [0.0,0.0]
+        cmd_pose_topic = 'robot_' + str(roboIndex) + '/cmd_pose'
+        self.cmd_pose = rospy.Publisher(cmd_pose_topic, Pose, queue_size=2)
+
         odom_topic = 'robot_' + str(roboIndex) + '/odom'
         self.odom_sub = rospy.Subscriber(odom_topic, Odometry, self.odometry_callback)
 
@@ -54,6 +57,11 @@ class CadrlStage():
         goal_topic = 'robot_' + str(roboIndex) + '/goal_pose'
         self.goal_pub = rospy.Publisher(goal_topic, Pose, queue_size=10)
 
+        self.state_ad0 = [0.0,0.0,1.0]
+        self.speed_ad0 = [0.0,0.0]
+        odom_topic_ad0 = 'robot_' + str(0) + '/odom'
+        self.odom_sub_ad0 = rospy.Subscriber(odom_topic_ad0, Odometry, self.odometry_callback_ad0)
+
         self.state_ad1 = [0.0,0.0,1.0]
         self.speed_ad1 = [0.0,0.0]
         odom_topic_ad1 = 'robot_' + str(1) + '/odom'
@@ -69,13 +77,32 @@ class CadrlStage():
         odom_topic_ad3 = 'robot_' + str(3) + '/odom'
         self.odom_sub_ad3 = rospy.Subscriber(odom_topic_ad3, Odometry, self.odometry_callback_ad3)
 
+        self.state_ad4 = [0.0,0.0,1.0]
+        self.speed_ad4 = [0.0,0.0]
+        odom_topic_ad4 = 'robot_' + str(4) + '/odom'
+        self.odom_sub_ad4 = rospy.Subscriber(odom_topic_ad4, Odometry, self.odometry_callback_ad4)
+
+        self.state_ad5 = [0.0,0.0,1.0]
+        self.speed_ad5 = [0.0,0.0]
+        odom_topic_ad5 = 'robot_' + str(5) + '/odom'
+        self.odom_sub_ad5 = rospy.Subscriber(odom_topic_ad5, Odometry, self.odometry_callback_ad5)
+
         self.reset_stage = rospy.ServiceProxy('reset_positions', Empty)
         self.reset_stage()
-    
+
+        self.first_pose = None
+        while self.first_pose is None:
+            try:
+                self.first_pose = rospy.wait_for_message(odom_topic, Odometry, timeout=5).pose.pose
+            except:
+                pass
+
         rospy.sleep(1.)
         self.goal_x = 0.0
         self.goal_y = 0.0
         self.envIndex = envIndex
+        self.psi = 0
+        self.is_crashed = 0
         # self.get_agentCMD()
 
     def crash_callback(self, flag):
@@ -87,6 +114,13 @@ class CadrlStage():
         self.psi = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
         self.state = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
         self.speed = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
+
+    def odometry_callback_ad0(self,odometry):
+        Quaternions = odometry.pose.pose.orientation
+        Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
+        self.psi_ad0 = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
+        self.state_ad0 = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
+        self.speed_ad0 = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
 
     def odometry_callback_ad1(self,odometry):
         Quaternions = odometry.pose.pose.orientation
@@ -109,13 +143,34 @@ class CadrlStage():
         self.state_ad3 = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
         self.speed_ad3 = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
 
+    def odometry_callback_ad4(self,odometry):
+        Quaternions = odometry.pose.pose.orientation
+        Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
+        self.psi_ad4 = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
+        self.state_ad4 = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
+        self.speed_ad4 = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
+
+    def odometry_callback_ad5(self,odometry):
+        Quaternions = odometry.pose.pose.orientation
+        Euler = tf.transformations.euler_from_quaternion([Quaternions.x, Quaternions.y, Quaternions.z, Quaternions.w])
+        self.psi_ad5 = np.arctan2(2.0*(Quaternions.w*Quaternions.z + Quaternions.x*Quaternions.y), 1-2*(Quaternions.y*Quaternions.y+Quaternions.z*Quaternions.z)) # bounded by [-pi, pi]
+        self.state_ad5 = [odometry.pose.pose.position.x, odometry.pose.pose.position.y, Euler[2]]
+        self.speed_ad5 = [odometry.twist.twist.linear.x, odometry.twist.twist.angular.z]
+
     def observe_others(self,goal_x,goal_y):
         # Sample observation data in a format easily generated from sensors
-        other_agents_x = [self.state_ad1[0],self.state_ad2[0],self.state_ad3[0]]
-        other_agents_y = [self.state_ad1[1],self.state_ad2[1],self.state_ad3[1]]
-        other_agents_r = [0.2, 0.2, 0.2]
-        other_agents_vx = [self.speed_ad1[0], self.speed_ad2[0], self.speed_ad3[0]]
-        other_agents_vy = [0.0, 0.0, 0.0]
+        agents_x = [self.state_ad0[0],self.state_ad1[0],self.state_ad2[0],self.state_ad3[0],self.state_ad4[0],self.state_ad5[0]]
+        agents_y = [self.state_ad0[1],self.state_ad1[1],self.state_ad2[1],self.state_ad3[1],self.state_ad4[1],self.state_ad5[1]]
+        agents_r = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        agents_vx = [self.speed_ad0[0],self.speed_ad1[0], self.speed_ad2[0], self.speed_ad3[0],self.speed_ad4[0],self.speed_ad5[0]]
+        agents_vy = [0.0, 0.0, 0.0,0.0, 0.0, 0.0]
+
+        other_agents_x = agents_x[:self.roboIndex] + agents_x[self.roboIndex+1:]
+        other_agents_y = agents_y[:self.roboIndex] + agents_y[self.roboIndex+1:]
+        other_agents_r = agents_r[:self.roboIndex] + agents_r[self.roboIndex+1:]
+        other_agents_vx = agents_vx[:self.roboIndex] + agents_vx[self.roboIndex+1:]
+        other_agents_vy = agents_vy[:self.roboIndex] + agents_vy[self.roboIndex+1:]
+
         num_other_agents = len(other_agents_x)
 
         # Create Agent objects for each observed dynamic obstacle
@@ -258,6 +313,16 @@ class CadrlStage():
             dis_goal = np.sqrt((x - self.init_pose[0]) ** 2 + (y - self.init_pose[1]) ** 2)
         return [x, y]
 
+    def generate_random_goal_v4(self):
+        # agent( pose [7.73 -2.07 0.00 525.00])
+        # agent( pose [8.00 0.00 0.00 180.00])
+        # agent( pose [7.73 2.07 0.00 195.00])
+        # agent( pose [-7.73 2.07 0.00 345.00])
+        # agent( pose [-8.00 -0.00 0.00 360.00])
+        # agent( pose [-7.73 -2.07 0.00 375.00])
+        goals = [[7,-2],[8,0],[7,2],[-7,-2],[-8,0],[-7,2]]
+        goalIndex = 5 - self.roboIndex
+        return goals[goalIndex]
 
     def generate_stage_goal(self):   
         if(self.envIndex == 0):
@@ -266,9 +331,14 @@ class CadrlStage():
             return self.generate_random_goal_v2()
         elif (self.envIndex ==2):
             return self.generate_random_goal_v3()
+        elif (self.envIndex ==3):
+            return self.generate_random_goal_v4()
+    
+    def reset_pose(self):
+        self.cmd_pose.publish(self.first_pose)
 
 def init_logger():
-    testLogName = '/test.log'
+    testLogName = '/test_nothing.log'
 
     # config log
     dirname = '/clever/saved_model_ppo/autoRL_88888' 
@@ -301,17 +371,21 @@ def init_logger():
     return logger_cal
 
 if __name__ == "__main__":
-    ROSPORT = 11636
+    ROSPORT = 11336
     log_cal = init_logger()
 
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     size = comm.Get_size()
-    envIndex = rank
 
-    env = CadrlStage(ROSPORT+rank,envIndex)
+    #setting for init node
+    envIndex = 3
+    robotIndex = rank
+    ros_port = ROSPORT 
+
+    env = CadrlStage(ros_port,envIndex,robotIndex)
     for id in range(5000):
-        env.reset_stage()
+        env.reset_pose()
         # env.generate_fixedGoal()
         env.generate_goal()
         result = ""

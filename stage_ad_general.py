@@ -322,6 +322,7 @@ class StageWorld():
                 result = 'self Crashed'
         
         if self.punishFlag:
+            terminate = True
             result = "robot reach goal"
             reward_g = -15
             self.punishFlag = False
@@ -357,7 +358,7 @@ class StageWorld():
                 result = 'goal Crashed'
             else:
                 terminate = True
-                # reward_c = -15
+                reward_c = -15
                 result = 'self Crashed'
 
         if self.distance < self.goal_size:
@@ -365,6 +366,7 @@ class StageWorld():
             result = 'Reach Goal'
 
         if self.punishFlag:
+            terminate = True
             result = "robot reach goal"
             reward_g = -15
             self.punishFlag = False
@@ -399,6 +401,7 @@ class StageWorld():
                 result = 'self Crashed'
 
         if self.punishFlag:
+            terminate = True
             result = "robot reach goal"
             reward_g = -15
             self.punishFlag = False
@@ -425,7 +428,7 @@ class StageWorld():
 
     def control_vel(self, action):
         move_cmd = Twist()
-        move_cmd.linear.x = action[0]
+        move_cmd.linear.x = action[0] 
         move_cmd.linear.y = 0.
         move_cmd.linear.z = 0.
         move_cmd.angular.x = 0.
